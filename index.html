@@ -38,6 +38,7 @@
         /* --- HERO SECTION STYLES --- */
         .hero-section {
             height: 100vh;
+            height: 100dvh;
             width: 100%;
             position: relative;
             display: flex;
@@ -86,7 +87,7 @@
             position: relative;
             z-index: 10;
             width: 90%;
-            max-width: 1020px;
+            max-width: 1080px;
             height: 78vh;
             max-height: 640px;
             border-radius: 28px;
@@ -105,6 +106,8 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 100%;
+            overflow: hidden;
         }
 
         .il-eyebrow {
@@ -181,6 +184,8 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            height: 100%;
+            overflow: hidden;
         }
 
         .ir-top {
@@ -537,6 +542,19 @@
             .inc-col.c2,
             .inc-col.c3 {
                 padding: 0;
+            }
+
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+                padding: 120px 0 60px;
+                /* Padding top for navbar spacing */
+            }
+
+            .island {
+                height: auto;
+                max-height: none;
+                margin: 0;
             }
         }
     </style>
