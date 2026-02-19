@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maid At Home — Why Choose Us Templates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-grad: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+            --font-main: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #FAFAFA;
+            color: var(--text-dark);
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .num {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            background: #EFF6FF;
+            padding: 4px 12px;
+            border-radius: 100px;
+            align-self: flex-start;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .card span {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .badge {
+            margin-top: auto;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Why Choose Us</h1>
+        <p>Premium templates designed to communicate trust, authority, and the meticulous standards of Maid At Home.</p>
+    </header>
+
+    <div class="grid">
+        <a href="01-Fragmented-Trust.html" class="card">
+            <div class="num">01</div>
+            <div>
+                <h2>Fragmented Trust</h2>
+                <span>A dynamic grid layout with mixed-size cards and integrated imagery. Modern, visual, and highly
+                    engaging.</span>
+            </div>
+            <div class="badge">View Template →</div>
+        </a>
+
+        <a href="02-Minimalist-Pillars.html" class="card">
+            <div class="num">02</div>
+            <div>
+                <h2>Minimalist Pillars</h2>
+                <span>A clean, 2-column layout with a focus on typography and numbered authority. Sophisticated and
+                    direct.</span>
+            </div>
+            <div class="badge">View Template →</div>
+        </a>
+
+        <a href="03-Split-Statement.html" class="card">
+            <div class="num">03</div>
+            <div>
+                <h2>Split Statement</h2>
+                <span>Sticky image on the left, detailed reason list on the right. Matches the main page style with pill
+                    tags, dividers and the same reveal system.</span>
+            </div>
+            <div class="badge">View Template →</div>
+        </a>
+
+        <a href="04-Metrics-Cards.html" class="card">
+            <div class="num">04</div>
+            <div>
+                <h2>Metrics & Cards</h2>
+                <span>A stat bar + 3-column card grid. Same eyebrow, same fonts, same container width. Transparent and
+                    data-driven.</span>
+            </div>
+            <div class="badge">View Template →</div>
+        </a>
+    </div>
+
+</body>
+
+</html>

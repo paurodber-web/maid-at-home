@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us - Fragmented Elegance</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Merriweather+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-grad: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+            --font-main: 'Outfit', sans-serif;
+            --font-serif: 'Merriweather Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #FAFAFA;
+            color: var(--text-dark);
+        }
+
+        .section-why {
+            padding: 140px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+        }
+
+        .header-why {
+            margin-bottom: 80px;
+            max-width: 600px;
+        }
+
+        .eyebrow {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .header-why h2 {
+            font-family: var(--font-serif);
+            font-size: 3.2rem;
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text-dark);
+        }
+
+        .grid-why {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+        }
+
+        /* CARD STYLES */
+        .why-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: 1px solid #F1F5F9;
+        }
+
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.08);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .icon-box {
+            width: 54px;
+            height: 54px;
+            background: #EFF6FF;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .why-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .why-card p {
+            font-size: 1rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .card-large {
+            grid-column: span 8;
+        }
+
+        .card-small {
+            grid-column: span 4;
+        }
+
+        .card-large {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            padding-right: 0;
+        }
+
+        .card-large .card-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .card-large .card-image {
+            flex: 1.2;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6954?w=800&auto=format&fit=crop&q=80') center/cover;
+            border-radius: 0 24px 24px 0;
+        }
+
+        /* REVEAL ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+
+            .card-large,
+            .card-small {
+                grid-column: span 12;
+            }
+
+            .card-large {
+                flex-direction: column;
+                padding-right: 40px;
+            }
+
+            .card-large .card-image {
+                height: 250px;
+                width: 100%;
+                border-radius: 18px;
+                margin-top: 20px;
+            }
+
+            .header-why h2 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="section-why">
+        <div class="container">
+            <div class="header-why reveal">
+                <span class="eyebrow">Excellence Guaranteed</span>
+                <h2>Cleanliness with a higher purpose.</h2>
+            </div>
+
+            <div class="grid-why">
+                <!-- Large Card 1 -->
+                <div class="why-card card-large reveal" style="transition-delay: 0.1s">
+                    <div class="card-text">
+                        <div class="icon-box">🛡️</div>
+                        <h3>Hotel-trained Professionals</h3>
+                        <p>Our cleaners aren't just staff; they are hospitality experts trained to the highest standards
+                            of luxury hotels.</p>
+                    </div>
+                    <div class="card-image"></div>
+                </div>
+
+                <!-- Small Card 1 -->
+                <div class="why-card card-small reveal" style="transition-delay: 0.2s">
+                    <div>
+                        <div class="icon-box">✨</div>
+                        <h3>The 100% Bliss Guarantee</h3>
+                        <p>If you're not absolutely delighted, we'll re-clean your home for free within 24 hours.</p>
+                    </div>
+                </div>
+
+                <!-- Small Card 2 -->
+                <div class="why-card card-small reveal" style="transition-delay: 0.3s">
+                    <div>
+                        <div class="icon-box">💎</div>
+                        <h3>Eco-Luxury Products</h3>
+                        <p>We use premium, plant-based cleaning agents that are safe for pets and children.</p>
+                    </div>
+                </div>
+
+                <!-- Large Card 2 -->
+                <div class="why-card card-large reveal" style="transition-delay: 0.4s" id="reverse">
+                    <div class="card-image"
+                        style="border-radius: 24px 0 0 24px; background-image: url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&auto=format&fit=crop&q=80');">
+                    </div>
+                    <div class="card-text">
+                        <div class="icon-box">🤝</div>
+                        <h3>Vetted to Perfection</h3>
+                        <p>Only 1% of applicants pass our rigorous interviewing and background check process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>

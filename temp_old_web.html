@@ -1,0 +1,1166 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maid At Home ÔÇö Premium Cleaning</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Merriweather+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-grad: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+            --font-main: 'Outfit', sans-serif;
+            --font-serif: 'Merriweather Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #FAFAFA;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* --- Global Animations --- */
+        .reveal {
+            opacity: 0;
+            transition: all 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-up {
+            transform: translateY(30px);
+        }
+
+        .reveal-left {
+            transform: translateX(-30px);
+        }
+
+        .reveal-right {
+            transform: translateX(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.15s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.3s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.45s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.6s;
+        }
+
+        /* --- HERO SECTION STYLES --- */
+        .hero-section {
+            height: 100vh;
+            height: 100dvh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1800&auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(7, 10, 20, 0.82);
+        }
+
+        .topbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .brand span {
+            color: #60A5FA;
+        }
+
+        .island {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 1080px;
+            height: 78vh;
+            max-height: 640px;
+            border-radius: 28px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .island-left {
+            background: rgba(30, 58, 138, 0.2);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 48px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .il-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .il-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #60A5FA;
+        }
+
+        .hero-headline h1,
+        .island-left h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 3.5vw, 2.7rem);
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .island-left p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.65;
+            max-width: 320px;
+        }
+
+        .il-stats {
+            display: flex;
+            gap: 28px;
+        }
+
+        .il-stat strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .il-stat span {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .il-gradient-bar {
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(to right, #3B82F6, #1D4ED8);
+            opacity: 0.5;
+            border-radius: 2px;
+            margin-top: 24px;
+        }
+
+        .island-right {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ir-top {
+            padding: 28px 32px 18px;
+            border-bottom: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .ir-top h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .ir-top p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .feed {
+            flex: 1;
+            padding: 18px 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #FAFAFA;
+        }
+
+        .bub {
+            padding: 11px 15px;
+            font-size: 0.92rem;
+            border-radius: 18px;
+            max-width: 88%;
+            line-height: 1.5;
+            animation: rise 0.25s ease;
+        }
+
+        .b-agt {
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: var(--primary-grad);
+            color: #fff;
+            align-self: flex-end;
+            box-shadow: 0 4px 14px -4px rgba(59, 130, 246, 0.35);
+        }
+
+        .dock {
+            padding: 14px 32px 22px;
+            background: #fff;
+            border-top: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .btn-q {
+            width: 100%;
+            padding: 12px;
+            background: #fff;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 11px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.12s;
+            text-align: center;
+        }
+
+        .btn-q:hover {
+            border-color: #3B82F6;
+            color: #3B82F6;
+            background: #EFF6FF;
+        }
+
+        .g {
+            display: grid;
+            gap: 7px;
+        }
+
+        .gc-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .res {
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .res-price {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: 8px;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cta {
+            width: 100%;
+            padding: 17px;
+            background: var(--primary-grad);
+            color: #fff;
+            border: none;
+            border-radius: 13px;
+            font-family: var(--font-main);
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 12px 30px -8px rgba(30, 64, 175, 0.4);
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .island {
+                grid-template-columns: 1fr;
+                height: auto;
+                max-height: none;
+                margin: 40px 0;
+            }
+
+            .island-left {
+                padding: 32px 24px;
+            }
+
+            .island-right {
+                height: 500px;
+            }
+        }
+
+        /* --- INCLUDED SECTION STYLES --- */
+        .included-section {
+            background: #FAFAF7;
+            padding: 140px 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .inc-container {
+            width: 90%;
+            max-width: 1080px;
+        }
+
+        .inc-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .inc-header-left p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-transform: none;
+            color: #A1A1AA;
+            margin-bottom: 8px;
+        }
+
+        /* H2 Semantic: Section Header */
+        .inc-header-left h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 500;
+            color: #09090B;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .inc-tabs-nav {
+            display: flex;
+            background: #F4F4F5;
+            border-radius: 12px;
+            padding: 4px;
+            gap: 0;
+        }
+
+        .inc-tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 22px;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #71717A;
+            cursor: pointer;
+            border-radius: 9px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .inc-tab-btn.active {
+            background: #fff;
+            color: #09090B;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+        }
+
+        .inc-rule {
+            height: 1px;
+            background: #E4E4E7;
+            margin-bottom: 44px;
+        }
+
+        .inc-content-area {
+            position: relative;
+            width: 100%;
+        }
+
+        .inc-panel {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .inc-panel.active {
+            display: grid;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .inc-col {
+            padding: 0 36px 0 0;
+            border-right: 1px solid #E4E4E7;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .inc-col.c2 {
+            padding: 0 36px;
+        }
+
+        .inc-col.c3 {
+            padding: 0 0 0 36px;
+            border-right: none;
+        }
+
+        /* H3 Semantic: Category headers */
+        .inc-cat-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: #3B82F6;
+            background: #EFF6FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            align-self: flex-start;
+        }
+
+        .inc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .inc-item {
+            font-size: 0.98rem;
+            color: #3F3F46;
+            line-height: 1.5;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid #EFEFE9;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.45s ease;
+        }
+
+        .inc-item:last-child {
+            border-bottom: none;
+        }
+
+        .inc-item::before {
+            content: "Ô£ô";
+            font-size: 0.7rem;
+            font-weight: 900;
+            color: #3B82F6;
+            min-width: 14px;
+        }
+
+        .inc-item.x {
+            color: #A1A1AA;
+            text-decoration: line-through;
+        }
+
+        .inc-item.x::before {
+            content: "Ô£ò";
+            color: #FDA4AF;
+        }
+
+        .inc-panel.active .inc-item {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .inc-col .inc-item:nth-child(1) {
+            transition-delay: 0.06s;
+        }
+
+        .inc-col .inc-item:nth-child(2) {
+            transition-delay: 0.11s;
+        }
+
+        .inc-col .inc-item:nth-child(3) {
+            transition-delay: 0.16s;
+        }
+
+        @media (max-width: 900px) {
+            .inc-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .inc-panel {
+                grid-template-columns: 1fr;
+                position: relative;
+                gap: 30px;
+            }
+
+            .inc-content-area {
+                min-height: auto;
+            }
+
+            .inc-col {
+                border-right: none;
+                padding: 0;
+            }
+
+            .inc-col.c2,
+            .inc-col.c3 {
+                padding: 0;
+            }
+
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+                padding: 120px 0 60px;
+                /* Padding top for navbar spacing */
+            }
+
+            .island {
+                height: auto;
+                max-height: none;
+                margin: 0;
+            }
+        }
+
+        /* --- EXTRAS SECTION STYLES --- */
+        .extras-section {
+            background: #fff;
+            padding: 140px 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .ext-container {
+            width: 90%;
+            max-width: 1080px;
+        }
+
+        .ext-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .ext-header-left p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-transform: none;
+            color: #A1A1AA;
+            margin-bottom: 8px;
+        }
+
+        .ext-header-left h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 500;
+            color: #09090B;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .ext-rule {
+            height: 1px;
+            background: #E4E4E7;
+            margin-bottom: 44px;
+        }
+
+        .ext-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .ext-col {
+            padding: 0 32px 0 0;
+            border-right: 1px solid #E4E4E7;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ext-col:not(:first-child) {
+            padding-left: 32px;
+        }
+
+        .ext-col:last-child {
+            border-right: none;
+        }
+
+        .ext-cat-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: #3B82F6;
+            background: #EFF6FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            align-self: flex-start;
+        }
+
+        .ext-item {
+            font-size: 0.98rem;
+            color: #3F3F46;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #EFEFE9;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+
+        .ext-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ext-item:last-child {
+            border-bottom: none;
+        }
+
+        .ext-name {
+            font-size: 0.95rem;
+            color: #3F3F46;
+            line-height: 1.4;
+        }
+
+        .ext-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #18181B;
+            white-space: nowrap;
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 900px) {
+            .ext-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px 0;
+            }
+
+            .ext-col {
+                border-right: none;
+                padding: 0;
+            }
+
+            .ext-col:not(:first-child) {
+                padding-left: 0;
+            }
+
+            .ext-col:nth-child(odd) {
+                border-right: 1px solid #E4E4E7;
+                padding-right: 24px;
+            }
+
+            .ext-col:nth-child(even) {
+                padding-left: 24px;
+            }
+
+            .ext-header-left h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ext-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ext-col,
+            .ext-col:nth-child(odd),
+            .ext-col:nth-child(even) {
+                border-right: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION (H1) -->
+    <header class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="topbar">
+            <div class="brand">Maid <span>At Home</span></div>
+        </div>
+        <div class="island">
+            <div class="island-left reveal reveal-left">
+                <div class="il-top">
+                    <!-- Eyebrow text, purely decorative -->
+                    <div class="il-eyebrow">
+                        <div class="il-dot"></div>Deep relaxation
+                    </div>
+                    <!-- SINGLE H1 for the page -->
+                    <div class="hero-headline">
+                        <h1 class="reveal reveal-up delay-1">A home that<br>feels like new.</h1>
+                        <p class="reveal reveal-up delay-2">Premium cleaners for high-end homes. Experience the
+                            difference of deep blue excellence.</p>
+                    </div>
+                </div>
+                <div class="il-bottom reveal reveal-up delay-3">
+                    <div class="il-stats">
+                        <div class="il-stat"><strong>2.4k</strong><span>Clients</span></div>
+                        <div class="il-stat"><strong>4.9Ôÿà</strong><span>Rating</span></div>
+                        <div class="il-stat"><strong>100%</strong><span>Sure</span></div>
+                    </div>
+                    <div class="il-gradient-bar"></div>
+                </div>
+            </div>
+            <div class="island-right reveal reveal-right">
+                <div class="ir-top reveal reveal-up delay-1">
+                    <!-- H2 for Chat Component -->
+                    <h2>Get your quote</h2>
+                    <p>Takes about 60 seconds.</p>
+                </div>
+                <div class="feed" id="feed"></div>
+                <div class="dock" id="dock"></div>
+                <div class="res" id="end">
+                    <div class="res-price">$<span id="pVal">0</span></div>
+                    <button class="cta">Book Cleaning</button>
+                    <div style="margin-top:16px; cursor:pointer; color:#94A3B8; font-weight:700;" onclick="boot()">ÔåÉ
+                        Start over</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- WHAT'S INCLUDED SECTION (H2) -->
+    <section class="included-section">
+        <div class="inc-container">
+            <div class="inc-header">
+                <div class="inc-header-left reveal reveal-up">
+                    <p>Transparency in detail</p>
+                    <!-- H2 for Section Title -->
+                    <h2>What's included in our services</h2>
+                </div>
+                <nav class="inc-tabs-nav">
+                    <button class="inc-tab-btn active" onclick="showIncTab('std')" id="inc-btn-std">Standard</button>
+                    <button class="inc-tab-btn" onclick="showIncTab('deep')" id="inc-btn-deep">Deep Clean</button>
+                    <button class="inc-tab-btn" onclick="showIncTab('move')" id="inc-btn-move">Move In/Out</button>
+                </nav>
+            </div>
+
+            <div class="inc-rule"></div>
+
+            <div class="inc-content-area">
+                <!-- STANDARD -->
+                <div class="inc-panel active" id="inc-tab-std">
+                    <div class="inc-col c1">
+                        <h3 class="inc-cat-title"><span>­ƒì│</span> Kitchen</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Clean stovetop</li>
+                            <li class="inc-item">Clean rangehood (exterior)</li>
+                            <li class="inc-item x">Clean underside of range hood</li>
+                            <li class="inc-item x">Clean exhaust fans & filters</li>
+                            <li class="inc-item">Wipe bench tops</li>
+                            <li class="inc-item">Clean visible appliances</li>
+                            <li class="inc-item">Clean splash back</li>
+                            <li class="inc-item">Clean / polish tap ware</li>
+                            <li class="inc-item">Scrub / clean sink</li>
+                            <li class="inc-item">Clean inside & outside of microwave</li>
+                            <li class="inc-item">Clean cupboards (exterior)</li>
+                            <li class="inc-item">Polish stainless steel surfaces</li>
+                            <li class="inc-item">Dust all surfaces</li>
+                            <li class="inc-item x">Remove food & wipe inside dishwasher</li>
+                            <li class="inc-item x">Inside oven</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c2">
+                        <h3 class="inc-cat-title"><span>­ƒÆº</span> Bathrooms</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Scrub / clean bath</li>
+                            <li class="inc-item">Scrub / clean shower</li>
+                            <li class="inc-item">Scrub / clean sinks</li>
+                            <li class="inc-item x">Scrub shower floor & wall</li>
+                            <li class="inc-item">Wipe down benches</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Clean / polish tapware & chrome</li>
+                            <li class="inc-item">Wipe down cupboards (exterior)</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Clean / disinfect toilet</li>
+                            <li class="inc-item x">Floor grout</li>
+                            <li class="inc-item x">Clean ceiling exhaust fans</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c3">
+                        <h3 class="inc-cat-title"><span>­ƒøÅ´©Å</span> All Areas</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Light tidy up</li>
+                            <li class="inc-item x">Extensive tidy up</li>
+                            <li class="inc-item">Cobweb removal</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Dust skirting boards / window sills / doors</li>
+                            <li class="inc-item x">Wipe skirting boards / window sills / doors</li>
+                            <li class="inc-item">Clean accessible light switches & power points</li>
+                            <li class="inc-item">Dust reachable surfaces</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Vacuum / clean soft furnishing</li>
+                            <li class="inc-item">Vacuum under beds / furniture / couches</li>
+                            <li class="inc-item x">Clean ceilings</li>
+                            <li class="inc-item x">Dust blinds</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                            <li class="inc-item x">Garage</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- DEEP CLEAN -->
+                <div class="inc-panel" id="inc-tab-deep">
+                    <div class="inc-col c1">
+                        <h3 class="inc-cat-title"><span>­ƒì│</span> Kitchen</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Clean stovetop</li>
+                            <li class="inc-item">Clean rangehood (exterior)</li>
+                            <li class="inc-item">Clean underside of range hood</li>
+                            <li class="inc-item x">Clean exhaust fans & filters</li>
+                            <li class="inc-item">Wipe bench tops</li>
+                            <li class="inc-item">Clean visible appliances</li>
+                            <li class="inc-item">Clean splash back</li>
+                            <li class="inc-item">Clean / polish tap ware</li>
+                            <li class="inc-item">Scrub / clean sink</li>
+                            <li class="inc-item">Clean inside & outside of microwave</li>
+                            <li class="inc-item">Clean cupboards (exterior)</li>
+                            <li class="inc-item">Polish stainless steel surfaces</li>
+                            <li class="inc-item">Dust all surfaces</li>
+                            <li class="inc-item">Remove food & wipe inside dishwasher</li>
+                            <li class="inc-item x">Inside oven</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c2">
+                        <h3 class="inc-cat-title"><span>­ƒÆº</span> Bathrooms</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Scrub / clean bath</li>
+                            <li class="inc-item">Scrub / clean shower</li>
+                            <li class="inc-item">Scrub / clean sinks</li>
+                            <li class="inc-item">Scrub shower floor & wall</li>
+                            <li class="inc-item">Wipe down benches</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Clean / polish tapware & chrome</li>
+                            <li class="inc-item">Wipe down cupboards (exterior)</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Clean / disinfect toilet</li>
+                            <li class="inc-item x">Floor grout</li>
+                            <li class="inc-item x">Clean ceiling exhaust fans</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c3">
+                        <h3 class="inc-cat-title"><span>­ƒøÅ´©Å</span> All Areas</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Light tidy up</li>
+                            <li class="inc-item">Extensive tidy up</li>
+                            <li class="inc-item">Cobweb removal</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Dust skirting boards / window sills / doors</li>
+                            <li class="inc-item">Wipe skirting boards / window sills / doors</li>
+                            <li class="inc-item">Clean accessible light switches & power points</li>
+                            <li class="inc-item">Dust reachable surfaces</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Vacuum / clean soft furnishing</li>
+                            <li class="inc-item">Vacuum under beds / furniture / couches</li>
+                            <li class="inc-item x">Clean ceilings</li>
+                            <li class="inc-item x">Dust blinds</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                            <li class="inc-item x">Garage</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- MOVE IN/OUT -->
+                <div class="inc-panel" id="inc-tab-move">
+                    <div class="inc-col c1">
+                        <h3 class="inc-cat-title"><span>­ƒì│</span> Kitchen</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Clean stovetop</li>
+                            <li class="inc-item">Clean rangehood (exterior)</li>
+                            <li class="inc-item">Clean underside of range hood</li>
+                            <li class="inc-item">Clean exhaust fans & filters</li>
+                            <li class="inc-item">Wipe bench tops</li>
+                            <li class="inc-item">Clean visible appliances</li>
+                            <li class="inc-item">Clean splash back</li>
+                            <li class="inc-item">Clean / polish tap ware</li>
+                            <li class="inc-item">Scrub / clean sink</li>
+                            <li class="inc-item">Clean inside & outside of microwave</li>
+                            <li class="inc-item">Clean cupboards (exterior)</li>
+                            <li class="inc-item">Polish stainless steel surfaces</li>
+                            <li class="inc-item">Dust all surfaces</li>
+                            <li class="inc-item">Remove food & wipe inside dishwasher</li>
+                            <li class="inc-item">Inside oven</li>
+                            <li class="inc-item">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c2">
+                        <h3 class="inc-cat-title"><span>­ƒÆº</span> Bathrooms</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Scrub / clean bath</li>
+                            <li class="inc-item">Scrub / clean shower</li>
+                            <li class="inc-item">Scrub / clean sinks</li>
+                            <li class="inc-item">Scrub shower floor & wall</li>
+                            <li class="inc-item">Wipe down benches</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Clean / polish tapware & chrome</li>
+                            <li class="inc-item">Wipe down cupboards (exterior)</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Clean / disinfect toilet</li>
+                            <li class="inc-item x">Floor grout</li>
+                            <li class="inc-item">Clean ceiling exhaust fans</li>
+                            <li class="inc-item">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c3">
+                        <h3 class="inc-cat-title"><span>­ƒøÅ´©Å</span> All Areas</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Light tidy up</li>
+                            <li class="inc-item">Extensive tidy up</li>
+                            <li class="inc-item">Cobweb removal</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Dust skirting boards / window sills / doors</li>
+                            <li class="inc-item">Wipe skirting boards / window sills / doors</li>
+                            <li class="inc-item">Clean accessible light switches & power points</li>
+                            <li class="inc-item">Dust reachable surfaces</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Vacuum / clean soft furnishing</li>
+                            <li class="inc-item">Vacuum under beds / furniture / couches</li>
+                            <li class="inc-item x">Clean ceilings</li>
+                            <li class="inc-item">Dust blinds</li>
+                            <li class="inc-item">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                            <li class="inc-item x">Garage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTRAS / ADD-ONS SECTION (H2) -->
+    <section class="extras-section">
+        <div class="ext-container">
+            <div class="ext-header">
+                <div class="ext-header-left reveal reveal-up">
+                    <p>Transparency in pricing</p>
+                    <h2>Extra services for your home</h2>
+                </div>
+            </div>
+
+            <div class="ext-rule"></div>
+
+            <div class="ext-grid">
+                <!-- Column 1: Add-ons -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Core Add-ons</h3>
+                    <div class="ext-item"><span class="ext-name">Deep clean add-on</span><span class="ext-price">$60 ÔÇô
+                            $100</span></div>
+                    <div class="ext-item"><span class="ext-name">Move in / out clean</span><span class="ext-price">$255
+                            ÔÇô $395</span></div>
+                </div>
+                <!-- Column 2: Interior -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Interior Detail</h3>
+                    <div class="ext-item"><span class="ext-name">Inside oven</span><span class="ext-price">$65</span>
+                    </div>
+                    <div class="ext-item"><span class="ext-name">Inside fridge</span><span class="ext-price">$30</span>
+                    </div>
+                    <div class="ext-item"><span class="ext-name">Inside drawers / cabinets</span><span
+                            class="ext-price">$40 ÔÇô $60</span></div>
+                </div>
+                <!-- Column 3: Specialized -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Specialized</h3>
+                    <div class="ext-item"><span class="ext-name">Inside windows</span><span class="ext-price">$70 ÔÇô
+                            $130</span></div>
+                    <div class="ext-item"><span class="ext-name">Bed changing</span><span class="ext-price">$10 /
+                            bed</span></div>
+                    <div class="ext-item"><span class="ext-name">Steam clean</span><span class="ext-price">$55 /
+                            room</span></div>
+                </div>
+                <!-- Column 4: Maintenance -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Maintenance</h3>
+                    <div class="ext-item"><span class="ext-name">Wall cleaning</span><span class="ext-price">$25 /
+                            wall</span></div>
+                    <div class="ext-item"><span class="ext-name">Balcony clean</span><span class="ext-price">$35</span>
+                    </div>
+                    <div class="ext-item"><span class="ext-name">Dish washing</span><span class="ext-price">$30</span>
+                    </div>
+                    <div class="ext-item"><span class="ext-name">Wet wiping blinds</span><span class="ext-price">$20 /
+                            blind</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCRIPTS -->
+    <script>
+        const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
+        let beds = 0;
+
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn, ms = 180) { setTimeout(fn, ms); }
+        function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Hi! How many bedrooms?', 'agt'); w(() => { let h = `<div class="g gc-3">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
+        function selBed(n) { beds = n; post(`${n} br`, 'usr'); dock.innerHTML = ''; w(() => { post('What type?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-3"><button class="btn-q" onclick="selTier('std','Standard')">Standard</button><button class="btn-q" onclick="selTier('deep','Deep')">Deep</button><button class="btn-q" onclick="selTier('move','Move')">Move</button></div>`; }); }); }
+        function selTier(t, label) { post(label, 'usr'); dock.innerHTML = ''; w(() => { post('Frequency?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-2"><button class="btn-q" onclick="fin('${t}','Weekly',0.9)">Weekly</button><button class="btn-q" onclick="fin('${t}','Once',1.05)">Once</button></div>`; }); }); switchIncludedTab(t); }
+        function fin(tier, freq, mult) { post(freq, 'usr'); dock.innerHTML = ''; const price = Math.round(rates[beds][tier] * mult); w(() => { document.getElementById('pVal').innerText = price; end.style.display = 'flex'; }, 250); }
+
+        function showIncTab(id) {
+            document.querySelectorAll('.inc-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.inc-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('inc-btn-' + id).classList.add('active');
+            document.getElementById('inc-tab-' + id).classList.add('active');
+        }
+
+        function switchIncludedTab(tierKey) {
+            const map = { 'std': 'std', 'deep': 'deep', 'move': 'move' };
+            if (map[tierKey]) showIncTab(map[tierKey]);
+        }
+
+        window.onload = boot;
+
+        // Scroll animation for extras items
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.ext-item');
+                    items.forEach((item, i) => {
+                        setTimeout(() => item.classList.add('visible'), i * 60);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.ext-col').forEach(col => observer.observe(col));
+
+        // Global Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once animated, no need to observe anymore
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us — Split Statement</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Merriweather+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-grad: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            --text-dark: #09090B;
+            --text-sub: #71717A;
+            --text-meta: #A1A1AA;
+            --border: #E4E4E7;
+            --bg-section: #FAFAF7;
+            --font-main: 'Outfit', sans-serif;
+            --font-serif: 'Merriweather Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-section);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ---- REVEAL ANIMATIONS (same as main page) ---- */
+        .reveal {
+            opacity: 0;
+            transition: all 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-up {
+            transform: translateY(30px);
+        }
+
+        .reveal-left {
+            transform: translateX(-30px);
+        }
+
+        .reveal-right {
+            transform: translateX(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.15s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.30s;
+        }
+
+        .delay-3 {
+            transition-delay: 0.45s;
+        }
+
+        .delay-4 {
+            transition-delay: 0.60s;
+        }
+
+        /* ---- SECTION ---- */
+        .why-section {
+            background: var(--bg-section);
+            padding: 140px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .why-container {
+            width: 90%;
+            max-width: 1320px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        /* ---- LEFT COLUMN (Sticky Image) ---- */
+        .why-left {
+            position: sticky;
+            top: 80px;
+        }
+
+        .why-eyebrow {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-meta);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .why-left h2 {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .why-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .why-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .why-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .img-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-radius: 14px;
+            padding: 16px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .img-badge-stat strong {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .img-badge-stat span {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-meta);
+        }
+
+        .badge-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border);
+        }
+
+        /* ---- RIGHT COLUMN (Reasons) ---- */
+        .why-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .why-rule {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 44px;
+        }
+
+        .reason-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reason-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 28px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .reason-item:first-child {
+            padding-top: 0;
+        }
+
+        .reason-item:last-child {
+            border-bottom: none;
+        }
+
+        .reason-icon-col {
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            padding-top: 4px;
+        }
+
+        .reason-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: #EFF6FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            align-self: flex-start;
+            margin-bottom: 14px;
+            white-space: nowrap;
+        }
+
+        .reason-body h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .reason-body p {
+            font-size: 0.98rem;
+            color: var(--text-sub);
+            line-height: 1.65;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 1024px) {
+            .why-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .why-left {
+                position: static;
+            }
+
+            .why-left h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="why-section">
+        <div class="why-container">
+
+            <!-- LEFT: Sticky Image + Header -->
+            <div class="why-left">
+                <div class="reveal reveal-left">
+                    <p class="why-eyebrow">The standard we uphold</p>
+                    <h2>Why families trust us with their home.</h2>
+                </div>
+
+                <div class="why-image reveal reveal-up delay-1">
+                    <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=900&auto=format&fit=crop&q=80"
+                        alt="Clean, bright home interior">
+                    <div class="img-badge">
+                        <div class="img-badge-stat">
+                            <strong>4.9★</strong>
+                            <span>Rating</span>
+                        </div>
+                        <div class="badge-divider"></div>
+                        <div class="img-badge-stat">
+                            <strong>2.4k</strong>
+                            <span>Clients</span>
+                        </div>
+                        <div class="badge-divider"></div>
+                        <div class="img-badge-stat">
+                            <strong>100%</strong>
+                            <span>Guarantee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Reasons List -->
+            <div class="why-right">
+                <div class="why-rule reveal reveal-right"></div>
+                <div class="reason-list">
+                    <div class="reason-item reveal reveal-up">
+                        <div class="reason-body">
+                            <div class="reason-tag">🛡️ Trust</div>
+                            <h3>Background-Checked Professionals</h3>
+                            <p>Every cleaner undergoes a multi-step vetting process including ID verification, reference
+                                checks, and in-person interviews. Only 1 in 50 applicants makes it through.</p>
+                        </div>
+                    </div>
+                    <div class="reason-item reveal reveal-up delay-1">
+                        <div class="reason-body">
+                            <div class="reason-tag">✨ Quality</div>
+                            <h3>100% Satisfaction, Guaranteed</h3>
+                            <p>Not happy? We'll return within 24 hours and re-clean at absolutely no cost. We only
+                                consider a job done when you say so.</p>
+                        </div>
+                    </div>
+                    <div class="reason-item reveal reveal-up delay-2">
+                        <div class="reason-body">
+                            <div class="reason-tag">🌿 Safety</div>
+                            <h3>Premium Eco-Friendly Products</h3>
+                            <p>We exclusively use high-grade, plant-based cleaning solutions that are non-toxic,
+                                biodegradable, and safe for children and pets.</p>
+                        </div>
+                    </div>
+                    <div class="reason-item reveal reveal-up delay-3">
+                        <div class="reason-body">
+                            <div class="reason-tag">🤝 Reliability</div>
+                            <h3>On Time, Every Single Time</h3>
+                            <p>Our scheduling system and real-time tracking means your cleaner will be at your door
+                                within the agreed window. No surprises, no excuses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>

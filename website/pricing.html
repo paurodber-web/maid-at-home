@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing & Services — Maid At Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-grad: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+            --font-main: 'Outfit', sans-serif;
+            --bg-creme: rgb(250, 250, 247);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-creme);
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-top: 120px;
+        }
+
+        /* --- Global Animations --- */
+        .reveal {
+            opacity: 0;
+            transition: all 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity;
+        }
+
+        .reveal-up {
+            transform: translateY(30px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.15s;
+        }
+
+        /* ── DYNAMIC STICKY HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 24px;
+            left: 64px;
+            right: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            padding: 20px 32px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .brand {
+            font-family: var(--font-main);
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .photo-nav {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .photo-nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .photo-nav a:not(.nav-cta):hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--text-dark) !important;
+            color: white !important;
+            margin-left: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-cta:hover {
+            background: #1e293b !important;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- PRICING HERO --- */
+        .pricing-hero {
+            text-align: center;
+            padding: 80px 48px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .pricing-hero p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* --- INCLUDED SECTION STYLES --- */
+        .included-section {
+            background: #FFFFFF;
+            padding: 100px 64px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .inc-container {
+            width: 100%;
+            max-width: 1320px;
+        }
+
+        .inc-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .inc-header-left p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #A1A1AA;
+            margin-bottom: 8px;
+        }
+
+        .inc-header-left h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #09090B;
+            letter-spacing: -0.02em;
+        }
+
+        .inc-tabs-nav {
+            display: flex;
+            background: #F4F4F5;
+            border-radius: 12px;
+            padding: 4px;
+        }
+
+        .inc-tab-btn {
+            background: none;
+            border: none;
+            padding: 10px 22px;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #71717A;
+            cursor: pointer;
+            border-radius: 9px;
+            transition: all 0.2s;
+        }
+
+        .inc-tab-btn.active {
+            background: #fff;
+            color: #09090B;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .inc-rule {
+            height: 1px;
+            background: #E4E4E7;
+            margin-bottom: 44px;
+        }
+
+        .inc-panel {
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            opacity: 0;
+            transform: translateY(14px);
+            transition: all 0.6s ease;
+        }
+
+        .inc-panel.active {
+            display: grid;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .inc-col {
+            padding: 0 32px 0 0;
+            border-right: 1px solid #E4E4E7;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .inc-col.c2,
+        .inc-col.c3 {
+            padding: 0 32px;
+        }
+
+        .inc-col.c4 {
+            padding: 0 0 0 32px;
+            border-right: none;
+        }
+
+        .inc-cat-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #3B82F6;
+            background: #EFF6FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            align-self: flex-start;
+        }
+
+        .inc-list {
+            list-style: none;
+        }
+
+        .inc-item {
+            font-size: 0.98rem;
+            color: #3F3F46;
+            line-height: 1.5;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid #EFEFE9;
+        }
+
+        .inc-item:last-child {
+            border-bottom: none;
+        }
+
+        .inc-item::before {
+            content: "✓";
+            font-size: 0.7rem;
+            font-weight: 900;
+            color: #3B82F6;
+            min-width: 14px;
+        }
+
+        .inc-item.x {
+            color: #A1A1AA;
+            text-decoration: line-through;
+        }
+
+        .inc-item.x::before {
+            content: "✕";
+            color: #FDA4AF;
+        }
+
+        .price-tag {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #3B82F6;
+            background: #F0F7FF;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .inc-footer-note {
+            margin-top: 64px;
+            padding: 24px 32px;
+            background: #F5F7F9;
+            border: 1px solid #E5EAF0;
+            border-radius: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .inc-note-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-sub);
+        }
+
+        @media (max-width: 1100px) {
+            .inc-panel {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 0;
+            }
+
+            .inc-col {
+                border-right: none !important;
+                padding: 0 20px !important;
+            }
+
+            .site-header {
+                left: 16px;
+                right: 16px;
+                padding: 14px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .inc-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <a href="index.html" class="brand">Maid <span>At Home</span></a>
+        <nav class="photo-nav">
+            <a href="index.html#how-it-works">Services</a>
+            <a href="pricing.html" style="color: var(--primary)">Pricing</a>
+            <a href="#">About</a>
+            <a href="#" class="nav-cta">Book Now</a>
+        </nav>
+    </header>
+
+    <div class="pricing-hero reveal reveal-up active">
+        <p
+            style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px;">
+            Premium Services</p>
+        <h1>Transparent pricing for a flawless home.</h1>
+        <p>Choose the level of care your home deserves. No hidden fees, just professional excellence at every step.</p>
+    </div>
+
+    <!-- WHAT'S INCLUDED SECTION -->
+    <section class="included-section">
+        <div class="inc-container">
+            <div class="inc-header">
+                <div class="inc-header-left reveal reveal-up active">
+                    <p>Transparency in detail</p>
+                    <h2>Everything that's included</h2>
+                </div>
+                <nav class="inc-tabs-nav">
+                    <button class="inc-tab-btn active" id="inc-btn-std" onclick="showIncTab('std')">Standard
+                        Clean</button>
+                    <button class="inc-tab-btn" id="inc-btn-deep" onclick="showIncTab('deep')">Deep Clean</button>
+                    <button class="inc-tab-btn" id="inc-btn-move" onclick="showIncTab('move')">Move In/Out</button>
+                </nav>
+            </div>
+
+            <div class="inc-rule"></div>
+
+            <div class="inc-content-area">
+                <!-- PANEL: STANDARD -->
+                <div class="inc-panel active" id="inc-tab-std">
+                    <div class="inc-col c1">
+                        <h3 class="inc-cat-title">🍳 Kitchen</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Clean stovetop</li>
+                            <li class="inc-item">Clean rangehood (exterior)</li>
+                            <li class="inc-item x">Clean underside of range hood</li>
+                            <li class="inc-item x">Clean exhaust fans & filters</li>
+                            <li class="inc-item">Wipe bench tops</li>
+                            <li class="inc-item">Clean visible appliances</li>
+                            <li class="inc-item">Clean splash back</li>
+                            <li class="inc-item">Clean / polish tap ware</li>
+                            <li class="inc-item">Scrub / clean sink</li>
+                            <li class="inc-item">Clean inside & outside of microwave</li>
+                            <li class="inc-item">Clean cupboards (exterior)</li>
+                            <li class="inc-item">Polish stainless steel surfaces</li>
+                            <li class="inc-item">Dust all surfaces</li>
+                            <li class="inc-item x">Remove food & wipe inside dishwasher</li>
+                            <li class="inc-item x">Inside oven</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c2">
+                        <h3 class="inc-cat-title">💧 Bathrooms</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Scrub / clean bath</li>
+                            <li class="inc-item">Scrub / clean shower</li>
+                            <li class="inc-item">Scrub / clean sinks</li>
+                            <li class="inc-item x">Scrub shower floor & wall</li>
+                            <li class="inc-item">Wipe down benches</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Clean / polish tapware & chrome</li>
+                            <li class="inc-item">Wipe down cupboards (exterior)</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Clean / disinfect toilet</li>
+                            <li class="inc-item x">Floor grout</li>
+                            <li class="inc-item x">Clean ceiling exhaust fans</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c3">
+                        <h3 class="inc-cat-title">🛏️ All Areas</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Light tidy up</li>
+                            <li class="inc-item x">Extensive tidy up</li>
+                            <li class="inc-item">Cobweb removal</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Dust skirting boards / window sills / doors</li>
+                            <li class="inc-item x">Wipe skirting boards / window sills / doors</li>
+                            <li class="inc-item">Clean accessible light switches & power points</li>
+                            <li class="inc-item">Dust reachable surfaces</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Vacuum / clean soft furnishing</li>
+                            <li class="inc-item">Vacuum under beds / furniture / couches</li>
+                            <li class="inc-item x">Clean ceilings</li>
+                            <li class="inc-item x">Dust blinds</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                            <li class="inc-item x">Garage</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c4">
+                        <h3 class="inc-cat-title">✨ Optional Extras</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Deep clean add-on <span class="price-tag">+$60</span></li>
+                            <li class="inc-item">Inside oven <span class="price-tag">+$65</span></li>
+                            <li class="inc-item">Inside fridge <span class="price-tag">+$30</span></li>
+                            <li class="inc-item">Inside cabinets <span class="price-tag">+$40</span></li>
+                            <li class="inc-item">Inside windows <span class="price-tag">+$70</span></li>
+                            <li class="inc-item">Bed changing <span class="price-tag">+$10</span></li>
+                            <li class="inc-item">Steam clean <span class="price-tag">+$55</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PANEL: DEEP CLEAN -->
+                <div class="inc-panel" id="inc-tab-deep">
+                    <div class="inc-col c1">
+                        <h3 class="inc-cat-title">🍳 Kitchen</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Clean stovetop</li>
+                            <li class="inc-item">Clean rangehood (exterior)</li>
+                            <li class="inc-item">Clean underside of range hood</li>
+                            <li class="inc-item x">Clean exhaust fans & filters</li>
+                            <li class="inc-item">Wipe bench tops</li>
+                            <li class="inc-item">Clean visible appliances</li>
+                            <li class="inc-item">Clean splash back</li>
+                            <li class="inc-item">Clean / polish tap ware</li>
+                            <li class="inc-item">Scrub / clean sink</li>
+                            <li class="inc-item">Clean inside & outside of microwave</li>
+                            <li class="inc-item">Clean cupboards (exterior)</li>
+                            <li class="inc-item">Polish stainless steel surfaces</li>
+                            <li class="inc-item">Dust all surfaces</li>
+                            <li class="inc-item">Remove food & wipe inside dishwasher</li>
+                            <li class="inc-item x">Inside oven</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c2">
+                        <h3 class="inc-cat-title">💧 Bathrooms</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Scrub / clean bath</li>
+                            <li class="inc-item">Scrub / clean shower</li>
+                            <li class="inc-item">Scrub / clean sinks</li>
+                            <li class="inc-item">Scrub shower floor & wall</li>
+                            <li class="inc-item">Wipe down benches</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Clean / polish tapware & chrome</li>
+                            <li class="inc-item">Wipe down cupboards (exterior)</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Clean / disinfect toilet</li>
+                            <li class="inc-item">Floor grout deep scrub</li>
+                            <li class="inc-item">Vacuum & mop floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c3">
+                        <h3 class="inc-cat-title">🛏️ All Areas</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Light tidy up</li>
+                            <li class="inc-item">Extensive tidy up</li>
+                            <li class="inc-item">Cobweb removal</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Dust skirting boards / window sills / doors</li>
+                            <li class="inc-item">Wipe skirting boards / window sills / doors</li>
+                            <li class="inc-item">Clean accessible light switches & power points</li>
+                            <li class="inc-item">Dust reachable surfaces</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Vacuum / clean soft furnishing</li>
+                            <li class="inc-item">Vacuum under beds / furniture / couches</li>
+                            <li class="inc-item x">Clean ceilings</li>
+                            <li class="inc-item x">Dust blinds</li>
+                            <li class="inc-item x">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                            <li class="inc-item x">Garage</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c4">
+                        <h3 class="inc-cat-title">✨ Optional Extras</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Inside oven <span class="price-tag">+$65</span></li>
+                            <li class="inc-item">Inside fridge <span class="price-tag">+$30</span></li>
+                            <li class="inc-item">Inside cabinets <span class="price-tag">+$40</span></li>
+                            <li class="inc-item">Inside windows <span class="price-tag">+$70</span></li>
+                            <li class="inc-item">Bed changing <span class="price-tag">+$10</span></li>
+                            <li class="inc-item">Steam clean <span class="price-tag">+$55</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PANEL: MOVE IN/OUT -->
+                <div class="inc-panel" id="inc-tab-move">
+                    <div class="inc-col c1">
+                        <h3 class="inc-cat-title">🍳 Kitchen</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Clean stovetop</li>
+                            <li class="inc-item">Clean rangehood (exterior)</li>
+                            <li class="inc-item">Clean underside of range hood</li>
+                            <li class="inc-item">Clean exhaust fans & filters</li>
+                            <li class="inc-item">Wipe bench tops</li>
+                            <li class="inc-item">Clean visible appliances</li>
+                            <li class="inc-item">Clean splash back</li>
+                            <li class="inc-item">Clean / polish tap ware</li>
+                            <li class="inc-item">Scrub / clean sink</li>
+                            <li class="inc-item">Clean inside & outside of microwave</li>
+                            <li class="inc-item">Clean cupboards (exterior)</li>
+                            <li class="inc-item">Polish stainless steel surfaces</li>
+                            <li class="inc-item">Dust all surfaces</li>
+                            <li class="inc-item">Remove food & wipe inside dishwasher</li>
+                            <li class="inc-item">Inside oven</li>
+                            <li class="inc-item">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c2">
+                        <h3 class="inc-cat-title">💧 Bathrooms</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Scrub / clean bath</li>
+                            <li class="inc-item">Scrub / clean shower</li>
+                            <li class="inc-item">Scrub / clean sinks</li>
+                            <li class="inc-item">Scrub shower floor & wall</li>
+                            <li class="inc-item">Wipe down benches</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Clean / polish tapware & chrome</li>
+                            <li class="inc-item">Wipe down cupboards (exterior)</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Clean / disinfect toilet</li>
+                            <li class="inc-item x">Floor grout</li>
+                            <li class="inc-item">Clean ceiling exhaust fans</li>
+                            <li class="inc-item">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c3">
+                        <h3 class="inc-cat-title">🛏️ All Areas</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Light tidy up</li>
+                            <li class="inc-item">Extensive tidy up</li>
+                            <li class="inc-item">Cobweb removal</li>
+                            <li class="inc-item">Empty bins</li>
+                            <li class="inc-item">Dust skirting boards / window sills / doors</li>
+                            <li class="inc-item">Wipe skirting boards / window sills / doors</li>
+                            <li class="inc-item">Clean accessible light switches & power points</li>
+                            <li class="inc-item">Dust reachable surfaces</li>
+                            <li class="inc-item">Clean mirrors</li>
+                            <li class="inc-item">Vacuum / clean soft furnishing</li>
+                            <li class="inc-item">Vacuum under beds / furniture / couches</li>
+                            <li class="inc-item x">Clean ceilings</li>
+                            <li class="inc-item">Dust blinds</li>
+                            <li class="inc-item">Inside all drawers / cabinets</li>
+                            <li class="inc-item">Vacuum & mop all floors</li>
+                            <li class="inc-item x">Garage</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col c4">
+                        <h3 class="inc-cat-title">✨ Remaining Extras</h3>
+                        <ul class="inc-list">
+                            <li class="inc-item">Steam clean <span class="price-tag">+$55</span></li>
+                            <li class="inc-item">Bed changing <span class="price-tag">+$10</span></li>
+                            <li class="inc-item">Balcony clean <span class="price-tag">+$35</span></li>
+                            <li class="inc-item">Wall cleaning <span class="price-tag">+$25</span></li>
+                            <li class="inc-item">Wet wiping blinds <span class="price-tag">+$20</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inc-footer-note">
+                <div class="inc-note-icon">ℹ️</div>
+                <p class="inc-note-text">
+                    <strong>Service Note:</strong> These checklists and extra add-on prices apply to our <strong>Flat
+                        Rate</strong> services. For <strong>Hourly Rate</strong> bookings, extras are included within
+                    your reserved time at no additional cost.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showIncTab(id) {
+            document.querySelectorAll('.inc-tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.inc-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('inc-btn-' + id).classList.add('active');
+            document.getElementById('inc-tab-' + id).classList.add('active');
+        }
+
+        // ── DYNAMIC HEADER SCROLL ──
+        const siteHeader = document.getElementById('siteHeader');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const newTop = Math.max(16, 24 - scrollY);
+            siteHeader.style.top = `${newTop}px`;
+            if (scrollY > 10) {
+                siteHeader.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.15)';
+            } else {
+                siteHeader.style.boxShadow = 'none';
+            }
+        }, { passive: true });
+
+        // Global Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+
+</html>

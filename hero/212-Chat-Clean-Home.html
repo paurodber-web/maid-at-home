@@ -25,29 +25,27 @@
         body {
             font-family: 'Outfit', sans-serif;
             background: #F1F5F9;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 16px;
         }
 
         /* ── PANEL ── */
         .panel {
-            width: 92%;
-            max-width: 1160px;
-            height: 84vh;
+            width: 100%;
+            height: calc(100vh - 32px);
             display: grid;
-            grid-template-columns: 1fr 460px;
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 0 32px 80px -16px rgba(0, 0, 0, 0.22);
+            grid-template-columns: 1fr 420px;
+            gap: 12px;
         }
 
         /* ── LEFT: PHOTO ── */
         .photo-side {
             position: relative;
             background: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&auto=format&fit=crop&q=80') center/cover no-repeat;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.26);
         }
 
         /* Dark overlay for text legibility */
@@ -65,19 +63,100 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 52px 48px;
+            padding: 28px 36px 44px;
+        }
+
+        /* ── HEADER INSIDE LEFT COLUMN ── */
+        .photo-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 16px;
+            padding: 14px 20px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .photo-header.is-hidden {
+            opacity: 0;
+            transform: translateY(-8px);
+            pointer-events: none;
+        }
+
+        /* ── GLOBAL STICKY HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 23, 42, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 14px 24px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-14px);
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .site-header.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
         }
 
         .brand {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.95);
             letter-spacing: -0.01em;
         }
 
         .brand span {
             color: #A5B4FC;
+        }
+
+        .photo-nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .photo-nav a {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .photo-nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+        }
+
+        .nav-cta {
+            background: rgba(99, 102, 241, 0.75) !important;
+            color: white !important;
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            margin-left: 6px;
+        }
+
+        .nav-cta:hover {
+            background: rgba(99, 102, 241, 1) !important;
         }
 
         .photo-headline h1 {
@@ -115,7 +194,7 @@
             letter-spacing: 1px;
         }
 
-        .star-info {}
+
 
         .star-score {
             font-weight: 800;
@@ -151,6 +230,9 @@
             display: flex;
             flex-direction: column;
             position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.10);
         }
 
         .q-top {
@@ -331,11 +413,16 @@
                 grid-template-columns: 1fr;
                 height: auto;
                 min-height: 100vh;
-                border-radius: 0;
+                gap: 8px;
             }
 
             .photo-side {
                 min-height: 280px;
+                border-radius: 20px;
+            }
+
+            .right {
+                border-radius: 20px;
             }
 
             .photo-headline h1 {
@@ -359,12 +446,32 @@
 
 <body>
 
+    <!-- GLOBAL STICKY HEADER (full-width, reveals on scroll) -->
+    <header class="site-header" id="siteHeader">
+        <div class="brand">Maid <span>At Home</span></div>
+        <nav class="photo-nav">
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">About</a>
+            <a href="#" class="nav-cta">Book Now</a>
+        </nav>
+    </header>
+
     <div class="panel">
 
         <!-- LEFT: PHOTO -->
         <div class="photo-side">
             <div class="photo-content">
-                <div class="brand">Maid <span>At Home</span></div>
+                <!-- HEADER -->
+                <header class="photo-header">
+                    <div class="brand">Maid <span>At Home</span></div>
+                    <nav class="photo-nav">
+                        <a href="#">Services</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">About</a>
+                        <a href="#" class="nav-cta">Book Now</a>
+                    </nav>
+                </header>
 
                 <div class="photo-headline">
                     <h1>Your home,<br>at its very best.</h1>
@@ -410,6 +517,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Spacer to enable scroll -->
+    <div style="height: 80vh;"></div>
 
     <script>
         const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
@@ -462,6 +572,21 @@
             }, 250);
         }
         window.onload = boot;
+
+        // ── SCROLL: expand header to full width ──
+        const siteHeader = document.getElementById('siteHeader');
+        const photoHeader = document.querySelector('.photo-header');
+        const THRESHOLD = 60;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > THRESHOLD) {
+                siteHeader.classList.add('is-visible');
+                photoHeader.classList.add('is-hidden');
+            } else {
+                siteHeader.classList.remove('is-visible');
+                photoHeader.classList.remove('is-hidden');
+            }
+        }, { passive: true });
     </script>
 
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>260 | What's Included — Warm Accent</title>
+    <title>261 | What's Included — Underline Tabs</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background: #FAFAF7;
+            background: #fff;
             color: #09090B;
             min-height: 100vh;
             display: flex;
@@ -36,7 +36,7 @@
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            margin-bottom: 48px;
+            margin-bottom: 40px;
         }
 
         .header-left p {
@@ -55,49 +55,56 @@
             color: #09090B;
             letter-spacing: -0.025em;
             line-height: 1.1;
-            text-transform: none;
         }
 
-        /* ── Tabs ── */
+        /* ── Underline Tabs ── */
         .tabs-nav {
             display: flex;
-            background: #EFEFEC;
-            border-radius: 14px;
-            padding: 4px;
             gap: 0;
+            border-bottom: 2px solid #E4E4E7;
+            position: relative;
         }
 
         .tab-btn {
             background: none;
             border: none;
-            padding: 10px 22px;
+            padding: 10px 24px 12px;
             font-family: 'Outfit', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            color: #71717A;
+            color: #A1A1AA;
             cursor: pointer;
-            border-radius: 11px;
-            transition: all 0.22s ease;
+            position: relative;
+            transition: color 0.2s ease;
             white-space: nowrap;
         }
 
         .tab-btn.active {
-            background: #fff;
             color: #09090B;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
         }
 
-        /* ── Rule ── */
-        .rule {
-            height: 1px;
-            background: #E8E8E2;
-            margin-bottom: 44px;
+        /* Sliding underline */
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #3B82F6;
+            transform: scaleX(0);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* ── Panels ── */
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        /* ── Content ── */
         .content-area {
             position: relative;
             min-height: 260px;
+            margin-top: 44px;
         }
 
         .panel {
@@ -108,7 +115,7 @@
             opacity: 0;
             pointer-events: none;
             transform: translateY(14px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .panel.active {
@@ -120,10 +127,10 @@
         /* ── Columns ── */
         .col {
             padding: 0 36px 0 0;
-            border-right: 1px solid #E8E8E2;
+            border-right: 1px solid #F0F0F0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px;
         }
 
         .col.c2 {
@@ -135,56 +142,59 @@
             border-right: none;
         }
 
-        /* Category pill-style title */
+        /* Category: left blue accent bar */
         .cat-title {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             font-size: 0.68rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            color: #3B82F6;
-            background: #EFF6FF;
-            padding: 5px 10px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            align-self: flex-start;
+            color: #71717A;
+            padding: 0 0 12px 12px;
+            border-left: 3px solid #3B82F6;
+            margin-bottom: 8px;
         }
 
+        /* Items as rows */
         .list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0;
         }
 
         .item {
-            font-size: 0.93rem;
-            color: #3F3F46;
-            line-height: 1.5;
             display: flex;
-            align-items: baseline;
-            gap: 14px;
-            padding: 10px 0;
-            border-bottom: 1px solid #EFEFEC;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 8px;
+            border-radius: 7px;
+            font-size: 0.92rem;
+            color: #3F3F46;
+            line-height: 1.4;
+            cursor: default;
+            transition: background 0.15s ease, color 0.15s ease;
             opacity: 0;
             transform: translateX(-8px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
+            transition: background 0.15s ease, color 0.15s ease, opacity 0.4s ease, transform 0.4s ease;
         }
 
-        .item:last-child {
-            border-bottom: none;
+        .item:hover {
+            background: #EFF6FF;
+            color: #1D4ED8;
         }
 
-        /* Sequential number badge in blue */
-        .item-num {
-            font-size: 0.68rem;
-            font-weight: 800;
-            color: #93C5FD;
-            min-width: 16px;
-            letter-spacing: 0.02em;
+        /* Soft checkmark */
+        .item::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #BFDBFE;
             flex-shrink: 0;
+            transition: background 0.15s ease;
+        }
+
+        .item:hover::before {
+            background: #3B82F6;
         }
 
         .panel.active .item {
@@ -193,15 +203,15 @@
         }
 
         .col .item:nth-child(1) {
-            transition-delay: 0.06s;
+            transition-delay: 0.05s;
         }
 
         .col .item:nth-child(2) {
-            transition-delay: 0.11s;
+            transition-delay: 0.10s;
         }
 
         .col .item:nth-child(3) {
-            transition-delay: 0.16s;
+            transition-delay: 0.15s;
         }
 
         @media (max-width: 900px) {
@@ -248,33 +258,31 @@
             </nav>
         </div>
 
-        <div class="rule"></div>
-
         <div class="content-area">
             <!-- STANDARD -->
             <div class="panel active" id="tab-std">
                 <div class="col c1">
                     <h3 class="cat-title">Living Areas</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Surfaces dusted & wiped</li>
-                        <li class="item"><span class="item-num">02</span>Floors vacuumed & mopped</li>
-                        <li class="item"><span class="item-num">03</span>Trash & recycling removal</li>
+                        <li class="item">Surfaces dusted & wiped</li>
+                        <li class="item">Floors vacuumed & mopped</li>
+                        <li class="item">Trash & recycling removal</li>
                     </ul>
                 </div>
                 <div class="col c2">
                     <h3 class="cat-title">Kitchen</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Countertops sanitized</li>
-                        <li class="item"><span class="item-num">02</span>Exterior appliances polished</li>
-                        <li class="item"><span class="item-num">03</span>Sink deep cleaned</li>
+                        <li class="item">Countertops sanitized</li>
+                        <li class="item">Exterior appliances polished</li>
+                        <li class="item">Sink deep cleaned</li>
                     </ul>
                 </div>
                 <div class="col c3">
                     <h3 class="cat-title">Bathrooms</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Mirrors & chrome polished</li>
-                        <li class="item"><span class="item-num">02</span>Toilet, shower & tub sanitized</li>
-                        <li class="item"><span class="item-num">03</span>Floor mopped & sanitized</li>
+                        <li class="item">Mirrors & chrome polished</li>
+                        <li class="item">Toilet, shower & tub sanitized</li>
+                        <li class="item">Floor mopped & sanitized</li>
                     </ul>
                 </div>
             </div>
@@ -283,25 +291,25 @@
                 <div class="col c1">
                     <h3 class="cat-title">Precision Detail</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Baseboards hand-wiped</li>
-                        <li class="item"><span class="item-num">02</span>Door frames & light switches</li>
-                        <li class="item"><span class="item-num">03</span>Ceiling fans & vents dusted</li>
+                        <li class="item">Baseboards hand-wiped</li>
+                        <li class="item">Door frames & light switches</li>
+                        <li class="item">Ceiling fans & vents dusted</li>
                     </ul>
                 </div>
                 <div class="col c2">
                     <h3 class="cat-title">Deep Kitchen</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Interior microwave scrub</li>
-                        <li class="item"><span class="item-num">02</span>Exterior cabinets degreased</li>
-                        <li class="item"><span class="item-num">03</span>Backsplash deep cleaned</li>
+                        <li class="item">Interior microwave scrub</li>
+                        <li class="item">Exterior cabinets degreased</li>
+                        <li class="item">Backsplash deep cleaned</li>
                     </ul>
                 </div>
                 <div class="col c3">
                     <h3 class="cat-title">Deep Bathroom</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Tile grout deep scrubbed</li>
-                        <li class="item"><span class="item-num">02</span>Mineral deposit removal</li>
-                        <li class="item"><span class="item-num">03</span>Detailed cabinet exterior</li>
+                        <li class="item">Tile grout deep scrubbed</li>
+                        <li class="item">Mineral deposit removal</li>
+                        <li class="item">Detailed cabinet exterior</li>
                     </ul>
                 </div>
             </div>
@@ -310,25 +318,25 @@
                 <div class="col c1">
                     <h3 class="cat-title">Empty Space</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Inside all cabinets & drawers</li>
-                        <li class="item"><span class="item-num">02</span>Closet shelves & racks wiped</li>
-                        <li class="item"><span class="item-num">03</span>Full wall spot cleaning</li>
+                        <li class="item">Inside all cabinets & drawers</li>
+                        <li class="item">Closet shelves & racks wiped</li>
+                        <li class="item">Full wall spot cleaning</li>
                     </ul>
                 </div>
                 <div class="col c2">
                     <h3 class="cat-title">Appliance Detail</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>Interior oven restoration</li>
-                        <li class="item"><span class="item-num">02</span>Interior fridge & freezer</li>
-                        <li class="item"><span class="item-num">03</span>Dishwasher deep clean</li>
+                        <li class="item">Interior oven restoration</li>
+                        <li class="item">Interior fridge & freezer</li>
+                        <li class="item">Dishwasher deep clean</li>
                     </ul>
                 </div>
                 <div class="col c3">
                     <h3 class="cat-title">Full Scope</h3>
                     <ul class="list">
-                        <li class="item"><span class="item-num">01</span>All window glass & tracks</li>
-                        <li class="item"><span class="item-num">02</span>Blinds & shutters hand-wiped</li>
-                        <li class="item"><span class="item-num">03</span>Includes full Deep Clean</li>
+                        <li class="item">All window glass & tracks</li>
+                        <li class="item">Blinds & shutters hand-wiped</li>
+                        <li class="item">Includes full Deep Clean</li>
                     </ul>
                 </div>
             </div>

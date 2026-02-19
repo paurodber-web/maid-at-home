@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us - Minimalist Pillars</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Merriweather+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+            --font-main: 'Outfit', sans-serif;
+            --font-serif: 'Merriweather Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: #fff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .section-pillars {
+            padding: 160px 0;
+            display: flex;
+            justify-content: center;
+            background: #FAFAFA;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1320px;
+        }
+
+        .layout {
+            display: flex;
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        .col-left {
+            flex: 1;
+            position: sticky;
+            top: 100px;
+        }
+
+        .col-left .eyebrow {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .col-left h2 {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 30px;
+        }
+
+        .col-left p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            line-height: 1.7;
+            max-width: 440px;
+        }
+
+        .col-right {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .pillar-item {
+            display: flex;
+            gap: 30px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #E2E8F0;
+            transition: border-color 0.4s;
+        }
+
+        .pillar-item:hover {
+            border-color: var(--primary);
+        }
+
+        .pillar-num {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #CBD5E1;
+            padding-top: 5px;
+        }
+
+        .pillar-content h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+        }
+
+        .pillar-content p {
+            font-size: 1.05rem;
+            color: var(--text-sub);
+            line-height: 1.65;
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .layout {
+                flex-direction: column;
+                gap: 60px;
+            }
+
+            .col-left {
+                position: static;
+            }
+
+            .col-left h2 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="section-pillars">
+        <div class="container">
+            <div class="layout">
+                <div class="col-left reveal">
+                    <span class="eyebrow">The Maid Standard</span>
+                    <h2>Designed for those who notice the difference.</h2>
+                    <p>We don't just clean spaces. We curate environments where you can breathe, relax, and focus on
+                        what truly matters.</p>
+                </div>
+
+                <div class="col-right">
+                    <!-- Item 1 -->
+                    <div class="pillar-item reveal" style="transition-delay: 0.1s">
+                        <div class="pillar-num">01</div>
+                        <div class="pillar-content">
+                            <h3>Unrivaled Reliability</h3>
+                            <p>We've never missed a booking. Our institutional-grade scheduling ensures your cleaner
+                                arrives within the 15-minute window, every single time.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="pillar-item reveal" style="transition-delay: 0.2s">
+                        <div class="pillar-num">02</div>
+                        <div class="pillar-content">
+                            <h3>White-Glove Service</h3>
+                            <p>From the way we fold your towels to the surgical precision of our dusting, we bring
+                                hotel-level attention to detail to your private residence.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="pillar-item reveal" style="transition-delay: 0.3s">
+                        <div class="pillar-num">03</div>
+                        <div class="pillar-content">
+                            <h3>Absolute Security</h3>
+                            <p>All our keys are stored in encrypted lockboxes and our professionals are insured up to
+                                $5M, providing total peace of mind for your most valuable asset.</p>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="pillar-item reveal" style="transition-delay: 0.4s">
+                        <div class="pillar-num">04</div>
+                        <div class="pillar-content">
+                            <h3>Tailored Concierge</h3>
+                            <p>Every home has a signature. We learn your preferences—from how you like your pillows
+                                fluffed to your favorite scent—to create a bespoke experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+</body>
+
+</html>
