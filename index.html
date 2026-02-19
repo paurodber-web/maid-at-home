@@ -666,24 +666,12 @@
 
         .ext-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
         .ext-col {
-            padding: 0 32px 0 0;
-            border-right: 1px solid #E4E4E7;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .ext-col:not(:first-child) {
-            padding-left: 32px;
-        }
-
-        .ext-col:last-child {
-            border-right: none;
+            display: contents;
         }
 
         .ext-cat-title {
@@ -703,16 +691,29 @@
         }
 
         .ext-item {
-            font-size: 0.98rem;
-            color: #3F3F46;
+            background: #fff;
+            border: 1px solid #F1F1F4;
+            border-radius: 16px;
+            padding: 24px 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #EFEFE9;
             opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.5s ease;
+            transform: translateY(15px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .ext-item:hover {
+            border-color: #3B82F6;
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .ext-item.featured {
+            background: #F8FAFF;
+            border: 1.5px solid #3B82F6;
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
         }
 
         .ext-item.visible {
@@ -720,22 +721,19 @@
             transform: translateY(0);
         }
 
-        .ext-item:last-child {
-            border-bottom: none;
-        }
-
         .ext-name {
-            font-size: 0.98rem;
-            color: #3F3F46;
-            line-height: 1.4;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #18181B;
+            letter-spacing: -0.01em;
         }
 
         .ext-price {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: #09090B;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #3B82F6;
             white-space: nowrap;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
 
         @media (max-width: 900px) {
@@ -1054,68 +1052,39 @@
         <div class="ext-container">
             <div class="ext-header">
                 <div class="ext-header-left reveal reveal-up">
-                    <p>Customize your clean</p>
-                    <h2>Add-on Services</h2>
+                    <p>Transparency in pricing</p>
+                    <h2>Extra services for your home</h2>
                 </div>
             </div>
 
             <div class="ext-rule"></div>
 
             <div class="ext-grid">
-                <!-- Column 1: Kitchen -->
-                <div class="ext-col">
-                    <h3 class="ext-cat-title">Kitchen</h3>
-                    <div class="ext-item"><span class="ext-name">Interior oven cleaning</span><span
-                            class="ext-price">+$45</span></div>
-                    <div class="ext-item"><span class="ext-name">Interior fridge cleaning</span><span
-                            class="ext-price">+$35</span></div>
-                    <div class="ext-item"><span class="ext-name">Interior microwave</span><span
-                            class="ext-price">+$15</span></div>
-                    <div class="ext-item"><span class="ext-name">Cabinet interiors</span><span
-                            class="ext-price">+$55</span></div>
-                    <div class="ext-item"><span class="ext-name">Dishwasher interior</span><span
-                            class="ext-price">+$20</span></div>
+                <div class="ext-item"><span class="ext-name">Deep clean add-on</span><span class="ext-price">$60 –
+                        $100</span></div>
+                <div class="ext-item"><span class="ext-name">Move in / out clean</span><span class="ext-price">$255 –
+                        $395</span></div>
+                <div class="ext-item"><span class="ext-name">Inside oven</span><span class="ext-price">$65</span></div>
+
+                <div class="ext-item"><span class="ext-name">Inside fridge</span><span class="ext-price">$30</span>
                 </div>
-                <!-- Column 2: Bathrooms -->
-                <div class="ext-col">
-                    <h3 class="ext-cat-title">Bathrooms</h3>
-                    <div class="ext-item"><span class="ext-name">Grout deep scrub</span><span
-                            class="ext-price">+$40</span></div>
-                    <div class="ext-item"><span class="ext-name">Mineral deposit removal</span><span
-                            class="ext-price">+$35</span></div>
-                    <div class="ext-item"><span class="ext-name">Extra bathroom</span><span
-                            class="ext-price">+$30</span></div>
-                    <div class="ext-item"><span class="ext-name">Steam sanitization</span><span
-                            class="ext-price">+$50</span></div>
+                <div class="ext-item"><span class="ext-name">Inside drawers / cabinets</span><span class="ext-price">$40
+                        – $60</span></div>
+                <div class="ext-item"><span class="ext-name">Balcony clean</span><span class="ext-price">$35</span>
                 </div>
-                <!-- Column 3: Living & Bedrooms -->
-                <div class="ext-col">
-                    <h3 class="ext-cat-title">Living & Bedrooms</h3>
-                    <div class="ext-item"><span class="ext-name">Interior windows</span><span
-                            class="ext-price">+$60</span></div>
-                    <div class="ext-item"><span class="ext-name">Blinds & shutters</span><span
-                            class="ext-price">+$40</span></div>
-                    <div class="ext-item"><span class="ext-name">Balcony / patio</span><span
-                            class="ext-price">+$45</span></div>
-                    <div class="ext-item"><span class="ext-name">Laundry (wash & fold)</span><span
-                            class="ext-price">+$35</span></div>
-                    <div class="ext-item"><span class="ext-name">Bed linen change</span><span
-                            class="ext-price">+$20</span></div>
+
+                <div class="ext-item"><span class="ext-name">Inside windows</span><span class="ext-price">$70 –
+                        $130</span></div>
+                <div class="ext-item featured"><span class="ext-name">Bed changing</span><span class="ext-price">$10 /
+                        bed</span></div>
+                <div class="ext-item"><span class="ext-name">Wall cleaning</span><span class="ext-price">$25 /
+                        wall</span></div>
+
+                <div class="ext-item"><span class="ext-name">Steam clean</span><span class="ext-price">$55 / room</span>
                 </div>
-                <!-- Column 4: Details -->
-                <div class="ext-col">
-                    <h3 class="ext-cat-title">Detail & Specialty</h3>
-                    <div class="ext-item"><span class="ext-name">Wall spot cleaning</span><span
-                            class="ext-price">+$30</span></div>
-                    <div class="ext-item"><span class="ext-name">Ceiling fans & vents</span><span
-                            class="ext-price">+$25</span></div>
-                    <div class="ext-item"><span class="ext-name">Garage sweep</span><span class="ext-price">+$55</span>
-                    </div>
-                    <div class="ext-item"><span class="ext-name">Pet hair treatment</span><span
-                            class="ext-price">+$30</span></div>
-                    <div class="ext-item"><span class="ext-name">Organization service</span><span
-                            class="ext-price">+$75</span></div>
-                </div>
+                <div class="ext-item"><span class="ext-name">Dish washing</span><span class="ext-price">$30</span></div>
+                <div class="ext-item"><span class="ext-name">Wet wiping blinds</span><span class="ext-price">$20 /
+                        blind</span></div>
             </div>
         </div>
     </section>
