@@ -557,6 +557,162 @@
                 margin: 0;
             }
         }
+
+        /* --- EXTRAS SECTION STYLES --- */
+        .extras-section {
+            background: #fff;
+            padding: 100px 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+        }
+
+        .ext-container {
+            width: 90%;
+            max-width: 1080px;
+        }
+
+        .ext-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 48px;
+        }
+
+        .ext-header-left p {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #A1A1AA;
+            margin-bottom: 10px;
+        }
+
+        .ext-header-left h2 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 600;
+            color: #09090B;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        .ext-rule {
+            height: 1px;
+            background: #E4E4E7;
+            margin-bottom: 44px;
+        }
+
+        .ext-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .ext-col {
+            padding: 0 32px 0 0;
+            border-right: 1px solid #E4E4E7;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .ext-col:not(:first-child) {
+            padding-left: 32px;
+        }
+
+        .ext-col:last-child {
+            border-right: none;
+        }
+
+        .ext-cat-title {
+            font-size: 0.66rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #A1A1AA;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #E4E4E7;
+            margin-bottom: 4px;
+        }
+
+        .ext-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 13px 0;
+            border-bottom: 1px solid #F4F4F5;
+            gap: 12px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .ext-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ext-item:last-child {
+            border-bottom: none;
+        }
+
+        .ext-name {
+            font-size: 0.92rem;
+            color: #3F3F46;
+            line-height: 1.4;
+        }
+
+        .ext-price {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #09090B;
+            white-space: nowrap;
+            letter-spacing: -0.01em;
+        }
+
+        @media (max-width: 900px) {
+            .ext-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px 0;
+            }
+
+            .ext-col {
+                border-right: none;
+                padding: 0;
+            }
+
+            .ext-col:not(:first-child) {
+                padding-left: 0;
+            }
+
+            .ext-col:nth-child(odd) {
+                border-right: 1px solid #E4E4E7;
+                padding-right: 24px;
+            }
+
+            .ext-col:nth-child(even) {
+                padding-left: 24px;
+            }
+
+            .ext-header-left h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ext-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ext-col,
+            .ext-col:nth-child(odd),
+            .ext-col:nth-child(even) {
+                border-right: none;
+                padding: 0;
+            }
+        }
     </style>
 </head>
 
@@ -711,6 +867,77 @@
         </div>
     </section>
 
+    <!-- EXTRAS / ADD-ONS SECTION (H2) -->
+    <section class="extras-section">
+        <div class="ext-container">
+            <div class="ext-header">
+                <div class="ext-header-left">
+                    <p>Customize your clean</p>
+                    <h2>Add-on Services</h2>
+                </div>
+            </div>
+
+            <div class="ext-rule"></div>
+
+            <div class="ext-grid">
+                <!-- Column 1: Kitchen -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Kitchen</h3>
+                    <div class="ext-item"><span class="ext-name">Interior oven cleaning</span><span
+                            class="ext-price">+$45</span></div>
+                    <div class="ext-item"><span class="ext-name">Interior fridge cleaning</span><span
+                            class="ext-price">+$35</span></div>
+                    <div class="ext-item"><span class="ext-name">Interior microwave</span><span
+                            class="ext-price">+$15</span></div>
+                    <div class="ext-item"><span class="ext-name">Cabinet interiors</span><span
+                            class="ext-price">+$55</span></div>
+                    <div class="ext-item"><span class="ext-name">Dishwasher interior</span><span
+                            class="ext-price">+$20</span></div>
+                </div>
+                <!-- Column 2: Bathrooms -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Bathrooms</h3>
+                    <div class="ext-item"><span class="ext-name">Grout deep scrub</span><span
+                            class="ext-price">+$40</span></div>
+                    <div class="ext-item"><span class="ext-name">Mineral deposit removal</span><span
+                            class="ext-price">+$35</span></div>
+                    <div class="ext-item"><span class="ext-name">Extra bathroom</span><span
+                            class="ext-price">+$30</span></div>
+                    <div class="ext-item"><span class="ext-name">Steam sanitization</span><span
+                            class="ext-price">+$50</span></div>
+                </div>
+                <!-- Column 3: Living & Bedrooms -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Living & Bedrooms</h3>
+                    <div class="ext-item"><span class="ext-name">Interior windows</span><span
+                            class="ext-price">+$60</span></div>
+                    <div class="ext-item"><span class="ext-name">Blinds & shutters</span><span
+                            class="ext-price">+$40</span></div>
+                    <div class="ext-item"><span class="ext-name">Balcony / patio</span><span
+                            class="ext-price">+$45</span></div>
+                    <div class="ext-item"><span class="ext-name">Laundry (wash & fold)</span><span
+                            class="ext-price">+$35</span></div>
+                    <div class="ext-item"><span class="ext-name">Bed linen change</span><span
+                            class="ext-price">+$20</span></div>
+                </div>
+                <!-- Column 4: Details -->
+                <div class="ext-col">
+                    <h3 class="ext-cat-title">Detail & Specialty</h3>
+                    <div class="ext-item"><span class="ext-name">Wall spot cleaning</span><span
+                            class="ext-price">+$30</span></div>
+                    <div class="ext-item"><span class="ext-name">Ceiling fans & vents</span><span
+                            class="ext-price">+$25</span></div>
+                    <div class="ext-item"><span class="ext-name">Garage sweep</span><span class="ext-price">+$55</span>
+                    </div>
+                    <div class="ext-item"><span class="ext-name">Pet hair treatment</span><span
+                            class="ext-price">+$30</span></div>
+                    <div class="ext-item"><span class="ext-name">Organization service</span><span
+                            class="ext-price">+$75</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SCRIPTS -->
     <script>
         const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
@@ -737,6 +964,21 @@
         }
 
         window.onload = boot;
+
+        // Scroll animation for extras items
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.ext-item');
+                    items.forEach((item, i) => {
+                        setTimeout(() => item.classList.add('visible'), i * 60);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.ext-col').forEach(col => observer.observe(col));
     </script>
 </body>
 
