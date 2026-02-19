@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>257 | Included - Minimal Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #F8FAFC;
+            color: #1E293B;
+            display: flex;
+            justify-content: center;
+            padding: 80px 0;
+        }
+
+        .section {
+            width: 90%;
+            max-width: 1120px;
+        }
+
+        /* HEADER */
+        .head {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .head h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0F172A;
+            letter-spacing: -0.03em;
+        }
+
+        .head p {
+            font-size: 1rem;
+            color: #64748B;
+            margin-top: 8px;
+        }
+
+        /* TABS */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+
+        .t-btn {
+            border: none;
+            background: #FFFFFF;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            color: #64748B;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .t-btn:hover {
+            color: #0F172A;
+            transform: translateY(-1px);
+        }
+
+        .t-btn.active {
+            background: #0F172A;
+            color: #fff;
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.2);
+        }
+
+        /* CARDS */
+        .cards-wrap {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cards-wrap.active {
+            display: grid;
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            background: #F1F5F9;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .c-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0F172A;
+        }
+
+        .c-list {
+            list-style: none;
+        }
+
+        .c-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .check {
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width:800px) {
+            .cards-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <div class="head">
+            <h2>Detailed Breakdown</h2>
+            <p>Select a service tier to compare inclusions.</p>
+        </div>
+
+        <div class="tabs">
+            <button class="t-btn active" onclick="pick('std', this)">Standard</button>
+            <button class="t-btn" onclick="pick('deep', this)">Deep Clean</button>
+            <button class="t-btn" onclick="pick('move', this)">Move In/Out</button>
+        </div>
+
+        <div id="std" class="cards-wrap active">
+            <div class="card">
+                <div class="icon-box">🛋️</div>
+                <h3 class="c-title">Living Areas</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Dusting surfaces</li>
+                    <li class="c-item"><span class="check">✓</span> Vacuuming floors</li>
+                    <li class="c-item"><span class="check">✓</span> Mopping hard floors</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon-box">🍳</div>
+                <h3 class="c-title">Kitchen</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Sanitizing counters</li>
+                    <li class="c-item"><span class="check">✓</span> Polishing appliances</li>
+                    <li class="c-item"><span class="check">✓</span> Scrubbing sink</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon-box">🚿</div>
+                <h3 class="c-title">Bathrooms</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Polishing mirrors</li>
+                    <li class="c-item"><span class="check">✓</span> Scrubbing toilets</li>
+                    <li class="c-item"><span class="check">✓</span> Mopping floors</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="deep" class="cards-wrap">
+            <div class="card">
+                <div class="icon-box">🔍</div>
+                <h3 class="c-title">Precision</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Baseboards</li>
+                    <li class="c-item"><span class="check">✓</span> Door frames</li>
+                    <li class="c-item"><span class="check">✓</span> Ceiling fans</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon-box">🫧</div>
+                <h3 class="c-title">Deep Kitchen</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Microwave in/out</li>
+                    <li class="c-item"><span class="check">✓</span> Cabinet fronts</li>
+                    <li class="c-item"><span class="check">✓</span> Backsplash lines</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon-box">🪣</div>
+                <h3 class="c-title">Deep Bath</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Grout scrubbing</li>
+                    <li class="c-item"><span class="check">✓</span> Scale removal</li>
+                    <li class="c-item"><span class="check">✓</span> Cabinet detail</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="move" class="cards-wrap">
+            <div class="card">
+                <div class="icon-box">📦</div>
+                <h3 class="c-title">Empty Space</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Inside cabinets</li>
+                    <li class="c-item"><span class="check">✓</span> Shelving wiped</li>
+                    <li class="c-item"><span class="check">✓</span> Wall spots</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon-box">❄️</div>
+                <h3 class="c-title">Appliances</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Inside oven</li>
+                    <li class="c-item"><span class="check">✓</span> Inside fridge</li>
+                    <li class="c-item"><span class="check">✓</span> Dishwasher</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon-box">💎</div>
+                <h3 class="c-title">Full Scope</h3>
+                <ul class="c-list">
+                    <li class="c-item"><span class="check">✓</span> Windows & tracks</li>
+                    <li class="c-item"><span class="check">✓</span> Blinds damp wipe</li>
+                    <li class="c-item"><span class="check">✓</span> Deep features</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function pick(id, b) {
+            document.querySelectorAll('.t-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.cards-wrap').forEach(w => w.classList.remove('active'));
+            b.classList.add('active');
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

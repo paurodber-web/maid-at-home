@@ -25,11 +25,10 @@
 
         .container {
             width: 90%;
-            max-width: 1080px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* PAGE HEADER */
         .page-header {
             margin-bottom: 56px;
             padding-bottom: 40px;
@@ -45,11 +44,6 @@
             margin-bottom: 16px;
         }
 
-        .breadcrumb span {
-            color: #CBD5E1;
-            margin: 0 6px;
-        }
-
         .page-header h1 {
             font-family: 'Lora', serif;
             font-size: 2.6rem;
@@ -59,21 +53,12 @@
             margin-bottom: 10px;
         }
 
-        .page-header p {
-            font-size: 0.95rem;
-            color: #64748B;
-            line-height: 1.6;
-            max-width: 520px;
-        }
-
-        /* GRID */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
 
-        /* CARD */
         .card {
             background: #fff;
             border: 1px solid #E2E8F0;
@@ -92,7 +77,6 @@
             transform: translateY(-2px);
         }
 
-        /* PREVIEW */
         .card-preview {
             height: 180px;
             display: flex;
@@ -101,140 +85,10 @@
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
-        }
-
-        /* Preview unique per card */
-        .preview-252 {
-            background: #ffffff;
-            border-bottom: 1px solid #F1F5F9;
-        }
-
-        .preview-253 {
-            background: #FAFAFA;
-            border-bottom: 1px solid #F1F5F9;
-        }
-
-        .preview-254 {
-            background: #ffffff;
-            border-bottom: 1px solid #F1F5F9;
-        }
-
-        /* Miniature representation */
-        .mini {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            width: 80%;
-        }
-
-        .mini-head {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .mini-tag {
-            height: 5px;
-            width: 60px;
-            border-radius: 3px;
-            background: #E2E8F0;
-        }
-
-        .mini-title {
-            height: 12px;
-            width: 120px;
-            border-radius: 4px;
-        }
-
-        .preview-252 .mini-title {
-            background: #0F172A;
-        }
-
-        .preview-253 .mini-title {
-            background: #09090B;
-        }
-
-        .preview-254 .mini-title {
-            background: #0F172A;
-        }
-
-        .mini-tabs {
-            display: flex;
-            gap: 4px;
-            margin: 4px 0;
-        }
-
-        .mini-tab {
-            height: 20px;
-            border-radius: 4px;
-        }
-
-        .preview-252 .mini-tab {
-            width: 44px;
-            background: transparent;
-            border-bottom: 2px solid #0F172A;
-        }
-
-        .preview-252 .mini-tab:not(:first-child) {
-            border-bottom-color: #E2E8F0;
-        }
-
-        .preview-253 .mini-tab {
-            width: 36px;
-            background: #F4F4F5;
-        }
-
-        .preview-253 .mini-tab:first-child {
             background: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #F1F5F9;
         }
 
-        .preview-254 .mini-tab {
-            width: 44px;
-            border-bottom: 2px solid transparent;
-        }
-
-        .preview-254 .mini-tab:first-child {
-            border-bottom-color: #0F172A;
-        }
-
-        .mini-cols {
-            display: flex;
-            gap: 8px;
-            width: 100%;
-        }
-
-        .mini-col {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .mini-col-head {
-            height: 4px;
-            border-radius: 2px;
-            background: #E2E8F0;
-            margin-bottom: 2px;
-        }
-
-        .mini-col-line {
-            height: 6px;
-            border-radius: 2px;
-            background: #F1F5F9;
-        }
-
-        .mini-col-line:nth-child(3) {
-            width: 75%;
-        }
-
-        .mini-col-line:nth-child(4) {
-            width: 60%;
-        }
-
-        /* CARD BODY */
         .card-body {
             padding: 20px 22px 22px;
             display: flex;
@@ -263,7 +117,6 @@
             line-height: 1.5;
         }
 
-        /* TAGS */
         .card-tags {
             display: flex;
             flex-wrap: wrap;
@@ -282,7 +135,6 @@
             letter-spacing: 0.03em;
         }
 
-        /* OPEN BUTTON */
         .card-footer {
             padding: 0 22px 18px;
         }
@@ -312,207 +164,176 @@
             color: #fff;
         }
 
-        .open-btn svg {
-            width: 13px;
-            height: 13px;
-        }
-
-        @media (max-width: 860px) {
+        @media (max-width: 900px) {
             .cards-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .page-header h1 {
-                font-size: 2rem;
-            }
+        /* MINIATURES GENERIC */
+        .mini {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mini-line {
+            height: 4px;
+            border-radius: 2px;
+            background: #E2E8F0;
+            width: 100%;
+        }
+
+        .mini-cols {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .mini-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mini-col-head {
+            height: 6px;
+            width: 60%;
+            background: #CBD5E1;
+            margin-bottom: 4px;
+            border-radius: 2px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-
         <div class="page-header">
-            <div class="breadcrumb">Maid At Home <span>›</span> Design Library <span>›</span> What's Included</div>
-            <h1>What's Included</h1>
-            <p>Section designs for displaying service contents. Meant to follow immediately after the hero. Clean
-                backgrounds, no photography, no stats.</p>
+            <div class="breadcrumb">Maid At Home <span>›</span> Library <span>›</span> What's Included</div>
+            <h1>Section Variants</h1>
+            <p>A collection of "What's Included" section designs. Clean, column-based layouts without photography or
+                complex statistics. Pure information architecture.</p>
         </div>
 
         <div class="cards-grid">
-
             <!-- 252 -->
             <div class="card">
-                <div class="card-preview preview-252">
-                    <div class="mini">
-                        <div class="mini-head">
-                            <div class="mini-tag"></div>
-                            <div class="mini-title"></div>
-                        </div>
-                        <div class="mini-tabs">
-                            <div class="mini-tab"></div>
-                            <div class="mini-tab"></div>
-                            <div class="mini-tab"></div>
-                        </div>
-                        <div class="mini-cols">
-                            <div class="mini-col">
-                                <div class="mini-col-head"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                            <div class="mini-col">
-                                <div class="mini-col-head"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                            <div class="mini-col">
-                                <div class="mini-col-head"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-preview">
+                    <h1 style="font-family:'Lora', serif; color:#0F172A;">Type</h1>
                 </div>
                 <div class="card-body">
                     <div class="card-num">#252</div>
                     <div class="card-title">Pure Typography</div>
-                    <div class="card-desc">Serif headline centrado, tabs underline minimalistas, 3 columnas separadas
-                        por líneas finas. Fondo blanco.</div>
-                    <div class="card-tags">
-                        <span class="tag">Centered</span>
-                        <span class="tag">Underline tabs</span>
-                        <span class="tag">White bg</span>
+                    <div class="card-desc">Serif centered headline, minimal underline tabs, clean 3-column text layout.
                     </div>
+                    <div class="card-tags"><span class="tag">Serif</span><span class="tag">Minimal</span></div>
                 </div>
-                <div class="card-footer">
-                    <a class="open-btn" href="252-Included-Pure-Typography.html" target="_blank">
-                        Open
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path d="M7 17L17 7M17 7H7M17 7v10" />
-                        </svg>
-                    </a>
-                </div>
+                <div class="card-footer"><a class="open-btn" href="252-Included-Pure-Typography.html"
+                        target="_blank">View</a></div>
             </div>
 
             <!-- 253 -->
             <div class="card">
-                <div class="card-preview preview-253">
-                    <div class="mini">
-                        <div class="mini-head"
-                            style="flex-direction:row; justify-content:space-between; width:100%; align-items:flex-end;">
-                            <div class="mini-title" style="width:90px; height:10px;"></div>
-                            <div class="mini-tabs">
-                                <div class="mini-tab" style="width:28px; height:16px; border-radius:5px;"></div>
-                                <div class="mini-tab" style="width:28px; height:16px; border-radius:5px;"></div>
-                                <div class="mini-tab" style="width:28px; height:16px; border-radius:5px;"></div>
-                            </div>
-                        </div>
-                        <div style="height:1px; background:#E4E4E7; width:100%; margin:6px 0;"></div>
-                        <div class="mini-cols">
-                            <div class="mini-col">
-                                <div class="mini-col-head"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                            <div class="mini-col">
-                                <div class="mini-col-head"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                            <div class="mini-col">
-                                <div class="mini-col-head"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-preview" style="background:#FAFAFA;">
+                    <div style="width:60%; height:20px; background:#E4E4E7; border-radius:6px;"></div>
                 </div>
                 <div class="card-body">
                     <div class="card-num">#253</div>
                     <div class="card-title">Aurora Minimalist</div>
-                    <div class="card-desc">Header asimétrico con título izquierda y segmented control derecha. Regla
-                        horizontal. Fondo gris muy suave.</div>
-                    <div class="card-tags">
-                        <span class="tag">Asymmetric</span>
-                        <span class="tag">Segmented tabs</span>
-                        <span class="tag">Gray bg</span>
-                    </div>
+                    <div class="card-desc">Asymmetric header layout with segmented control tabs. Very light gray
+                        background.</div>
+                    <div class="card-tags"><span class="tag">Asymmetric</span><span class="tag">Clean</span></div>
                 </div>
-                <div class="card-footer">
-                    <a class="open-btn" href="253-Included-Aurora-Minimalist.html" target="_blank">
-                        Open
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path d="M7 17L17 7M17 7H7M17 7v10" />
-                        </svg>
-                    </a>
-                </div>
+                <div class="card-footer"><a class="open-btn" href="253-Included-Aurora-Minimalist.html"
+                        target="_blank">View</a></div>
             </div>
 
             <!-- 254 -->
             <div class="card">
-                <div class="card-preview preview-254">
-                    <div class="mini">
-                        <div class="mini-head">
-                            <div class="mini-title" style="width:100px;"></div>
-                        </div>
-                        <div class="mini-tabs" style="gap:8px;">
-                            <div class="mini-tab" style="width:48px; border-bottom:2px solid #0F172A;"></div>
-                            <div class="mini-tab" style="width:48px;"></div>
-                            <div class="mini-tab" style="width:48px;"></div>
-                        </div>
-                        <div class="mini-cols">
-                            <div class="mini-col">
-                                <div
-                                    style="height:16px; background:#F8FAFC; border:1px solid #F1F5F9; border-radius:4px; margin-bottom:4px;">
-                                </div>
-                                <div class="mini-col-line" style="display:flex; gap:4px; height:6px;"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                            <div class="mini-col">
-                                <div
-                                    style="height:16px; background:#F8FAFC; border:1px solid #F1F5F9; border-radius:4px; margin-bottom:4px;">
-                                </div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                            <div class="mini-col">
-                                <div
-                                    style="height:16px; background:#F8FAFC; border:1px solid #F1F5F9; border-radius:4px; margin-bottom:4px;">
-                                </div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                                <div class="mini-col-line"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card-preview">
+                    <div style="display:flex; gap:4px;"><span style="font-size:20px;">✓</span><span
+                            style="font-size:20px;">✓</span><span style="font-size:20px;">✓</span></div>
                 </div>
                 <div class="card-body">
                     <div class="card-num">#254</div>
                     <div class="card-title">Column Checklist</div>
-                    <div class="card-desc">Tabs con badges numéricos, icon por categoría, cada ítem con checkmark verde.
-                        Más visual y accesible.</div>
-                    <div class="card-tags">
-                        <span class="tag">Checkmarks</span>
-                        <span class="tag">Icons</span>
-                        <span class="tag">Numbered tabs</span>
+                    <div class="card-desc">Features numbered tabs, category icons, and visible green checkmarks for
+                        every item.</div>
+                    <div class="card-tags"><span class="tag">Icons</span><span class="tag">Checkmarks</span></div>
+                </div>
+                <div class="card-footer"><a class="open-btn" href="254-Included-Cinematic-Zen.html"
+                        target="_blank">View</a></div>
+            </div>
+
+            <!-- 255 -->
+            <div class="card">
+                <div class="card-preview">
+                    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; width:100%; height:100%;">
+                        <div style="border-right:1px solid #E2E8F0;"></div>
+                        <div style="border-right:1px solid #E2E8F0;"></div>
+                        <div></div>
                     </div>
                 </div>
-                <div class="card-footer">
-                    <a class="open-btn" href="254-Included-Cinematic-Zen.html" target="_blank">
-                        Open
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                            <path d="M7 17L17 7M17 7H7M17 7v10" />
-                        </svg>
-                    </a>
+                <div class="card-body">
+                    <div class="card-num">#255</div>
+                    <div class="card-title">Swiss Grid</div>
+                    <div class="card-desc">Architectural style with visible grid lines separating columns and tabs.
+                        Monospace accents.</div>
+                    <div class="card-tags"><span class="tag">Grid</span><span class="tag">Structured</span></div>
                 </div>
+                <div class="card-footer"><a class="open-btn" href="255-Included-Swiss-Grid.html"
+                        target="_blank">View</a></div>
+            </div>
+
+            <!-- 256 -->
+            <div class="card">
+                <div class="card-preview"><span
+                        style="font-size:80px; font-family:'Lora'; color:#E5E5E5; font-weight:bold;">01</span></div>
+                <div class="card-body">
+                    <div class="card-num">#256</div>
+                    <div class="card-title">Focus Type</div>
+                    <div class="card-desc">Large background numbers (01, 02, 03) provide visual anchoring. Centered and
+                        airy.</div>
+                    <div class="card-tags"><span class="tag">Big Type</span><span class="tag">Editorial</span></div>
+                </div>
+                <div class="card-footer"><a class="open-btn" href="256-Included-Focus-Type.html"
+                        target="_blank">View</a></div>
+            </div>
+
+            <!-- 257 -->
+            <div class="card">
+                <div class="card-preview" style="background:#F8FAFC;">
+                    <div
+                        style="width:40px; height:50px; background:#fff; box-shadow:0 4px 6px rgba(0,0,0,0.05); border-radius:4px;">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-num">#257</div>
+                    <div class="card-title">Minimal Cards</div>
+                    <div class="card-desc">Each column is a floating white card with soft shadows on a light gray
+                        background.</div>
+                    <div class="card-tags"><span class="tag">Cards</span><span class="tag">Shadows</span></div>
+                </div>
+                <div class="card-footer"><a class="open-btn" href="257-Included-Minimal-Cards.html"
+                        target="_blank">View</a></div>
+            </div>
+
+            <!-- 258 -->
+            <div class="card">
+                <div class="card-preview">
+                    <div style="width:60%; border-bottom:1px solid #000; padding-bottom:4px;">Interactive</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-num">#258</div>
+                    <div class="card-title">Interactive Lines</div>
+                    <div class="card-desc">List items reveal arrows and highlight on hover. Stark black and white
+                        aesthetic.</div>
+                    <div class="card-tags"><span class="tag">Interactive</span><span class="tag">B&W</span></div>
+                </div>
+                <div class="card-footer"><a class="open-btn" href="258-Included-Interactive-Hover.html"
+                        target="_blank">View</a></div>
             </div>
 
         </div>

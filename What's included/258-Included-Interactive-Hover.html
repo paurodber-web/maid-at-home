@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>258 | Included - Interactive Lines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #fff;
+            color: #000;
+            padding: 80px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrap {
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #000;
+        }
+
+        .top h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* TABS */
+        .switches {
+            display: flex;
+            gap: 32px;
+        }
+
+        .switch {
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #A3A3A3;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .switch.active {
+            color: #000;
+        }
+
+        .switch::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: #000;
+            transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .switch.active::after {
+            width: 100%;
+        }
+
+        /* CONTENT */
+        .stage {
+            display: none;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .stage.active {
+            display: grid;
+            animation: fade 0.5s ease;
+        }
+
+        .col h3 {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #A3A3A3;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #F3F4F6;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1F2937;
+            cursor: default;
+            transition: all 0.2s;
+        }
+
+        .row:hover {
+            padding-left: 12px;
+            border-bottom-color: #000;
+            color: #000;
+        }
+
+        .marker {
+            opacity: 0;
+            color: #000;
+            transform: translateX(-10px);
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .row:hover .marker {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media(max-width:800px) {
+            .stage {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .switches {
+                width: 100%;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="top">
+            <h2>Service DNA</h2>
+            <div class="switches">
+                <button class="switch active" onclick="flip('std', this)">Standard</button>
+                <button class="switch" onclick="flip('deep', this)">Deep Clean</button>
+                <button class="switch" onclick="flip('move', this)">Move In/Out</button>
+            </div>
+        </div>
+
+        <div id="std" class="stage active">
+            <div class="col">
+                <h3>Living Areas</h3>
+                <div class="row">Dusting surfaces <span class="marker">→</span></div>
+                <div class="row">Vacuuming floors <span class="marker">→</span></div>
+                <div class="row">Mopping hard floors <span class="marker">→</span></div>
+            </div>
+            <div class="col">
+                <h3>Kitchen</h3>
+                <div class="row">Sanitizing counters <span class="marker">→</span></div>
+                <div class="row">Polishing appliances <span class="marker">→</span></div>
+                <div class="row">Scrubbing sink <span class="marker">→</span></div>
+            </div>
+            <div class="col">
+                <h3>Bathrooms</h3>
+                <div class="row">Polishing mirrors <span class="marker">→</span></div>
+                <div class="row">Scrubbing toilets <span class="marker">→</span></div>
+                <div class="row">Mopping floors <span class="marker">→</span></div>
+            </div>
+        </div>
+
+        <div id="deep" class="stage">
+            <div class="col">
+                <h3>Precision</h3>
+                <div class="row">Baseboards <span class="marker">→</span></div>
+                <div class="row">Door frames <span class="marker">→</span></div>
+                <div class="row">Ceiling fans <span class="marker">→</span></div>
+            </div>
+            <div class="col">
+                <h3>Kitchen</h3>
+                <div class="row">Microwave In/Out <span class="marker">→</span></div>
+                <div class="row">Cabinet Fronts <span class="marker">→</span></div>
+                <div class="row">Backsplash <span class="marker">→</span></div>
+            </div>
+            <div class="col">
+                <h3>Bath</h3>
+                <div class="row">Grout Scrub <span class="marker">→</span></div>
+                <div class="row">Scale Removal <span class="marker">→</span></div>
+                <div class="row">Cabinet Fronts <span class="marker">→</span></div>
+            </div>
+        </div>
+
+        <div id="move" class="stage">
+            <div class="col">
+                <h3>Empty Space</h3>
+                <div class="row">Inside Cabinets <span class="marker">→</span></div>
+                <div class="row">Shelving Wiped <span class="marker">→</span></div>
+                <div class="row">Wall Spots <span class="marker">→</span></div>
+            </div>
+            <div class="col">
+                <h3>Appliances</h3>
+                <div class="row">Inside Oven <span class="marker">→</span></div>
+                <div class="row">Inside Fridge <span class="marker">→</span></div>
+                <div class="row">Dishwasher <span class="marker">→</span></div>
+            </div>
+            <div class="col">
+                <h3>Full Scope</h3>
+                <div class="row">Windows & Tracks <span class="marker">→</span></div>
+                <div class="row">Blinds Wiped <span class="marker">→</span></div>
+                <div class="row">Deep Features <span class="marker">→</span></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function flip(id, t) {
+            document.querySelectorAll('.switch').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.stage').forEach(st => st.classList.remove('active'));
+            t.classList.add('active');
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

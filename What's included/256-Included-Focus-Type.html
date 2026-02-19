@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>256 | What's Included — Focus Type</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Lora:ital@0;1&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #FAFAFA;
+            color: #171717;
+            padding: 100px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        /* HEADER */
+        .head {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .head h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.2rem;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .head p {
+            color: #737373;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* TABS */
+        .tab-wrap {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .toggler {
+            background: #E5E5E5;
+            padding: 4px;
+            border-radius: 100px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 100px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #525252;
+            transition: all 0.3s;
+        }
+
+        .btn.active {
+            background: #fff;
+            color: #000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .grid.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+            position: relative;
+        }
+
+        .col h2 {
+            font-size: 5rem;
+            color: #E5E5E5;
+            line-height: 1;
+            margin-bottom: -20px;
+            position: relative;
+            z-index: 0;
+            font-family: 'Lora', serif;
+        }
+
+        .col h3 {
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .list li {
+            font-size: 1rem;
+            color: #525252;
+            margin-bottom: 12px;
+            list-style: none;
+            display: flex;
+            gap: 12px;
+        }
+
+        .list li::before {
+            content: '•';
+            color: #D4D4D4;
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .col {
+                text-align: center;
+            }
+
+            .list li {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="head">
+            <p>Transparency matters</p>
+            <h1>What's Included</h1>
+        </div>
+
+        <div class="tab-wrap">
+            <div class="toggler">
+                <button class="btn active" onclick="swap('std', this)">Standard</button>
+                <button class="btn" onclick="swap('deep', this)">Deep</button>
+                <button class="btn" onclick="swap('move', this)">Move In/Out</button>
+            </div>
+        </div>
+
+        <div id="std" class="grid active">
+            <div class="col">
+                <h2>01</h2>
+                <h3>Living Areas</h3>
+                <ul class="list">
+                    <li>Surfaces dusted & wiped</li>
+                    <li>Floors vacuumed & mopped</li>
+                    <li>Trash removal</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>02</h2>
+                <h3>Kitchen</h3>
+                <ul class="list">
+                    <li>Countertops sanitized</li>
+                    <li>Appliances polished</li>
+                    <li>Sink deep cleaned</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>03</h2>
+                <h3>Bathrooms</h3>
+                <ul class="list">
+                    <li>Mirrors polished</li>
+                    <li>Shower sanitized</li>
+                    <li>Floors mopped</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="deep" class="grid">
+            <div class="col">
+                <h2>01</h2>
+                <h3>Deep Detail</h3>
+                <ul class="list">
+                    <li>Baseboards wiped</li>
+                    <li>Door frames cleaned</li>
+                    <li>Vents dusted</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>02</h2>
+                <h3>Deep Kitchen</h3>
+                <ul class="list">
+                    <li>Microwave interior</li>
+                    <li>Degrease cabinets</li>
+                    <li>Backsplash focus</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>03</h2>
+                <h3>Deep Bath</h3>
+                <ul class="list">
+                    <li>Tile grout scrub</li>
+                    <li>Scale removal</li>
+                    <li>Cabinet exterior</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="move" class="grid">
+            <div class="col">
+                <h2>01</h2>
+                <h3>Empty Home</h3>
+                <ul class="list">
+                    <li>Inside cabinets</li>
+                    <li>Closet shelving</li>
+                    <li>Wall spot clean</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>02</h2>
+                <h3>Appliances</h3>
+                <ul class="list">
+                    <li>Oven interior</li>
+                    <li>Fridge interior</li>
+                    <li>Dishwasher cycle</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h2>03</h2>
+                <h3>Full Scope</h3>
+                <ul class="list">
+                    <li>Window glass</li>
+                    <li>Blinds wiped</li>
+                    <li>Deep clean included</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function swap(id, el) {
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.grid').forEach(g => g.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
