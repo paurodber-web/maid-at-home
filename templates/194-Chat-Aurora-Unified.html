@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>194 | Concierge Chat — Aurora Unified</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-grad: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --accent: #F472B6;
+            --text-dark: #1E293B;
+            --text-sub: #64748B;
+            --glass-bg: rgba(255, 255, 255, 0.5);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --card-shadow: 0 40px 80px -20px rgba(99, 102, 241, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #F8FAFC;
+            color: var(--text-dark);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* BACKGROUND */
+        .aurora-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 10% 20%, #E0E7FF 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, #F5D0FE 0%, transparent 40%);
+        }
+
+        .orb-big {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #A5B4FC, #F0ABFC);
+            filter: blur(80px);
+            opacity: 0.4;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* UNIFIED CONTAINER */
+        .glass-island {
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid white;
+            border-radius: 40px;
+            box-shadow: var(--card-shadow);
+            backdrop-filter: blur(30px);
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        /* LEFT SIDE */
+        .info-side {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .brand-u {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            color: var(--text-dark);
+        }
+
+        .grad {
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.desc {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            max-width: 400px;
+            margin-bottom: 40px;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 40px;
+            margin-top: auto;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* RIGHT SIDE */
+        .chat-side {
+            position: relative;
+            background: rgba(255, 255, 255, 0.4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 24px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rst-btn {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .chat-feed {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .bub {
+            max-width: 80%;
+            padding: 16px 20px;
+            font-size: 1rem;
+            border-radius: 20px;
+            line-height: 1.5;
+            animation: slideIn 0.3s ease;
+        }
+
+        .b-agt {
+            background: white;
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .b-usr {
+            background: var(--primary-grad);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .chat-dock {
+            padding: 24px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-uni {
+            width: 100%;
+            padding: 16px;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: 0.2s;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .btn-uni:hover {
+            background: #EEF2FF;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .g-uni {
+            display: grid;
+            gap: 12px;
+        }
+
+        .gc-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* RESULT OVERLAY */
+        .res-ov {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            display: none;
+        }
+
+        .price-huge {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .cta-big {
+            padding: 20px 40px;
+            background: var(--text-dark);
+            color: white;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .cta-big:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 1000px) {
+            .glass-island {
+                grid-template-columns: 1fr;
+                height: auto;
+                min-height: 100vh;
+                border-radius: 0;
+            }
+
+            .info-side {
+                padding: 40px 20px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            }
+
+            .chat-feed {
+                padding: 20px;
+                height: 400px;
+            }
+
+            .stat-row {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="aurora-bg"></div>
+    <div class="orb-big"></div>
+
+    <div class="glass-island">
+        <!-- LEFT -->
+        <div class="info-side">
+            <div class="brand-u">Maid.Unified</div>
+            <h1>Pricing so clear, <br><span class="grad">it shines.</span></h1>
+            <p class="desc">A revolutionary interface combining beauty and function. Get your home cleaning quote
+                instantly inside this unified glass dashboard.</p>
+
+            <div class="stat-row">
+                <div class="stat-item">
+                    <h3>2s</h3>
+                    <p>Avg. Quote Time</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>Homes Cleaned</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="chat-side">
+            <div class="chat-header">
+                <div style="font-weight:700; font-size:0.9rem;">Start Quote</div>
+                <div class="rst-btn" onclick="boot()">Restart</div>
+            </div>
+
+            <div class="chat-feed" id="feed"></div>
+            <div class="chat-dock" id="dock"></div>
+
+            <div class="res-ov" id="end">
+                <div
+                    style="text-transform:uppercase; font-size:0.8rem; font-weight:700; color:#94A3B8; letter-spacing:0.1em; margin-bottom:10px;">
+                    Full Service Rate</div>
+                <div class="price-huge">$<span id="pVal">0</span></div>
+                <button class="cta-big">Proceed to Booking</button>
+                <div style="margin-top:20px; font-weight:700; color:#94A3B8; cursor:pointer;" onclick="boot()">Reset
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = {
+            1: { std: 155, deep: 215, move: 410 },
+            2: { std: 175, deep: 245, move: 440 },
+            3: { std: 195, deep: 275, move: 500 },
+            4: { std: 235, deep: 315, move: 570 },
+            5: { std: 285, deep: 375, move: 670 },
+            6: { std: 315, deep: 415, move: 710 }
+        };
+        const feed = document.getElementById('feed');
+        const dock = document.getElementById('dock');
+        const end = document.getElementById('end');
+        let beds = 0; let mode = 'flat';
+
+        function post(txt, type) {
+            const d = document.createElement('div');
+            d.className = `bub b-${type}`;
+            d.innerText = txt;
+            feed.appendChild(d);
+            feed.scrollTop = feed.scrollHeight;
+        }
+        function w(fn) { setTimeout(fn, 250); }
+        function boot() {
+            feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none';
+            w(() => {
+                post('Hello! Number of bedrooms?', 'agt');
+                w(() => {
+                    let h = `<div class="g-uni gc-3">`;
+                    [1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-uni" onclick="selBed(${n})">${n}</button>`; });
+                    h += `</div>`; dock.innerHTML = h;
+                });
+            });
+        }
+        function selBed(n) {
+            beds = n; post(`${n} Bedrooms`, 'usr'); dock.innerHTML = '';
+            w(() => {
+                post('Pricing Model?', 'agt');
+                w(() => {
+                    dock.innerHTML = `
+                         <div class="g-uni gc-2">
+                             <button class="btn-uni" onclick="selMode('flat')">Flat Rate</button>
+                             <button class="btn-uni" onclick="selMode('hourly')">Hourly</button>
+                         </div>`;
+                });
+            });
+        }
+        function selMode(m) {
+            mode = m; post(m === 'flat' ? 'Flat Rate' : 'Hourly', 'usr'); dock.innerHTML = '';
+            w(() => {
+                if (m === 'flat') {
+                    post('Cleaning Tier:', 'agt');
+                    w(() => {
+                        dock.innerHTML = `
+                             <div class="g-uni gc-3">
+                                 <button class="btn-uni" onclick="fin('Standard', ${rates[beds].std})">Standard</button>
+                                 <button class="btn-uni" onclick="fin('Deep', ${rates[beds].deep})">Deep</button>
+                                 <button class="btn-uni" onclick="fin('Move', ${rates[beds].move})">Move</button>
+                             </div>`;
+                    });
+                } else {
+                    post('Frequency?', 'agt');
+                    w(() => {
+                        dock.innerHTML = `
+                             <div class="g-uni gc-2">
+                                 <button class="btn-uni" onclick="fin('Weekly', 54)">Weekly</button>
+                                 <button class="btn-uni" onclick="fin('Bi-Wk', 54)">Bi-Wk</button>
+                                 <button class="btn-uni" onclick="fin('Month', 57)">Month</button>
+                                 <button class="btn-uni" onclick="fin('Once', 60)">Once</button>
+                             </div>`;
+                    });
+                }
+            });
+        }
+        function fin(l, p) {
+            post(l, 'usr'); dock.innerHTML = '';
+            w(() => {
+                end.style.display = 'flex';
+                document.getElementById('pVal').innerText = p;
+            });
+        }
+        window.onload = boot;
+    </script>
+</body>
+
+</html>

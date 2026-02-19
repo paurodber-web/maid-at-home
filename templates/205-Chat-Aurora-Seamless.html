@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>205 | Concierge Chat — Aurora Seamless</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-grad: linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%);
+            --text-dark: #1E293B;
+            --text-sub: #64748B;
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --card-shadow: 0 40px 100px -20px rgba(99, 102, 241, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #F8FAFC;
+            color: var(--text-dark);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* BACKGROUND */
+        .aurora-wash {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, #E0E7FF 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, #FAE8FF 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* SEAMLESS PANEL */
+        .glass-panel {
+            width: 90%;
+            max-width: 1100px;
+            height: 600px;
+            background: white;
+            border-radius: 40px;
+            box-shadow: var(--card-shadow);
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        /* LEFT (Marketing) */
+        .mkt-box {
+            background: #F8FAFC;
+            border-right: 1px solid #F1F5F9;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mkt-box h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .high-txt {
+            color: #8B5CF6;
+        }
+
+        .mkt-box p {
+            color: var(--text-sub);
+            line-height: 1.5;
+            font-size: 1.05rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .feat h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .feat span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #94A3B8;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        /* RIGHT (Chat - Directly on Panel) */
+        .chat-seamless {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: white;
+        }
+
+        .chat-nav {
+            padding: 20px 40px;
+            border-bottom: 1px solid #F1F5F9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-label {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-act {
+            cursor: pointer;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .feed-s {
+            flex: 1;
+            padding: 30px 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .bub {
+            padding: 12px 18px;
+            font-size: 0.95rem;
+            border-radius: 16px;
+            max-width: 80%;
+            line-height: 1.5;
+            animation: softFade 0.3s ease;
+        }
+
+        .b-agt {
+            background: #F8FAFC;
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: var(--text-dark);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .dock-s {
+            padding: 24px 40px;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .btn-seam {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: 0.1s;
+            text-align: center;
+        }
+
+        .btn-seam:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #F8FAFC;
+        }
+
+        .g-seam {
+            display: grid;
+            gap: 10px;
+        }
+
+        .gc-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* RESULT */
+        .res-s {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 20;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .final-p {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .cta-s {
+            padding: 18px 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 100px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+        }
+
+        @keyframes softFade {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 900px) {
+            .glass-panel {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+
+            .mkt-box {
+                padding: 40px;
+                border-right: none;
+                border-bottom: 1px solid #F1F5F9;
+            }
+
+            .chat-seamless {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="aurora-wash"></div>
+
+    <div class="glass-panel">
+        <!-- LEFT MARKETING -->
+        <div class="mkt-box">
+            <h1>Seamlessly <br><span class="high-txt">Simple.</span></h1>
+            <p>Pricing doesn't have to be complicated. Our seamless interface calculates your rate as you chat.</p>
+
+            <div class="feature-grid">
+                <div class="feat">
+                    <h4>2 min</h4>
+                    <span>Avg. Quote</span>
+                </div>
+                <div class="feat">
+                    <h4>100%</h4>
+                    <span>Free Estimate</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT CHAT -->
+        <div class="chat-seamless">
+            <div class="chat-nav">
+                <div class="nav-label">Pricing Assistant</div>
+                <div class="nav-act" onclick="boot()">Reset</div>
+            </div>
+
+            <div class="feed-s" id="feed"></div>
+            <div class="dock-s" id="dock"></div>
+
+            <div class="res-s" id="end">
+                <div style="font-weight:700; color:#94A3B8; font-size:0.8rem; margin-bottom:10px;">YOUR QUOTE</div>
+                <div class="final-p">$<span id="pVal">0</span></div>
+                <button class="cta-s">Proceed</button>
+                <div style="margin-top:20px; font-weight:600; color:#94A3B8; cursor:pointer;" onclick="boot()">Back
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
+        let beds = 0, mode = 'flat';
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn) { setTimeout(fn, 150); }
+        function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Bedrooms?', 'agt'); w(() => { let h = `<div class="g-seam gc-3">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-seam" onclick="selBed(${n})">${n}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
+        function selBed(n) { beds = n; post(`${n} Beds`, 'usr'); dock.innerHTML = ''; w(() => { post('Type?', 'agt'); w(() => { dock.innerHTML = `<div class="g-seam gc-2"><button class="btn-seam" onclick="selMode('flat')">Flat</button><button class="btn-seam" onclick="selMode('hourly')">Hourly</button></div>`; }); }); }
+        function selMode(m) { mode = m; post(m === 'flat' ? 'Flat' : 'Hourly', 'usr'); dock.innerHTML = ''; w(() => { if (m === 'flat') { post('Tier?', 'agt'); w(() => { dock.innerHTML = `<div class="g-seam gc-3"><button class="btn-seam" onclick="fin('Std',${rates[beds].std})">Std</button><button class="btn-seam" onclick="fin('Deep',${rates[beds].deep})">Deep</button><button class="btn-seam" onclick="fin('Move',${rates[beds].move})">Move</button></div>`; }); } else { post('Freq?', 'agt'); w(() => { dock.innerHTML = `<div class="g-seam gc-2"><button class="btn-seam" onclick="fin('Wk',54)">Wk</button><button class="btn-seam" onclick="fin('Bi-Wk',54)">Bi-Wk</button><button class="btn-seam" onclick="fin('Mth',57)">Mth</button><button class="btn-seam" onclick="fin('1x',60)">1x</button></div>`; }); } }); }
+        function fin(l, p) { post(l, 'usr'); dock.innerHTML = ''; w(() => { end.style.display = 'flex'; document.getElementById('pVal').innerText = p; }); }
+        window.onload = boot;
+    </script>
+</body>
+
+</html>

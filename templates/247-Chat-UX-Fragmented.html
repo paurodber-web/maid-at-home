@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>247 | Maid At Home — Fragmented UX</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-grad: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --text-dark: #0F172A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0F172A;
+        }
+
+        .bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1800&auto=format&fit=crop&q=80') center/cover;
+        }
+
+        .bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.9) 100%);
+        }
+
+        /* ══ FRAGMENTED MODULES ══ */
+        .grid-wrap {
+            position: relative;
+            z-index: 10;
+            width: 92%;
+            max-width: 1160px;
+            height: 80vh;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            grid-template-rows: 1fr auto;
+            gap: 24px;
+        }
+
+        /* MODULE 1: Marketing / Headline */
+        .mod-hero {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mod-hero h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.5rem;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .mod-hero p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        /* MODULE 2: The Chat (Tall) */
+        .mod-chat {
+            grid-row: span 2;
+            background: #fff;
+            border-radius: 32px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-header {
+            padding: 28px 32px;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .chat-header h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .feed {
+            flex: 1;
+            padding: 24px 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #FAFBFC;
+        }
+
+        .bub {
+            padding: 12px 16px;
+            font-size: 0.92rem;
+            border-radius: 20px;
+            max-width: 85%;
+            line-height: 1.5;
+            animation: pop 0.3s ease;
+        }
+
+        .b-agt {
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: var(--primary-grad);
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .dock {
+            padding: 20px 32px 32px;
+            border-top: 1px solid #F1F5F9;
+            background: #fff;
+        }
+
+        .btn-q {
+            width: 100%;
+            padding: 13px;
+            background: #fff;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-q:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* MODULE 3: Trust / Quick Stats (Bottom Left) */
+        .mod-trust {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat-dot {
+            width: 8px;
+            height: 8px;
+            background: #40C057;
+            border-radius: 50%;
+        }
+
+        .stat-txt {
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .stat-sub {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <div class="grid-wrap">
+        <div class="mod-hero">
+            <h1>Expert care for elegant homes.</h1>
+            <p>Your property deserves a team that treats every corner with absolute precision. Get your proposal in 60
+                seconds.</p>
+        </div>
+
+        <div class="mod-chat">
+            <div class="chat-header">
+                <h2>Instant Quote</h2>
+            </div>
+            <div class="feed" id="feed"></div>
+            <div class="dock" id="dock"></div>
+        </div>
+
+        <div class="mod-trust">
+            <div class="stat-item">
+                <div class="stat-dot"></div>
+                <div>
+                    <div class="stat-txt">Available Today</div>
+                    <div class="stat-sub">Central Area</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div>
+                    <div class="stat-txt">2,400+</div>
+                    <div class="stat-sub">Happy Clients</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div>
+                    <div class="stat-txt">4.9/5.0</div>
+                    <div class="stat-sub">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock');
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn, ms = 200) { setTimeout(fn, ms); }
+
+        function boot() {
+            feed.innerHTML = ''; dock.innerHTML = '';
+            w(() => {
+                post('Hi! How many bedrooms are we cleaning today?', 'agt'); w(() => {
+                    let h = `<div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n}</button>`; }); h += `</div>`; dock.innerHTML = h;
+                });
+            });
+        }
+
+        function selBed(n) {
+            post(`${n} br`, 'usr'); dock.innerHTML = '';
+            w(() => {
+                post('Perfect. Which service level fits best?', 'agt'); w(() => {
+                    dock.innerHTML = `<div style="display:grid; grid-template-columns:1fr; gap:8px;"><button class="btn-q" onclick="fin()">Standard Cleaning</button><button class="btn-q" onclick="fin()">Deep Precision Clean</button></div>`;
+                });
+            });
+        }
+
+        function fin() {
+            post('Standard', 'usr'); dock.innerHTML = '';
+            w(() => { post('Great choice. Your initial estimate is ready. One of our concierges will call to finalize!', 'agt'); });
+        }
+
+        window.onload = boot;
+    </script>
+</body>
+
+</html>

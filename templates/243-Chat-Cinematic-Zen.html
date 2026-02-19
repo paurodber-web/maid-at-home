@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>243 | Maid At Home — Cinematic Zen</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D4D4D8;
+            --primary-grad: linear-gradient(135deg, #A1A1AA 0%, #71717A 100%);
+            --text-dark: #27272A;
+            --text-sub: #71717A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FAFAF9;
+        }
+
+        .bg-photo {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=1800&auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+
+        .bg-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(250, 250, 249, 0.75) 0%, rgba(250, 250, 249, 0.4) 100%);
+        }
+
+        .topbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #27272A;
+        }
+
+        .brand span {
+            color: #A1A1AA;
+        }
+
+        .layout {
+            position: relative;
+            z-index: 10;
+            width: 92%;
+            max-width: 1160px;
+            height: 84vh;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            align-items: center;
+        }
+
+        .headline-area {
+            padding: 0 60px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 7px 16px;
+            border-radius: 100px;
+            width: fit-content;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #52525B;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #D4D4D8;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.8rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: #27272A;
+        }
+
+        p.sub {
+            font-size: 1.1rem;
+            color: #52525B;
+            line-height: 1.65;
+            max-width: 380px;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 32px;
+        }
+
+        .ht-item strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #27272A;
+            line-height: 1;
+        }
+
+        .ht-item span {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #A1A1AA;
+            font-weight: 700;
+        }
+
+        .quote-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 40px 80px -16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 78vh;
+            max-height: 640px;
+            position: relative;
+            border: 1px solid #F4F4F5;
+        }
+
+        .qc-top {
+            padding: 26px 32px 18px;
+            border-bottom: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .qc-top h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #27272A;
+            margin-bottom: 4px;
+        }
+
+        .feed {
+            flex: 1;
+            padding: 18px 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #FBFAF9;
+        }
+
+        .bub {
+            padding: 11px 16px;
+            font-size: 0.95rem;
+            border-radius: 18px;
+            max-width: 90%;
+            line-height: 1.5;
+            animation: rise 0.25s ease;
+        }
+
+        .b-agt {
+            background: white;
+            border: 1px solid #E2E8F0;
+            color: #27272A;
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: #52525B;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .dock {
+            padding: 16px 32px 22px;
+            background: white;
+            border-top: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .btn-q {
+            width: 100%;
+            padding: 13px;
+            background: white;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: #27272A;
+            cursor: pointer;
+            transition: all 0.12s;
+            text-align: center;
+        }
+
+        .btn-q:hover {
+            border-color: #A1A1AA;
+            background: #F8FAF9;
+        }
+
+        .g {
+            display: grid;
+            gap: 8px;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .res {
+            position: absolute;
+            inset: 0;
+            background: white;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .res-price {
+            font-size: 5.5rem;
+            font-weight: 900;
+            line-height: 1;
+            color: #27272A;
+            margin-bottom: 6px;
+        }
+
+        .cta {
+            width: 100%;
+            padding: 18px;
+            background: #27272A;
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            cursor: pointer;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .headline-area {
+                padding: 0 0 32px 0;
+            }
+
+            h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-trust {
+                display: none;
+            }
+
+            .quote-card {
+                height: 520px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-photo"></div>
+    <div class="topbar">
+        <div class="brand">Maid <span>At Home</span></div>
+    </div>
+    <div class="layout">
+        <div class="headline-area">
+            <div class="eyebrow">
+                <div class="eyebrow-dot"></div>Peace of mind
+            </div>
+            <h1>Breathe easy in<br>your sanctuary.</h1>
+            <p class="sub">Soft cleaning for peaceful spaces. We bring the zen back to your daily life with our
+                meticulous team.</p>
+            <div class="hero-trust">
+                <div class="ht-item"><strong>2,400+</strong><span>Clients</span></div>
+                <div class="ht-item"><strong>4.9★</strong><span>Rating</span></div>
+                <div class="ht-item"><strong>100%</strong><span>Sure</span></div>
+            </div>
+        </div>
+        <div class="quote-card">
+            <div class="qc-top">
+                <h2>Get your free quote</h2>
+                <p>Takes about 60 seconds.</p>
+            </div>
+            <div class="feed" id="feed"></div>
+            <div class="dock" id="dock"></div>
+            <div class="res" id="end">
+                <div class="res-price">$<span id="pVal">0</span></div>
+                <button class="cta">Book My Cleaning</button>
+                <div style="margin-top:16px; cursor:pointer; color:#94A3B8; font-weight:700;" onclick="boot()">← Start
+                    over</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
+        let beds = 0, tierLabel = '';
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn, ms = 180) { setTimeout(fn, ms); }
+        function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Bedrooms?', 'agt'); w(() => { let h = `<div class="g gc-3">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
+        function selBed(n) { beds = n; post(`${n} br`, 'usr'); dock.innerHTML = ''; w(() => { post('What service?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-3"><button class="btn-q" onclick="selTier('std','Standard')">Standard</button><button class="btn-q" onclick="selTier('deep','Deep')">Deep</button><button class="btn-q" onclick="selTier('move','Move')">Move</button></div>`; }); }); }
+        function selTier(t, label) { tierLabel = label; post(label, 'usr'); dock.innerHTML = ''; w(() => { post('Almost there...', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-2"><button class="btn-q" onclick="fin('${t}','Weekly',0.9)">Weekly</button><button class="btn-q" onclick="fin('${t}','Once',1)">Once</button></div>`; }); }); }
+        function fin(tier, freq, mult) { post(freq, 'usr'); dock.innerHTML = ''; const price = Math.round(rates[beds][tier] * mult); w(() => { document.getElementById('pVal').innerText = price; end.style.display = 'flex'; }, 250); }
+        window.onload = boot;
+    </script>
+</body>
+
+</html>

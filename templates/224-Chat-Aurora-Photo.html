@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>224 | Maid At Home — Aurora Photo</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-grad: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* FULL BLEED PHOTO — very dark overlay, photo barely peeks */
+        .bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1800&auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+
+        .bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(8, 12, 24, 0.85);
+        }
+
+        /* TOPBAR */
+        .topbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .brand span {
+            color: #A5B4FC;
+        }
+
+        .nav-trust {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nt {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* ═══ THE ISLAND — unified style ═══ */
+        .island {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 1020px;
+            height: 78vh;
+            max-height: 640px;
+            border-radius: 28px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        /* LEFT: Glass frosted panel */
+        .island-left {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 48px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .il-top {}
+
+        .il-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .il-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #34D399;
+        }
+
+        .island-left h1 {
+            font-family: 'Lora', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: #fff;
+            letter-spacing: -0.02em;
+            margin-bottom: 14px;
+        }
+
+        .island-left p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.65;
+            max-width: 320px;
+        }
+
+        .il-bottom {}
+
+        .il-stats {
+            display: flex;
+            gap: 28px;
+        }
+
+        .il-stat strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .il-stat span {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Accent gradient line at bottom of left */
+        .il-gradient-bar {
+            height: 2px;
+            width: 100%;
+            background: var(--primary-grad);
+            opacity: 0.6;
+            border-radius: 2px;
+            margin-top: 24px;
+        }
+
+        /* RIGHT: White chat panel */
+        .island-right {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .ir-top {
+            padding: 28px 32px 18px;
+            border-bottom: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .ir-top h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .ir-top p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .feed {
+            flex: 1;
+            padding: 18px 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #FAFAFA;
+        }
+
+        .bub {
+            padding: 11px 15px;
+            font-size: 0.92rem;
+            border-radius: 18px;
+            max-width: 88%;
+            line-height: 1.5;
+            animation: rise 0.25s ease;
+        }
+
+        .b-agt {
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: var(--primary-grad);
+            color: #fff;
+            align-self: flex-end;
+            box-shadow: 0 4px 14px -4px rgba(99, 102, 241, 0.35);
+        }
+
+        .dock {
+            padding: 14px 32px 22px;
+            background: #fff;
+            border-top: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .btn-q {
+            width: 100%;
+            padding: 12px;
+            background: #fff;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 11px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.12s;
+            text-align: center;
+        }
+
+        .btn-q:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #F5F3FF;
+        }
+
+        .g {
+            display: grid;
+            gap: 7px;
+        }
+
+        .gc-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .res {
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .res-lbl {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #94A3B8;
+            margin-bottom: 6px;
+        }
+
+        .res-price {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: 8px;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .res-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 26px;
+        }
+
+        .cta {
+            width: 100%;
+            padding: 17px;
+            background: var(--primary-grad);
+            color: #fff;
+            border: none;
+            border-radius: 13px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 12px 30px -8px rgba(99, 102, 241, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .res-note {
+            margin-top: 10px;
+            font-size: 0.76rem;
+            color: #CBD5E1;
+        }
+
+        .res-back {
+            margin-top: 16px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: #94A3B8;
+            cursor: pointer;
+        }
+
+        .res-back:hover {
+            color: var(--primary);
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <div class="topbar">
+        <div class="brand">Maid <span>At Home</span></div>
+        <div class="nav-trust">
+            <div class="nt">★ 4.9 Rating</div>
+            <div class="nt">Vetted Team</div>
+            <div class="nt">Eco-Friendly</div>
+        </div>
+    </div>
+
+    <!-- UNIFIED ISLAND -->
+    <div class="island">
+        <!-- LEFT: GLASS PANEL -->
+        <div class="island-left">
+            <div class="il-top">
+                <div class="il-eyebrow">
+                    <div class="il-dot"></div>Free instant quote
+                </div>
+                <h1>A home that<br>breathes clean.</h1>
+                <p>Professional, vetted cleaners with transparent pricing. Book in under a minute.</p>
+            </div>
+            <div class="il-bottom">
+                <div class="il-stats">
+                    <div class="il-stat"><strong>2,400+</strong><span>Happy Clients</span></div>
+                    <div class="il-stat"><strong>4.9★</strong><span>Avg. Rating</span></div>
+                    <div class="il-stat"><strong>100%</strong><span>Guaranteed</span></div>
+                </div>
+                <div class="il-gradient-bar"></div>
+            </div>
+        </div>
+
+        <!-- RIGHT: CHAT -->
+        <div class="island-right">
+            <div class="ir-top">
+                <h2>Get your free quote</h2>
+                <p>Takes about 60 seconds.</p>
+            </div>
+            <div class="feed" id="feed"></div>
+            <div class="dock" id="dock"></div>
+            <div class="res" id="end">
+                <div class="res-lbl">Your estimate</div>
+                <div class="res-price">$<span id="pVal">0</span></div>
+                <div class="res-desc" id="pDesc">Standard cleaning · 2 bedrooms</div>
+                <button class="cta">Book My Cleaning</button>
+                <div class="res-note">Free cancellation 24h before · Guaranteed rate</div>
+                <div class="res-back" onclick="boot()">← Start over</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
+        let beds = 0, tierLabel = '';
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn, ms = 180) { setTimeout(fn, ms); }
+        function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Hi! How many bedrooms does your home have?', 'agt'); w(() => { let h = `<div class="g gc-3">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n} Bed${n > 1 ? 's' : ''}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
+        function selBed(n) { beds = n; post(`${n} bedroom${n > 1 ? 's' : ''}`, 'usr'); dock.innerHTML = ''; w(() => { post('What kind of clean do you need?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-3"><button class="btn-q" onclick="selTier('std','Standard')">🧹 Standard</button><button class="btn-q" onclick="selTier('deep','Deep Clean')">✨ Deep Clean</button><button class="btn-q" onclick="selTier('move','Move Clean')">📦 Move In/Out</button></div>`; }); }); }
+        function selTier(t, label) { tierLabel = label; post(label, 'usr'); dock.innerHTML = ''; w(() => { post('How often would you like us to come?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-2"><button class="btn-q" onclick="fin('${t}','Weekly',0.9)">🔄 Weekly</button><button class="btn-q" onclick="fin('${t}','Bi-weekly',0.95)">🔄 Bi-weekly</button><button class="btn-q" onclick="fin('${t}','Monthly',1)">📅 Monthly</button><button class="btn-q" onclick="fin('${t}','Just once',1.05)">1x Just once</button></div>`; }); }); }
+        function fin(tier, freq, mult) { post(freq, 'usr'); dock.innerHTML = ''; const price = Math.round(rates[beds][tier] * mult); w(() => { document.getElementById('pVal').innerText = price; document.getElementById('pDesc').innerText = `${tierLabel} · ${beds} bedroom${beds > 1 ? 's' : ''} · ${freq}`; end.style.display = 'flex'; }, 250); }
+        window.onload = boot;
+    </script>
+</body>
+
+</html>

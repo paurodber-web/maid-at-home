@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>212 | Maid At Home — Clean Home</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-grad: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #F1F5F9;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── PANEL ── */
+        .panel {
+            width: 92%;
+            max-width: 1160px;
+            height: 84vh;
+            display: grid;
+            grid-template-columns: 1fr 460px;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px -16px rgba(0, 0, 0, 0.22);
+        }
+
+        /* ── LEFT: PHOTO ── */
+        .photo-side {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+
+        /* Dark overlay for text legibility */
+        .photo-side::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.72) 0%, rgba(15, 23, 42, 0.3) 100%);
+        }
+
+        .photo-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 52px 48px;
+        }
+
+        .brand {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: -0.01em;
+        }
+
+        .brand span {
+            color: #A5B4FC;
+        }
+
+        .photo-headline h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.2rem;
+            font-weight: 600;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .photo-headline p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            max-width: 360px;
+        }
+
+        .photo-trust {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .star-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #FCD34D;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .star-info {}
+
+        .star-score {
+            font-weight: 800;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .star-count {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .trust-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            padding: 7px 14px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ── RIGHT: QUOTE TOOL ── */
+        .right {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .q-top {
+            padding: 28px 36px 16px;
+            border-bottom: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .q-top h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 4px;
+        }
+
+        .q-top p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .feed {
+            flex: 1;
+            padding: 20px 36px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: #FAFAFA;
+        }
+
+        .bub {
+            padding: 11px 16px;
+            font-size: 0.95rem;
+            border-radius: 18px;
+            max-width: 90%;
+            line-height: 1.5;
+            animation: rise 0.25s ease;
+        }
+
+        .b-agt {
+            background: white;
+            border: 1px solid #E2E8F0;
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: var(--primary-grad);
+            color: white;
+            align-self: flex-end;
+            box-shadow: 0 4px 14px -4px rgba(99, 102, 241, 0.35);
+        }
+
+        .dock {
+            padding: 18px 36px 22px;
+            background: white;
+            border-top: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .btn-q {
+            width: 100%;
+            padding: 13px;
+            background: white;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.12s;
+            text-align: center;
+        }
+
+        .btn-q:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #F5F3FF;
+        }
+
+        .g {
+            display: grid;
+            gap: 8px;
+        }
+
+        .gc-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* RESULT */
+        .res {
+            position: absolute;
+            inset: 0;
+            background: white;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .res-price {
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: 8px;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .res-desc {
+            font-size: 1rem;
+            color: var(--text-sub);
+            margin-bottom: 32px;
+        }
+
+        .cta {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-grad);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            cursor: pointer;
+            box-shadow: 0 12px 30px -8px rgba(99, 102, 241, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .res-note {
+            margin-top: 14px;
+            font-size: 0.82rem;
+            color: #CBD5E1;
+        }
+
+        .res-back {
+            margin-top: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #94A3B8;
+            cursor: pointer;
+        }
+
+        .res-back:hover {
+            color: var(--primary);
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .panel {
+                grid-template-columns: 1fr;
+                height: auto;
+                min-height: 100vh;
+                border-radius: 0;
+            }
+
+            .photo-side {
+                min-height: 280px;
+            }
+
+            .photo-headline h1 {
+                font-size: 2.2rem;
+            }
+
+            .feed {
+                padding: 16px 20px;
+            }
+
+            .dock {
+                padding: 14px 20px;
+            }
+
+            .q-top {
+                padding: 20px 20px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="panel">
+
+        <!-- LEFT: PHOTO -->
+        <div class="photo-side">
+            <div class="photo-content">
+                <div class="brand">Maid <span>At Home</span></div>
+
+                <div class="photo-headline">
+                    <h1>Your home,<br>at its very best.</h1>
+                    <p>Professional cleaning that leaves every room looking — and feeling — immaculate.</p>
+                </div>
+
+                <div class="photo-trust">
+                    <div class="star-row">
+                        <span class="stars">★★★★★</span>
+                        <div class="star-info">
+                            <div class="star-score">4.9 / 5</div>
+                            <div class="star-count">Over 2,400 verified reviews</div>
+                        </div>
+                    </div>
+                    <div class="trust-chips">
+                        <div class="chip">✓ Vetted Cleaners</div>
+                        <div class="chip">✓ No Hidden Fees</div>
+                        <div class="chip">✓ Eco Products</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: QUOTE TOOL -->
+        <div class="right">
+            <div class="q-top">
+                <h2>Get your free quote</h2>
+                <p>It only takes a moment — no account needed.</p>
+            </div>
+
+            <div class="feed" id="feed"></div>
+            <div class="dock" id="dock"></div>
+
+            <div class="res" id="end">
+                <div
+                    style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:#94A3B8; margin-bottom:4px;">
+                    Your price estimate</div>
+                <div class="res-price">$<span id="pVal">0</span></div>
+                <div class="res-desc" id="pDesc">Standard cleaning · 2 bedrooms</div>
+                <button class="cta">Book My Cleaning</button>
+                <div class="res-note">Free cancellation up to 24h before. Guaranteed rate.</div>
+                <div class="res-back" onclick="boot()">← Back to calculator</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
+        let beds = 0, tierLabel = '';
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn, ms = 180) { setTimeout(fn, ms); }
+        function boot() {
+            feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none';
+            w(() => {
+                post('Hi there! How many bedrooms does your home have?', 'agt'); w(() => {
+                    let h = `<div class="g gc-3">`;
+                    [1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n} Bed${n > 1 ? 's' : ''}</button>`; });
+                    h += `</div>`; dock.innerHTML = h;
+                });
+            });
+        }
+        function selBed(n) {
+            beds = n; post(`${n} bedroom${n > 1 ? 's' : ''}`, 'usr'); dock.innerHTML = '';
+            w(() => {
+                post('What kind of clean do you need?', 'agt'); w(() => {
+                    dock.innerHTML = `<div class="g gc-3">
+            <button class="btn-q" onclick="selTier('std','Standard')">🧹 Standard</button>
+            <button class="btn-q" onclick="selTier('deep','Deep Clean')">✨ Deep Clean</button>
+            <button class="btn-q" onclick="selTier('move','Move Clean')">📦 Move In/Out</button>
+        </div>`;
+                });
+            });
+        }
+        function selTier(t, label) {
+            tierLabel = label; post(label, 'usr'); dock.innerHTML = '';
+            w(() => {
+                post('And how often would you like us to come?', 'agt'); w(() => {
+                    dock.innerHTML = `<div class="g gc-2">
+            <button class="btn-q" onclick="fin('${t}','Weekly', 0.9)">🔄 Weekly</button>
+            <button class="btn-q" onclick="fin('${t}','Bi-weekly', 0.95)">🔄 Bi-weekly</button>
+            <button class="btn-q" onclick="fin('${t}','Monthly', 1)">📅 Monthly</button>
+            <button class="btn-q" onclick="fin('${t}','Just once', 1.05)">1x Just once</button>
+        </div>`;
+                });
+            });
+        }
+        function fin(tier, freq, mult) {
+            post(freq, 'usr'); dock.innerHTML = '';
+            const price = Math.round(rates[beds][tier] * mult);
+            w(() => {
+                document.getElementById('pVal').innerText = price;
+                document.getElementById('pDesc').innerText = `${tierLabel} · ${beds} bedroom${beds > 1 ? 's' : ''} · ${freq}`;
+                end.style.display = 'flex';
+            }, 250);
+        }
+        window.onload = boot;
+    </script>
+
+</body>
+
+</html>

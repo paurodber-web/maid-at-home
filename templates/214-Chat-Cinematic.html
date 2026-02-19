@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>214 | Maid At Home — Cinematic</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-grad: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --text-dark: #0F172A;
+            --text-sub: #64748B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* FULL BACKGROUND PHOTO */
+        .bg-photo {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+        }
+
+        /* Dark overlay — stronger on right for readability */
+        .bg-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(15, 23, 42, 0.55) 0%, rgba(15, 23, 42, 0.75) 100%);
+        }
+
+        /* ── NAV BAR ── */
+        .topbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: white;
+            letter-spacing: -0.01em;
+        }
+
+        .brand span {
+            color: #A5B4FC;
+        }
+
+        .trust-bar {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .tb-item {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.65);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .tb-sep {
+            width: 1px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ── LAYOUT ── */
+        .layout {
+            position: relative;
+            z-index: 10;
+            width: 92%;
+            max-width: 1160px;
+            height: 84vh;
+            display: grid;
+            grid-template-columns: 1fr 440px;
+            gap: 0;
+            align-items: center;
+        }
+
+        /* ── LEFT: HEADLINE (over photo) ── */
+        .headline-area {
+            padding: 0 60px 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            padding: 7px 16px;
+            border-radius: 100px;
+            width: fit-content;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #34D399;
+        }
+
+        h1 {
+            font-family: 'Lora', serif;
+            font-size: 3.8rem;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: white;
+        }
+
+        p.sub {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.65;
+            max-width: 380px;
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 32px;
+        }
+
+        .ht-item strong {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1;
+        }
+
+        .ht-item span {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 700;
+        }
+
+        /* ── RIGHT: FLOATING QUOTE CARD ── */
+        .quote-card {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 40px 80px -16px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 78vh;
+            max-height: 640px;
+            position: relative;
+        }
+
+        .qc-top {
+            padding: 26px 32px 18px;
+            border-bottom: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .qc-top h2 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .qc-top p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .feed {
+            flex: 1;
+            padding: 18px 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #FAFAFA;
+        }
+
+        .bub {
+            padding: 11px 16px;
+            font-size: 0.95rem;
+            border-radius: 18px;
+            max-width: 90%;
+            line-height: 1.5;
+            animation: rise 0.25s ease;
+        }
+
+        .b-agt {
+            background: white;
+            border: 1px solid #E2E8F0;
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .b-usr {
+            background: var(--primary-grad);
+            color: white;
+            align-self: flex-end;
+            box-shadow: 0 4px 14px -4px rgba(99, 102, 241, 0.35);
+        }
+
+        .dock {
+            padding: 16px 32px 22px;
+            background: white;
+            border-top: 1px solid #F1F5F9;
+            flex-shrink: 0;
+        }
+
+        .btn-q {
+            width: 100%;
+            padding: 13px;
+            background: white;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.12s;
+            text-align: center;
+        }
+
+        .btn-q:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #F5F3FF;
+        }
+
+        .g {
+            display: grid;
+            gap: 8px;
+        }
+
+        .gc-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gc-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* RESULT */
+        .res {
+            position: absolute;
+            inset: 0;
+            background: white;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .res-price {
+            font-size: 5.5rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: 6px;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .res-desc {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            margin-bottom: 28px;
+        }
+
+        .cta {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-grad);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            cursor: pointer;
+            box-shadow: 0 12px 30px -8px rgba(99, 102, 241, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .res-note {
+            margin-top: 12px;
+            font-size: 0.78rem;
+            color: #CBD5E1;
+        }
+
+        .res-back {
+            margin-top: 18px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: #94A3B8;
+            cursor: pointer;
+        }
+
+        .res-back:hover {
+            color: var(--primary);
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .topbar {
+                padding: 20px 24px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+                height: auto;
+                min-height: 100vh;
+                align-items: flex-start;
+                padding-top: 80px;
+            }
+
+            .headline-area {
+                padding: 0 0 32px 0;
+            }
+
+            h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-trust {
+                display: none;
+            }
+
+            .quote-card {
+                height: 520px;
+                max-height: unset;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- FULL PHOTO BG -->
+    <div class="bg-photo"></div>
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="brand">Maid <span>At Home</span></div>
+        <div class="trust-bar">
+            <div class="tb-item">★ 4.9 Rating</div>
+            <div class="tb-sep"></div>
+            <div class="tb-item">Vetted Cleaners</div>
+            <div class="tb-sep"></div>
+            <div class="tb-item">Eco Friendly</div>
+        </div>
+    </div>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+
+        <!-- LEFT: HEADLINE -->
+        <div class="headline-area">
+            <div class="eyebrow">
+                <div class="eyebrow-dot"></div>Free instant quote
+            </div>
+            <h1>A cleaner home<br>starts right here.</h1>
+            <p class="sub">Tell us about your home and we'll give you a guaranteed price — no callbacks, no surprises.
+            </p>
+            <div class="hero-trust">
+                <div class="ht-item"><strong>2,400+</strong><span>Happy Clients</span></div>
+                <div class="ht-item"><strong>4.9★</strong><span>Avg. Rating</span></div>
+                <div class="ht-item"><strong>100%</strong><span>Guaranteed</span></div>
+            </div>
+        </div>
+
+        <!-- RIGHT: FLOATING CARD -->
+        <div class="quote-card">
+            <div class="qc-top">
+                <h2>Get your free quote</h2>
+                <p>Takes about 60 seconds.</p>
+            </div>
+
+            <div class="feed" id="feed"></div>
+            <div class="dock" id="dock"></div>
+
+            <div class="res" id="end">
+                <div
+                    style="font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:#94A3B8; margin-bottom:4px;">
+                    Your price estimate</div>
+                <div class="res-price">$<span id="pVal">0</span></div>
+                <div class="res-desc" id="pDesc">Standard cleaning · 2 bedrooms</div>
+                <button class="cta">Book My Cleaning</button>
+                <div class="res-note">Free cancellation 24h before · Guaranteed rate</div>
+                <div class="res-back" onclick="boot()">← Start over</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = { 1: { std: 155, deep: 215, move: 410 }, 2: { std: 175, deep: 245, move: 440 }, 3: { std: 195, deep: 275, move: 500 }, 4: { std: 235, deep: 315, move: 570 }, 5: { std: 285, deep: 375, move: 670 }, 6: { std: 315, deep: 415, move: 710 } };
+        const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
+        let beds = 0, tierLabel = '';
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function w(fn, ms = 180) { setTimeout(fn, ms); }
+        function boot() {
+            feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none';
+            w(() => {
+                post('Hi! How many bedrooms does your home have?', 'agt'); w(() => {
+                    let h = `<div class="g gc-3">`;
+                    [1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n} Bed${n > 1 ? 's' : ''}</button>`; });
+                    h += `</div>`; dock.innerHTML = h;
+                });
+            });
+        }
+        function selBed(n) {
+            beds = n; post(`${n} bedroom${n > 1 ? 's' : ''}`, 'usr'); dock.innerHTML = '';
+            w(() => {
+                post('What kind of clean do you need?', 'agt'); w(() => {
+                    dock.innerHTML = `<div class="g gc-3">
+            <button class="btn-q" onclick="selTier('std','Standard')">🧹 Standard</button>
+            <button class="btn-q" onclick="selTier('deep','Deep Clean')">✨ Deep Clean</button>
+            <button class="btn-q" onclick="selTier('move','Move Clean')">📦 Move In/Out</button>
+        </div>`;
+                });
+            });
+        }
+        function selTier(t, label) {
+            tierLabel = label; post(label, 'usr'); dock.innerHTML = '';
+            w(() => {
+                post('And how often would you like us to come?', 'agt'); w(() => {
+                    dock.innerHTML = `<div class="g gc-2">
+            <button class="btn-q" onclick="fin('${t}','Weekly',0.9)">🔄 Weekly</button>
+            <button class="btn-q" onclick="fin('${t}','Bi-weekly',0.95)">🔄 Bi-weekly</button>
+            <button class="btn-q" onclick="fin('${t}','Monthly',1)">📅 Monthly</button>
+            <button class="btn-q" onclick="fin('${t}','Just once',1.05)">1x Just once</button>
+        </div>`;
+                });
+            });
+        }
+        function fin(tier, freq, mult) {
+            post(freq, 'usr'); dock.innerHTML = '';
+            const price = Math.round(rates[beds][tier] * mult);
+            w(() => {
+                document.getElementById('pVal').innerText = price;
+                document.getElementById('pDesc').innerText = `${tierLabel} · ${beds} bedroom${beds > 1 ? 's' : ''} · ${freq}`;
+                end.style.display = 'flex';
+            }, 250);
+        }
+        window.onload = boot;
+    </script>
+
+</body>
+
+</html>
