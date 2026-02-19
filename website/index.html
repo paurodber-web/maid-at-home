@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maid At Home — Premium Cleaning</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -15,7 +15,7 @@
             --text-dark: #0F172A;
             --text-sub: #64748B;
             --font-main: 'Outfit', sans-serif;
-            --font-serif: 'Lora', serif;
+            --font-serif: 'Montserrat', sans-serif;
         }
 
         * {
@@ -349,8 +349,9 @@
 
         /* --- INCLUDED SECTION STYLES --- */
         .included-section {
-            background: #FAFAFA;
-            padding: 100px 0;
+            background: #FAFAF7;
+            min-height: 100vh;
+            padding: 40px 0;
             display: flex;
             justify-content: center;
             position: relative;
@@ -370,22 +371,21 @@
         }
 
         .inc-header-left p {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: #A1A1AA;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
-        /* H2 Semantic: Section Header */
         .inc-header-left h2 {
             font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 600;
+            font-size: 2.8rem;
+            font-weight: 800;
             color: #09090B;
-            letter-spacing: -0.025em;
-            line-height: 1.1;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
         }
 
         .inc-tabs-nav {
@@ -463,41 +463,52 @@
 
         /* H3 Semantic: Category headers */
         .inc-cat-title {
-            font-size: 0.66rem;
-            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.68rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: #A1A1AA;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #E4E4E7;
+            letter-spacing: 0.14em;
+            color: #3B82F6;
+            background: #EFF6FF;
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            align-self: flex-start;
         }
 
         .inc-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 11px;
+            gap: 0;
         }
 
         .inc-item {
-            font-size: 0.93rem;
+            font-size: 0.94rem;
             color: #3F3F46;
             line-height: 1.5;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid #EFEFE9;
             opacity: 0;
             transform: translateX(-8px);
-            transition: all 0.4s ease;
-            display: flex;
-            align-items: center;
-            gap: 9px;
+            transition: all 0.45s ease;
+        }
+
+        .inc-item:last-child {
+            border-bottom: none;
         }
 
         .inc-item::before {
-            content: '';
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #D4D4D8;
-            flex-shrink: 0;
+            content: "✓";
+            font-size: 0.7rem;
+            font-weight: 900;
+            color: #3B82F6;
+            min-width: 14px;
         }
 
         .inc-panel.active .inc-item {
