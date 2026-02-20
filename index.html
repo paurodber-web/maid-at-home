@@ -365,6 +365,10 @@
             grid-template-columns: 1fr 1fr 1fr;
         }
 
+        .gc-6 {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
         .btn-q {
             width: 100%;
             padding: 12px 10px;
@@ -2581,7 +2585,7 @@
 
         function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
         function w(fn, ms = 180) { setTimeout(fn, ms); }
-        function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Welcome! How many bedrooms do you have?', 'agt'); w(() => { let h = `<div class="g gc-3">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n} Bed${n > 1 ? 's' : ''}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
+        function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Welcome! How many bedrooms do you have?', 'agt'); w(() => { let h = `<div class="g gc-6">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
         function selBed(n) { beds = n; post(`${n} bedroom${n > 1 ? 's' : ''}`, 'usr'); dock.innerHTML = ''; w(() => { post('What type of cleaning do you need?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-3"><button class="btn-q" onclick="selTier('std','Standard')">Standard</button><button class="btn-q" onclick="selTier('deep','Deep Clean')">Deep Clean</button><button class="btn-q" onclick="selTier('move','Move In/Out')">Move Clean</button></div>`; }); }); }
         function selTier(t, label) { tierLabel = label; post(label, 'usr'); dock.innerHTML = ''; w(() => { post('Frequency?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-2"><button class="btn-q" onclick="fin('${t}','Once Off',1.05)">Once Off</button><button class="btn-q" onclick="fin('${t}','Weekly / Bi-weekly',0.9)">Weekly / Bi-weekly</button><button class="btn-q" onclick="fin('${t}','Monthly',1)">Monthly</button></div>`; }); }); switchIncludedTab(t); }
         function fin(tier, freq, mult) { post(freq, 'usr'); dock.innerHTML = ''; const price = Math.round(rates[beds][tier] * mult); w(() => { document.getElementById('pVal').innerText = price; document.getElementById('pDesc').innerText = `${tierLabel} · ${beds} Bed · ${freq}`; end.style.display = 'flex'; }, 300); }
