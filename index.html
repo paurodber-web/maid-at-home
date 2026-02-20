@@ -1874,21 +1874,27 @@
                 max-width: none;
                 height: 560px
             }
+
+            .spacer {
+                display: none;
+            }
         }
 
         @media(max-width:600px) {
             .body-content {
                 margin-top: 0;
                 gap: 24px;
-                padding-bottom: 40px
+                padding-bottom: 24px
             }
 
             .text-left {
-                min-height: calc(100svh - 130px);
+                min-height: calc(100svh - 160px);
             }
 
             .panel-content {
-                padding-top: 80px
+                padding-top: 100px;
+                display: flex;
+                flex-direction: column;
             }
 
             .panel h1 {
