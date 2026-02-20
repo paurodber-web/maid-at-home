@@ -10,8 +10,63 @@
     <link rel="preload" href="./assets/fonts/outfit-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="./assets/fonts/outfit-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 
-    <link href="./assets/fonts/fonts.css" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-300-normal.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-400-normal.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-500-normal.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-600-normal.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-700-normal.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-800-normal.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-family: 'Outfit';
+            font-style: normal;
+            font-weight: 900;
+            font-display: swap;
+            src: url('./assets/fonts/outfit-900-normal.woff2') format('woff2');
+        }
+
         :root {
             --primary: #4F46E5;
             --primary-grad: linear-gradient(135deg, #4F46E5 0%, #3730A3 100%);
@@ -1645,7 +1700,7 @@
         }
 
         .area-list span {
-            color: #64748B;
+            color: #94A3B8;
         }
 
         .footer-bottom {
@@ -1653,7 +1708,7 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.85rem;
-            color: #64748B;
+            color: #94A3B8;
         }
 
         @media (max-width: 1024px) {
@@ -1951,565 +2006,586 @@
         <a href="#" class="nav-cta" onclick="toggleMenu()">Book Now</a>
     </div>
 
-    <div class="panel">
-        <div class="photo-content">
-            <div class="hero-body">
-                <!-- Left Side Content -->
-                <div class="content-left">
-                    <div class="photo-headline">
-                        <h1>A cleaner home,<br>a better life.</h1>
-                        <p>Experience the joy of walking into a perfectly clean home. Book your custom cleaning in under
-                            60 seconds.</p>
-                    </div>
+    <main>
 
-                    <div class="photo-trust">
-                        <div class="star-row">
-                            <span class="stars">★★★★★</span>
-                            <div class="star-info">
-                                <span class="star-score">4.9 / 5</span>
-                                <span class="star-count">(2,400+ reviews)</span>
+        <div class="panel">
+            <div class="photo-content">
+                <div class="hero-body">
+                    <!-- Left Side Content -->
+                    <div class="content-left">
+                        <div class="photo-headline">
+                            <h1>A cleaner home,<br>a better life.</h1>
+                            <p>Experience the joy of walking into a perfectly clean home. Book your custom cleaning in
+                                under
+                                60 seconds.</p>
+                        </div>
+
+                        <div class="photo-trust">
+                            <div class="star-row">
+                                <span class="stars">★★★★★</span>
+                                <div class="star-info">
+                                    <span class="star-score">4.9 / 5</span>
+                                    <span class="star-count">(2,400+ reviews)</span>
+                                </div>
+                            </div>
+                            <div class="trust-chips">
+                                <div class="chip">✓ Vetted Professionals</div>
+                                <div class="chip">✓ Satisfaction Guarantee</div>
+                                <div class="chip">✓ All Supplies Included</div>
                             </div>
                         </div>
-                        <div class="trust-chips">
-                            <div class="chip">✓ Vetted Professionals</div>
-                            <div class="chip">✓ Satisfaction Guarantee</div>
-                            <div class="chip">✓ All Supplies Included</div>
-                        </div>
                     </div>
-                </div>
 
-                <!-- Right Side Calculator Floating -->
-                <div class="calc-wrapper">
-                    <div class="right">
-                        <div class="q-top">
-                            <h2>Instant Quote</h2>
-                            <p>Tell us about your home and get a price.</p>
-                        </div>
+                    <!-- Right Side Calculator Floating -->
+                    <div class="calc-wrapper">
+                        <div class="right">
+                            <div class="q-top">
+                                <h2>Instant Quote</h2>
+                                <p>Tell us about your home and get a price.</p>
+                            </div>
 
-                        <div class="feed" id="feed"></div>
-                        <div class="dock" id="dock"></div>
+                            <div class="feed" id="feed"></div>
+                            <div class="dock" id="dock"></div>
 
-                        <div class="res" id="end">
-                            <div
-                                style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:#94A3B8; margin-bottom:4px;">
-                                Estimated Price</div>
-                            <div class="res-price">$<span id="pVal">0</span></div>
-                            <div class="res-desc" id="pDesc">Standard cleaning</div>
-                            <button class="cta">Book Cleaning</button>
-                            <div class="res-back" onclick="boot()">← Reset Calculator</div>
+                            <div class="res" id="end">
+                                <div
+                                    style="font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:#94A3B8; margin-bottom:4px;">
+                                    Estimated Price</div>
+                                <div class="res-price">$<span id="pVal">0</span></div>
+                                <div class="res-desc" id="pDesc">Standard cleaning</div>
+                                <button class="cta">Book Cleaning</button>
+                                <div class="res-back" onclick="boot()">← Reset Calculator</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- TRUST BAR -->
-    <div class="trust-bar-container reveal reveal-up delay-2">
-        <div class="trust-bar">
-            <!-- Police Checked -->
-            <div class="trust-item">
-                <svg class="trust-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                <span class="trust-text">Police Checked</span>
-            </div>
-
-            <!-- Fully Insured -->
-            <div class="trust-item">
-                <svg class="trust-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-                <span class="trust-text">Fully Insured</span>
-            </div>
-
-            <!-- Family Owned -->
-            <div class="trust-item">
-                <svg class="trust-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                <span class="trust-text">Family Owned</span>
-            </div>
-
-            <!-- Google Rating -->
-            <div class="trust-item">
-                <svg class="trust-icon" fill="currentColor" viewBox="0 0 24 24" style="color:#FBBC05; border:none;">
-                    <path
-                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
-                <span class="trust-text">Google Rated 4.9/5</span>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- DETAILED SERVICES SECTION -->
-    <div class="services-detailed">
-        <!-- SERVICE 1: STANDARD (Photo Left) -->
-        <div class="service-row-wrapper bg-white">
-            <div class="service-row">
-                <div class="service-image reveal reveal-left">
-                    <img src="assets/media__1771536834033.webp" alt="Standard Clean Service">
+        <!-- TRUST BAR -->
+        <div class="trust-bar-container reveal reveal-up delay-2">
+            <div class="trust-bar">
+                <!-- Police Checked -->
+                <div class="trust-item">
+                    <svg class="trust-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <span class="trust-text">Police Checked</span>
                 </div>
-                <div class="service-text reveal reveal-up delay-1">
-                    <h2>Standard Clean</h2>
-                    <p>Our standard cleaning is perfect for maintaining a fresh, healthy environment on a regular basis.
-                        We focus on high-traffic areas to ensure your home remains effortless.</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Dusting & Polishing
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Vacuuming & Mopping
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Kitchen Surfaces
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Bathroom Sanitizing
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Tidying & Organization
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Bin Disposal
-                        </div>
-                    </div>
-                    <a href="#" class="service-cta-btn">Book Now</a>
-                </div>
-            </div>
-        </div>
 
-        <!-- SERVICE 2: DEEP CLEAN (Photo Right) -->
-        <div class="service-row-wrapper bg-grey">
-            <div class="service-row reverse">
-                <div class="service-image reveal reveal-right">
-                    <img src="assets/media__1771536874203.webp" alt="Deep Clean Service">
+                <!-- Fully Insured -->
+                <div class="trust-item">
+                    <svg class="trust-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span class="trust-text">Fully Insured</span>
                 </div>
-                <div class="service-text reveal reveal-up delay-1">
-                    <h2>Deep Clean</h2>
-                    <p>An intensive, detailed session designed to reach every corner. Perfect for homes that haven't
-                        been professionally cleaned in over 3 months.</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Inside Cabinets
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Appliance Deep Clean
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Baseboards & Vents
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Grout Scrubbing
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Door Frames & Walls
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Hidden Dust Removal
-                        </div>
-                    </div>
-                    <a href="#" class="service-cta-btn">Book Now</a>
-                </div>
-            </div>
-        </div>
 
-        <!-- SERVICE 3: MOVE IN / OUT (Photo Left) -->
-        <div class="service-row-wrapper bg-white">
-            <div class="service-row">
-                <div class="service-image reveal reveal-left">
-                    <img src="assets/media__1771537304594.webp" alt="Move In Out Clean Service">
+                <!-- Family Owned -->
+                <div class="trust-item">
+                    <svg class="trust-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span class="trust-text">Family Owned</span>
                 </div>
-                <div class="service-text reveal reveal-up delay-1">
-                    <h2>Move In / Out</h2>
-                    <p>Designed for transitioning. We ensure the property is in immaculate condition for the new
-                        residents, covering all the essentials for a smooth handover and bond return.</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Oven & Rangehood
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Interior Windows
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Surface Sanitization
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Floor Treatment
-                        </div>
-                    </div>
-                    <a href="#" class="service-cta-btn">Book Now</a>
+
+                <!-- Google Rating -->
+                <div class="trust-item">
+                    <svg class="trust-icon" fill="currentColor" viewBox="0 0 24 24" style="color:#FBBC05; border:none;">
+                        <path
+                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                    <span class="trust-text">Google Rated 4.9/5</span>
                 </div>
             </div>
         </div>
 
 
 
-
-        <!-- SERVICE 4: STEAM CLEAN (Photo Right) -->
-        <div class="service-row-wrapper bg-grey">
-            <div class="service-row reverse">
-                <div class="service-image reveal reveal-right">
-                    <img src="assets/professional_steam_clean_carpet_1771536652847.webp" alt="Steam Clean Service">
-                </div>
-                <div class="service-text reveal reveal-up delay-1">
-                    <h2>Steam Clean</h2>
-                    <p>Advanced hot-water extraction for carpets and upholstery. We remove allergens, bacteria, and the
-                        deepest stains using industrial-grade equipment.</p>
-                    <div class="service-features">
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Deep Stain Removal
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Sanitization
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Odour Neutralisation
-                        </div>
-                        <div class="feature-item">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                    d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Quick Drying Tech
-                        </div>
+        <!-- DETAILED SERVICES SECTION -->
+        <div class="services-detailed">
+            <!-- SERVICE 1: STANDARD (Photo Left) -->
+            <div class="service-row-wrapper bg-white">
+                <div class="service-row">
+                    <div class="service-image reveal reveal-left">
+                        <img src="assets/media__1771536834033.webp" alt="Standard Clean Service">
                     </div>
-                    <a href="#" class="service-cta-btn">Book Now</a>
+                    <div class="service-text reveal reveal-up delay-1">
+                        <h2>Standard Clean</h2>
+                        <p>Our standard cleaning is perfect for maintaining a fresh, healthy environment on a regular
+                            basis.
+                            We focus on high-traffic areas to ensure your home remains effortless.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Dusting & Polishing
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Vacuuming & Mopping
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Kitchen Surfaces
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Bathroom Sanitizing
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Tidying & Organization
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Bin Disposal
+                            </div>
+                        </div>
+                        <a href="#" class="service-cta-btn">Book Now</a>
+                    </div>
                 </div>
             </div>
+
+            <!-- SERVICE 2: DEEP CLEAN (Photo Right) -->
+            <div class="service-row-wrapper bg-grey">
+                <div class="service-row reverse">
+                    <div class="service-image reveal reveal-right">
+                        <img src="assets/media__1771536874203.webp" alt="Deep Clean Service">
+                    </div>
+                    <div class="service-text reveal reveal-up delay-1">
+                        <h2>Deep Clean</h2>
+                        <p>An intensive, detailed session designed to reach every corner. Perfect for homes that haven't
+                            been professionally cleaned in over 3 months.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Inside Cabinets
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Appliance Deep Clean
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Baseboards & Vents
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Grout Scrubbing
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Door Frames & Walls
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Hidden Dust Removal
+                            </div>
+                        </div>
+                        <a href="#" class="service-cta-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICE 3: MOVE IN / OUT (Photo Left) -->
+            <div class="service-row-wrapper bg-white">
+                <div class="service-row">
+                    <div class="service-image reveal reveal-left">
+                        <img src="assets/media__1771537304594.webp" alt="Move In Out Clean Service">
+                    </div>
+                    <div class="service-text reveal reveal-up delay-1">
+                        <h2>Move In / Out</h2>
+                        <p>Designed for transitioning. We ensure the property is in immaculate condition for the new
+                            residents, covering all the essentials for a smooth handover and bond return.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Oven & Rangehood
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Interior Windows
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Surface Sanitization
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Floor Treatment
+                            </div>
+                        </div>
+                        <a href="#" class="service-cta-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- SERVICE 4: STEAM CLEAN (Photo Right) -->
+            <div class="service-row-wrapper bg-grey">
+                <div class="service-row reverse">
+                    <div class="service-image reveal reveal-right">
+                        <img src="assets/professional_steam_clean_carpet_1771536652847.webp" alt="Steam Clean Service">
+                    </div>
+                    <div class="service-text reveal reveal-up delay-1">
+                        <h2>Steam Clean</h2>
+                        <p>Advanced hot-water extraction for carpets and upholstery. We remove allergens, bacteria, and
+                            the
+                            deepest stains using industrial-grade equipment.</p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Deep Stain Removal
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Sanitization
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Odour Neutralisation
+                            </div>
+                            <div class="feature-item">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Quick Drying Tech
+                            </div>
+                        </div>
+                        <a href="#" class="service-cta-btn">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
 
-    </div>
-
-
-    <!-- HOW IT WORKS SECTION -->
-    <!-- WHY CHOOSE US SECTION -->
+        <!-- HOW IT WORKS SECTION -->
+        <!-- WHY CHOOSE US SECTION -->
 
 
 
 
-    <!-- WHY CHOOSE US SECTION -->
-    <section class="why-section bg-white">
-        <div class="why-container">
-            <div class="why-header" style="text-align: center; flex-direction: column; align-items: center;">
-                <div class="why-header-left reveal reveal-up" style="align-items: center; text-align: center;">
-                    <p>The Difference</p>
-                    <h2>Redefining the standard <br><span style="color: var(--primary);">of home care.</span></h2>
+        <!-- WHY CHOOSE US SECTION -->
+        <section class="why-section bg-white">
+            <div class="why-container">
+                <div class="why-header" style="text-align: center; flex-direction: column; align-items: center;">
+                    <div class="why-header-left reveal reveal-up" style="align-items: center; text-align: center;">
+                        <p>The Difference</p>
+                        <h2>Redefining the standard <br><span style="color: var(--primary);">of home care.</span></h2>
+                    </div>
+                    <p class="why-header-right reveal reveal-up delay-1" style="text-align: center; margin-left: 0;">We
+                        believe in providing more than just a clean
+                        home. We provide peace of mind, reliability, and a level of detail that is simply unmatched.</p>
                 </div>
-                <p class="why-header-right reveal reveal-up delay-1" style="text-align: center; margin-left: 0;">We
-                    believe in providing more than just a clean
-                    home. We provide peace of mind, reliability, and a level of detail that is simply unmatched.</p>
-            </div>
 
-            <!-- CARDS GRID -->
-            <div class="cards-grid">
-                <div class="why-card reveal reveal-up">
-                    <div class="card-tag">🛡️ Security</div>
-                    <h3>Fully Vetted & Insured Professionals</h3>
-                    <p>Every cleaner in our network has passed background checks, reference verification, and a
-                        two-stage interview. They are covered by $5M in public liability insurance.</p>
-                    <div class="card-bottom">
-                        <span class="card-quote">"I've never felt more secure with someone in my home."</span>
-                        <span class="card-author">— Sarah K.</span>
+                <!-- CARDS GRID -->
+                <div class="cards-grid">
+                    <div class="why-card reveal reveal-up">
+                        <div class="card-tag">🛡️ Security</div>
+                        <h3>Fully Vetted & Insured Professionals</h3>
+                        <p>Every cleaner in our network has passed background checks, reference verification, and a
+                            two-stage interview. They are covered by $5M in public liability insurance.</p>
+                        <div class="card-bottom">
+                            <span class="card-quote">"I've never felt more secure with someone in my home."</span>
+                            <span class="card-author">— Sarah K.</span>
+                        </div>
+                    </div>
+
+                    <div class="why-card reveal reveal-up delay-1">
+                        <div class="card-tag">✨ Quality</div>
+                        <h3>A Systematic, Thorough Clean</h3>
+                        <p>Our 60-point checklist ensures nothing is ever missed—from skirting boards to ceiling fans.
+                        </p>
+                        <div class="card-bottom">
+                            <span class="card-quote">"The attention to detail is simply unmatched."</span>
+                            <span class="card-author">— Michael T.</span>
+                        </div>
+                    </div>
+
+                    <div class="why-card reveal reveal-up delay-2">
+                        <div class="card-tag">🤝 Reliability</div>
+                        <h3>We Show Up. Always.</h3>
+                        <p>Our scheduling platform tracks every appointment in real-time. If anything is ever disrupted,
+                            we
+                            proactively notify you and find a solution—before you even notice.</p>
+                        <div class="card-bottom">
+                            <span class="card-quote">"3 years and not a single missed clean."</span>
+                            <span class="card-author">— James R.</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="why-card reveal reveal-up delay-1">
-                    <div class="card-tag">✨ Quality</div>
-                    <h3>A Systematic, Thorough Clean</h3>
-                    <p>Our 60-point checklist ensures nothing is ever missed—from skirting boards to ceiling fans.
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS CAROUSEL -->
+        <section class="t-section">
+            <div class="t-container">
+                <div class="t-header reveal reveal-up">
+                    <div>
+                        <div class="t-pill">
+                            <div class="t-pill-dot"></div>+1,200 satisfied clients
+                        </div>
+                        <h2 class="t-section-h2">What our clients say about <span>trusting us.</span></h2>
+                        <p class="t-section-sub">Real reviews from real home owners. No filters, just clean homes.</p>
+                    </div>
+                    <!-- Right side summary removed -->
+                </div>
+
+                <div class="t-carousel-wrapper reveal reveal-up delay-1">
+                    <div class="t-track" id="trackA">
+                        <!-- Item 1 -->
+                        <div class="t-card">
+                            <div class="t-card-top">
+                                <img class="t-card-avatar"
+                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
+                                    alt="Ana M.">
+                                <div class="t-score-stars"><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span>
+                                </div>
+                            </div>
+                            <p class="t-card-quote">"I never thought hiring a cleaning service could change my quality
+                                of
+                                life so much. Every week feels like moving into a new home."</p>
+                            <div class="t-card-author"><span class="t-author-name">Anna Martinez</span><span
+                                    class="t-author-role">Marketing Director · Seattle</span></div>
+                            <span class="t-chip">Weekly Clean</span>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="t-card">
+                            <div class="t-card-top">
+                                <img class="t-card-avatar"
+                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face"
+                                    alt="Elena V.">
+                                <div class="t-score-stars"><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span>
+                                </div>
+                            </div>
+                            <p class="t-card-quote">"We hired the service for our office and the change was immediate.
+                                The
+                                team is silent, efficient, and absolutely trustworthy."</p>
+                            <div class="t-card-author"><span class="t-author-name">Elena Vidal</span><span
+                                    class="t-author-role">CEO · Vidal & Partners</span></div>
+                            <span class="t-chip">Corporate Clean</span>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="t-card">
+                            <div class="t-card-top">
+                                <img class="t-card-avatar"
+                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
+                                    alt="Carlos R.">
+                                <div class="t-score-stars"><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span>
+                                </div>
+                            </div>
+                            <p class="t-card-quote">"The team arrived on time, worked with impeccable discretion, and
+                                the
+                                result exceeded all my expectations. Top-tier professionalism."</p>
+                            <div class="t-card-author"><span class="t-author-name">Charles Ross</span><span
+                                    class="t-author-role">Lawyer · Chicago</span></div>
+                            <span class="t-chip">Maintenance</span>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="t-card">
+                            <div class="t-card-top">
+                                <img class="t-card-avatar"
+                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
+                                    alt="Laura P.">
+                                <div class="t-score-stars"><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span>
+                                </div>
+                            </div>
+                            <p class="t-card-quote">"We've been with them for 2 years and have never had to call to
+                                complain. That, nowadays, is a luxury."</p>
+                            <div class="t-card-author"><span class="t-author-name">Laura Page</span><span
+                                    class="t-author-role">Architect · Austin</span></div>
+                            <span class="t-chip">Deep Clean</span>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="t-card">
+                            <div class="t-card-top">
+                                <img class="t-card-avatar"
+                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
+                                    alt="Marc T.">
+                                <div class="t-score-stars"><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span><span
+                                        class="t-star">★</span><span class="t-star">★</span>
+                                </div>
+                            </div>
+                            <p class="t-card-quote">"From the first visit I was convinced. The quote was transparent, no
+                                surprises, and the work was impeccable from start to finish."</p>
+                            <div class="t-card-author"><span class="t-author-name">Marc Towers</span><span
+                                    class="t-author-role">Entrepreneur · Boston</span></div>
+                            <span class="t-chip">Premium Clean</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="t-controls reveal reveal-up delay-2">
+                    <button class="t-arrow-btn" id="prevA">←</button>
+                    <div class="t-dots" id="dotsA"></div>
+                    <button class="t-arrow-btn" id="nextA">→</button>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- WHY CHOOSE US SECTION -->
+
+
+        <!-- HOW IT WORKS SECTION -->
+        <!-- HOW IT WORKS SECTION (Variant F: Mirrored Grid) -->
+        <section class="how-section bg-white">
+            <div class="mirrored-grid-layout">
+                <!-- Steps on LEFT (Grid) -->
+                <div class="steps-grid-left">
+                    <div class="step-card-simple reveal reveal-up">
+                        <span class="step-num-corner">01</span>
+                        <h3>Select</h3>
+                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Choose the perfect
+                            service
+                            package for your home's unique needs.</p>
+                    </div>
+                    <div class="step-card-simple reveal reveal-up delay-1">
+                        <span class="step-num-corner">02</span>
+                        <h3>Schedule</h3>
+                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Pick a time that works
+                            for
+                            you. We're available 7 days a week.</p>
+                    </div>
+                    <div class="step-card-simple reveal reveal-up delay-2">
+                        <span class="step-num-corner">03</span>
+                        <h3>Clean</h3>
+                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Sit back while our
+                            vetted
+                            pros transform your space.</p>
+                    </div>
+                    <div class="step-card-simple reveal reveal-up delay-3">
+                        <span class="step-num-corner">04</span>
+                        <h3>Relax</h3>
+                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Enjoy the peace of mind
+                            that
+                            comes with a spotless environment.</p>
+                    </div>
+                </div>
+
+                <!-- Header on RIGHT (Column) -->
+                <div class="header-col-right reveal reveal-left">
+                    <div class="section-header" style="margin-bottom: 20px;">
+                        <p
+                            style="display: inline-flex; align-items: center; gap: 8px; background: #EEF2FF; color: var(--primary); padding: 6px 14px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.01em;">
+                            <span style="width: 6px; height: 6px; background: currentColor; border-radius: 50%;"></span>
+                            Why
+                            It Works
+                        </p>
+                        <h2
+                            style="font-size: 2.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--text-dark);">
+                            A system built<br><span style="color: var(--primary);">around your life.</span>
+                        </h2>
+                    </div>
+                    <p style="color: var(--text-sub); line-height: 1.6; margin-bottom: 32px;">
+                        We've redesigned the home cleaning experience to be as simple as ordering a ride. Logic,
+                        transparency, and quality are baked into every step.
                     </p>
-                    <div class="card-bottom">
-                        <span class="card-quote">"The attention to detail is simply unmatched."</span>
-                        <span class="card-author">— Michael T.</span>
-                    </div>
-                </div>
-
-                <div class="why-card reveal reveal-up delay-2">
-                    <div class="card-tag">🤝 Reliability</div>
-                    <h3>We Show Up. Always.</h3>
-                    <p>Our scheduling platform tracks every appointment in real-time. If anything is ever disrupted, we
-                        proactively notify you and find a solution—before you even notice.</p>
-                    <div class="card-bottom">
-                        <span class="card-quote">"3 years and not a single missed clean."</span>
-                        <span class="card-author">— James R.</span>
+                    <div
+                        style="font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        See full details <span>&rarr;</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS CAROUSEL -->
-    <section class="t-section">
-        <div class="t-container">
-            <div class="t-header reveal reveal-up">
-                <div>
-                    <div class="t-pill">
-                        <div class="t-pill-dot"></div>+1,200 satisfied clients
-                    </div>
-                    <h2 class="t-section-h2">What our clients say about <span>trusting us.</span></h2>
-                    <p class="t-section-sub">Real reviews from real home owners. No filters, just clean homes.</p>
+        <!-- HAPPINESS GUARANTEE BANNER -->
+        <section class="guarantee-section">
+            <div class="guarantee-container reveal reveal-up">
+                <div class="guarantee-badge">✅ Risk Free</div>
+                <div class="guarantee-icon">
+                    <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                 </div>
-                <!-- Right side summary removed -->
-            </div>
-
-            <div class="t-carousel-wrapper reveal reveal-up delay-1">
-                <div class="t-track" id="trackA">
-                    <!-- Item 1 -->
-                    <div class="t-card">
-                        <div class="t-card-top">
-                            <img class="t-card-avatar"
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
-                                alt="Ana M.">
-                            <div class="t-score-stars"><span class="t-star">★</span><span class="t-star">★</span><span
-                                    class="t-star">★</span><span class="t-star">★</span><span class="t-star">★</span>
-                            </div>
-                        </div>
-                        <p class="t-card-quote">"I never thought hiring a cleaning service could change my quality of
-                            life so much. Every week feels like moving into a new home."</p>
-                        <div class="t-card-author"><span class="t-author-name">Anna Martinez</span><span
-                                class="t-author-role">Marketing Director · Seattle</span></div>
-                        <span class="t-chip">Weekly Clean</span>
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="t-card">
-                        <div class="t-card-top">
-                            <img class="t-card-avatar"
-                                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face"
-                                alt="Elena V.">
-                            <div class="t-score-stars"><span class="t-star">★</span><span class="t-star">★</span><span
-                                    class="t-star">★</span><span class="t-star">★</span><span class="t-star">★</span>
-                            </div>
-                        </div>
-                        <p class="t-card-quote">"We hired the service for our office and the change was immediate. The
-                            team is silent, efficient, and absolutely trustworthy."</p>
-                        <div class="t-card-author"><span class="t-author-name">Elena Vidal</span><span
-                                class="t-author-role">CEO · Vidal & Partners</span></div>
-                        <span class="t-chip">Corporate Clean</span>
-                    </div>
-                    <!-- Item 3 -->
-                    <div class="t-card">
-                        <div class="t-card-top">
-                            <img class="t-card-avatar"
-                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
-                                alt="Carlos R.">
-                            <div class="t-score-stars"><span class="t-star">★</span><span class="t-star">★</span><span
-                                    class="t-star">★</span><span class="t-star">★</span><span class="t-star">★</span>
-                            </div>
-                        </div>
-                        <p class="t-card-quote">"The team arrived on time, worked with impeccable discretion, and the
-                            result exceeded all my expectations. Top-tier professionalism."</p>
-                        <div class="t-card-author"><span class="t-author-name">Charles Ross</span><span
-                                class="t-author-role">Lawyer · Chicago</span></div>
-                        <span class="t-chip">Maintenance</span>
-                    </div>
-                    <!-- Item 4 -->
-                    <div class="t-card">
-                        <div class="t-card-top">
-                            <img class="t-card-avatar"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
-                                alt="Laura P.">
-                            <div class="t-score-stars"><span class="t-star">★</span><span class="t-star">★</span><span
-                                    class="t-star">★</span><span class="t-star">★</span><span class="t-star">★</span>
-                            </div>
-                        </div>
-                        <p class="t-card-quote">"We've been with them for 2 years and have never had to call to
-                            complain. That, nowadays, is a luxury."</p>
-                        <div class="t-card-author"><span class="t-author-name">Laura Page</span><span
-                                class="t-author-role">Architect · Austin</span></div>
-                        <span class="t-chip">Deep Clean</span>
-                    </div>
-                    <!-- Item 5 -->
-                    <div class="t-card">
-                        <div class="t-card-top">
-                            <img class="t-card-avatar"
-                                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
-                                alt="Marc T.">
-                            <div class="t-score-stars"><span class="t-star">★</span><span class="t-star">★</span><span
-                                    class="t-star">★</span><span class="t-star">★</span><span class="t-star">★</span>
-                            </div>
-                        </div>
-                        <p class="t-card-quote">"From the first visit I was convinced. The quote was transparent, no
-                            surprises, and the work was impeccable from start to finish."</p>
-                        <div class="t-card-author"><span class="t-author-name">Marc Towers</span><span
-                                class="t-author-role">Entrepreneur · Boston</span></div>
-                        <span class="t-chip">Premium Clean</span>
-                    </div>
+                <div class="guarantee-content">
+                    <h2>The Happiness Guarantee</h2>
+                    <p>We're confident you'll love your clean. If you're not 100% satisfied, let us know within 24 hours
+                        and
+                        we'll come back to fix it for free.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="t-controls reveal reveal-up delay-2">
-                <button class="t-arrow-btn" id="prevA">←</button>
-                <div class="t-dots" id="dotsA"></div>
-                <button class="t-arrow-btn" id="nextA">→</button>
-            </div>
-        </div>
-    </section>
-
-    </section>
-
-    <!-- WHY CHOOSE US SECTION -->
-
-
-    <!-- HOW IT WORKS SECTION -->
-    <!-- HOW IT WORKS SECTION (Variant F: Mirrored Grid) -->
-    <section class="how-section bg-white">
-        <div class="mirrored-grid-layout">
-            <!-- Steps on LEFT (Grid) -->
-            <div class="steps-grid-left">
-                <div class="step-card-simple reveal reveal-up">
-                    <span class="step-num-corner">01</span>
-                    <h3>Select</h3>
-                    <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Choose the perfect service
-                        package for your home's unique needs.</p>
-                </div>
-                <div class="step-card-simple reveal reveal-up delay-1">
-                    <span class="step-num-corner">02</span>
-                    <h3>Schedule</h3>
-                    <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Pick a time that works for
-                        you. We're available 7 days a week.</p>
-                </div>
-                <div class="step-card-simple reveal reveal-up delay-2">
-                    <span class="step-num-corner">03</span>
-                    <h3>Clean</h3>
-                    <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Sit back while our vetted
-                        pros transform your space.</p>
-                </div>
-                <div class="step-card-simple reveal reveal-up delay-3">
-                    <span class="step-num-corner">04</span>
-                    <h3>Relax</h3>
-                    <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Enjoy the peace of mind that
-                        comes with a spotless environment.</p>
-                </div>
-            </div>
-
-            <!-- Header on RIGHT (Column) -->
-            <div class="header-col-right reveal reveal-left">
-                <div class="section-header" style="margin-bottom: 20px;">
-                    <p
-                        style="display: inline-flex; align-items: center; gap: 8px; background: #EEF2FF; color: var(--primary); padding: 6px 14px; border-radius: 100px; font-size: 0.9rem; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.01em;">
-                        <span style="width: 6px; height: 6px; background: currentColor; border-radius: 50%;"></span> Why
-                        It Works
-                    </p>
-                    <h2
-                        style="font-size: 2.8rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--text-dark);">
-                        A system built<br><span style="color: var(--primary);">around your life.</span>
-                    </h2>
-                </div>
-                <p style="color: var(--text-sub); line-height: 1.6; margin-bottom: 32px;">
-                    We've redesigned the home cleaning experience to be as simple as ordering a ride. Logic,
-                    transparency, and quality are baked into every step.
-                </p>
-                <div
-                    style="font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; cursor: pointer;">
-                    See full details <span>&rarr;</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HAPPINESS GUARANTEE BANNER -->
-    <section class="guarantee-section">
-        <div class="guarantee-container reveal reveal-up">
-            <div class="guarantee-badge">✅ Risk Free</div>
-            <div class="guarantee-icon">
-                <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-            </div>
-            <div class="guarantee-content">
-                <h2>The Happiness Guarantee</h2>
-                <p>We're confident you'll love your clean. If you're not 100% satisfied, let us know within 24 hours and
-                    we'll come back to fix it for free.</p>
-            </div>
-        </div>
-    </section>
-
-    </section>
+        </section>
+    </main>
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -2520,13 +2596,13 @@
                     <h3>Maid <span>At Home</span></h3>
                     <p>Elevating the standard of home cleaning with professional excellence.</p>
                     <div class="social-links">
-                        <a href="#" class="social-btn">
+                        <a href="#" class="social-btn" aria-label="Facebook">
                             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                             </svg>
                         </a>
-                        <a href="#" class="social-btn">
+                        <a href="#" class="social-btn" aria-label="Twitter">
                             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -2616,7 +2692,7 @@
         const feed = document.getElementById('feed'), dock = document.getElementById('dock'), end = document.getElementById('end');
         let beds = 0, tierLabel = '';
 
-        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); feed.scrollTop = feed.scrollHeight; }
+        function post(txt, type) { const d = document.createElement('div'); d.className = `bub b-${type}`; d.innerText = txt; feed.appendChild(d); requestAnimationFrame(() => feed.scrollTop = feed.scrollHeight); }
         function w(fn, ms = 180) { setTimeout(fn, ms); }
         function boot() { feed.innerHTML = ''; dock.innerHTML = ''; end.style.display = 'none'; w(() => { post('Welcome! How many bedrooms do you have?', 'agt'); w(() => { let h = `<div class="g gc-6">`;[1, 2, 3, 4, 5, 6].forEach(n => { h += `<button class="btn-q" onclick="selBed(${n})">${n}</button>`; }); h += `</div>`; dock.innerHTML = h; }); }); }
         function selBed(n) { beds = n; post(`${n} bedroom${n > 1 ? 's' : ''}`, 'usr'); dock.innerHTML = ''; w(() => { post('What type of cleaning do you need?', 'agt'); w(() => { dock.innerHTML = `<div class="g gc-3"><button class="btn-q" onclick="selTier('std','Standard')">Standard</button><button class="btn-q" onclick="selTier('deep','Deep Clean')">Deep Clean</button><button class="btn-q" onclick="selTier('move','Move In/Out')">Move Clean</button></div>`; }); }); }
@@ -2682,6 +2758,7 @@
                 for (let i = 0; i < dotCount; i++) {
                     const d = document.createElement('button');
                     d.className = 't-dot';
+                    d.setAttribute('aria-label', `Slide ${i + 1}`);
                     if (i === cur) d.classList.add('active');
                     d.addEventListener('click', () => go(i));
                     dotsC.appendChild(d);
