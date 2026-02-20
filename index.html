@@ -1158,27 +1158,6 @@
             padding: 20px
         }
 
-        .t-carousel-wrapper::before,
-        .t-carousel-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px;
-            z-index: 2;
-            pointer-events: none
-        }
-
-        .t-carousel-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #F5F7FF, transparent)
-        }
-
-        .t-carousel-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #F5F7FF, transparent)
-        }
-
         .t-track {
             display: flex;
             gap: 24px;
@@ -1191,7 +1170,6 @@
             border-radius: 24px;
             padding: 32px;
             border: 1px solid var(--border);
-            box-shadow: var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
             cursor: default;
             display: flex;
@@ -1201,7 +1179,6 @@
 
         .t-card:hover {
             transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
             border-color: rgba(79, 70, 229, 0.3)
         }
 
@@ -1324,11 +1301,6 @@
         @media(max-width:900px) {
             .t-section {
                 padding: 80px 24px
-            }
-
-            .t-carousel-wrapper::before,
-            .t-carousel-wrapper::after {
-                display: none
             }
 
             .t-card {
@@ -2806,7 +2778,7 @@
 
             function getCardWidth() {
                 if (isDesktop) return 404;
-                return (screenWidth - 64) + 24;
+                return track.children[0].offsetWidth + 24;
             }
 
             let CARD_WIDTH = getCardWidth();
