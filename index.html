@@ -102,25 +102,31 @@
 
         .reveal {
             opacity: 0;
-            transition: var(--transition);
-            will-change: transform, opacity
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(8px);
+            will-change: transform, opacity, filter
         }
 
         .reveal-up {
-            transform: translateY(20px)
+            transform: translateY(30px)
         }
 
         .reveal-left {
-            transform: translateX(-20px)
+            transform: translateX(-30px)
         }
 
         .reveal-right {
-            transform: translateX(20px)
+            transform: translateX(30px)
+        }
+
+        .reveal-scale {
+            transform: scale(0.95)
         }
 
         .reveal.active {
             opacity: 1;
-            transform: translate(0, 0)
+            transform: translate(0, 0) scale(1);
+            filter: blur(0px)
         }
 
         .delay-1 {
@@ -1963,14 +1969,15 @@
 
                 <div class="body-content">
                     <div class="text-left">
-                        <div class="reveal active"><span class="pill-aurora">Welcome to Maid At Home</span></div>
-                        <h1>A cleaner home,<br>a <span>better life.</span></h1>
-                        <p class="description">
+                        <div class="reveal reveal-scale"><span class="pill-aurora">Welcome to Maid At Home</span>
+                        </div>
+                        <h1 class="reveal reveal-up delay-1">A cleaner home,<br>a <span>better life.</span></h1>
+                        <p class="description reveal reveal-up delay-2">
                             We started Maid At Home because we believe the standard of home cleaning should be higher.
                             Reliable professionals, consistent results, and a process built entirely around your life.
                         </p>
 
-                        <div class="reveal active">
+                        <div class="reveal reveal-up delay-3">
                             <div class="trust-chips">
                                 <div class="chip">
                                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -2005,7 +2012,7 @@
                         </div>
                     </div>
 
-                    <div class="chat-container">
+                    <div class="chat-container reveal reveal-left delay-4">
                         <div class="chat-header">
                             <h2>Quick Quote</h2>
                             <p>Tell us what you need for an instant price</p>
