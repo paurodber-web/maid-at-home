@@ -1888,11 +1888,16 @@
             }
 
             .text-left {
-                min-height: calc(100svh - 160px);
+                min-height: 100svh;
+                padding-top: 80px;
+                padding-bottom: 40px;
+                box-sizing: border-box;
+                justify-content: center;
             }
 
             .panel-content {
-                padding-top: 100px;
+                padding-top: 0 !important;
+                padding-bottom: 24px;
                 display: flex;
                 flex-direction: column;
             }
