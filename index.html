@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maid At Home — Premium Cleaning</title>
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="./assets/fonts/outfit-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/outfit-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/outfit-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+
     <link href="./assets/fonts/fonts.css" rel="stylesheet">
     <style>
         :root {
@@ -2658,31 +2663,21 @@
             const prev = document.getElementById('prevA');
             const next = document.getElementById('nextA');
 
-            // Adjust card width + gap based on CSS
-            // Card is 380px + 24px gap = 404px
-            // Responsive: we use calc(100vw - 64px) + 24px gap
+            let isDesktop = window.matchMedia('(min-width: 901px)').matches;
+            let screenWidth = document.documentElement.clientWidth;
+
             function getCardWidth() {
-                if (window.innerWidth > 900) return 404;
-                return (window.innerWidth - 64) + 24;
+                if (isDesktop) return 404;
+                return (screenWidth - 64) + 24;
             }
 
             let CARD_WIDTH = getCardWidth();
-
-            const VIS = 1;
-
-
             const total = track.children.length;
-            // Visible items estimation: wrapper usually shows ~3 items (1320px / 404px = ~3.2)
-            // Ideally we want to scroll until the last item is visible.
-            // Let's stick to the original logic but be careful.
-            const itemsVisible = window.innerWidth > 900 ? 3 : 1;
-            const max = total - itemsVisible;
-
             let cur = 0;
 
             function buildDots() {
                 dotsC.innerHTML = '';
-                const itemsVisible = window.innerWidth > 900 ? 3 : 1;
+                const itemsVisible = isDesktop ? 3 : 1;
                 const dotCount = Math.max(1, total - itemsVisible + 1);
                 for (let i = 0; i < dotCount; i++) {
                     const d = document.createElement('button');
@@ -2693,16 +2688,22 @@
                 }
             }
 
+            let resizeTimer;
             window.addEventListener('resize', () => {
-                CARD_WIDTH = getCardWidth();
-                buildDots();
-                go(cur);
-            });
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    isDesktop = window.matchMedia('(min-width: 901px)').matches;
+                    screenWidth = document.documentElement.clientWidth;
+                    CARD_WIDTH = getCardWidth();
+                    buildDots();
+                    go(cur);
+                }, 100);
+            }, { passive: true });
 
             buildDots();
 
             function go(i) {
-                const itemsVisible = window.innerWidth > 900 ? 3 : 1;
+                const itemsVisible = isDesktop ? 3 : 1;
                 const safeMax = total - itemsVisible;
                 cur = Math.max(0, Math.min(i, safeMax));
 
