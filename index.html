@@ -2710,17 +2710,25 @@
 
         // ── DYNAMIC HEADER SCROLL ──
         const siteHeader = document.getElementById('siteHeader');
+        let isTicking = false;
+
         window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 1024) return; // Prevent JS positioning on mobile
+            if (!isTicking) {
+                window.requestAnimationFrame(() => {
+                    if (window.innerWidth > 1024) {
+                        const scrollY = window.scrollY;
+                        const newTop = Math.max(16, 40 - scrollY);
+                        siteHeader.style.top = `${newTop}px`;
 
-            const scrollY = window.scrollY;
-            const newTop = Math.max(16, 40 - scrollY);
-            siteHeader.style.top = `${newTop}px`;
-
-            if (scrollY > 32) {
-                siteHeader.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.15)';
-            } else {
-                siteHeader.style.boxShadow = 'none';
+                        if (scrollY > 32) {
+                            siteHeader.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.15)';
+                        } else {
+                            siteHeader.style.boxShadow = 'none';
+                        }
+                    }
+                    isTicking = false;
+                });
+                isTicking = true;
             }
         }, { passive: true });
 
