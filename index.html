@@ -2099,7 +2099,7 @@
                         <div class="chat-feed" id="chatFeed"></div>
                         <div class="chat-dock" id="chatDock"></div>
                         <div class="res-box" id="resBox">
-                            <div
+                            <div id="priceLabel"
                                 style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.4); margin-bottom:8px;">
                                 Fixed Price</div>
                             <div class="res-price">$<span id="pVal">0</span></div>
@@ -2727,6 +2727,7 @@
         function bootChat() {
             if (!feed || !dock || !res) return;
             feed.innerHTML = ''; dock.innerHTML = ''; res.style.display = 'none'; dock.style.display = 'block';
+            document.getElementById('priceLabel').innerText = 'Fixed Price';
             w(() => {
                 post('Hi! How many bedrooms do you need cleaned?', 'agt');
                 w(() => {
@@ -2814,20 +2815,14 @@
         function selFreqH(f) {
             frequency = f;
             post(f, 'usr');
-            dock.innerHTML = '';
+            dock.style.display = 'none';
+            const rate = hourlyRates[f];
             w(() => {
-                post('How many hours of cleaning?', 'agt');
-                w(() => {
-                    dock.innerHTML = `<div class="opt-grid" style="flex-wrap:wrap;">
-                        <button class="btn-opt" onclick="finHour(2)">2h</button>
-                        <button class="btn-opt" onclick="finHour(3)">3h</button>
-                        <button class="btn-opt" onclick="finHour(4)">4h</button>
-                        <button class="btn-opt" onclick="finHour(5)">5h</button>
-                        <button class="btn-opt" onclick="finHour(6)">6h</button>
-                    </div>`;
-                    autoScroll();
-                }, 300);
-            });
+                document.getElementById('priceLabel').innerText = 'Rate Per Hour';
+                document.getElementById('pVal').innerText = rate.toFixed(2);
+                document.getElementById('pDesc').innerHTML = `Hourly Service · ${f}`;
+                res.style.display = 'block';
+            }, 500);
         }
 
         function finFlat(f) {
@@ -2845,23 +2840,13 @@
             if (f === '3 / 4 Weekly') p *= 0.95;
 
             w(() => {
+                document.getElementById('priceLabel').innerText = 'Fixed Price';
                 document.getElementById('pVal').innerText = p.toFixed(2);
                 document.getElementById('pDesc').innerHTML = `${beds} Bed · ${type} · ${f}`;
                 res.style.display = 'block';
             }, 500);
         }
 
-        function finHour(h) {
-            post(`${h} hours`, 'usr');
-            dock.style.display = 'none';
-            const rate = hourlyRates[frequency];
-            const total = rate * h;
-            w(() => {
-                document.getElementById('pVal').innerText = total.toFixed(2);
-                document.getElementById('pDesc').innerHTML = `Hourly Service · ${frequency} · ${h}h`;
-                res.style.display = 'block';
-            }, 500);
-        }
 
         window.onload = bootChat;
 
