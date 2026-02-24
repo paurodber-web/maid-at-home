@@ -1488,7 +1488,48 @@
         }
 
     
-        </style>
+        
+        /* --- GLOBAL MOBILE ALIGNMENT FIXES --- */
+        @media (max-width: 1100px) {
+            .history-content,
+            .content-side,
+            .header-col-right,
+            .why-header-left,
+            .t-header > div,
+            .proof-header,
+            .text-left {
+                text-align: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .history-content p,
+            .content-side p,
+            .header-col-right p,
+            .t-section-sub,
+            .description,
+            .why-header-right {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Fixes specifically for contact section centering */
+            .contact-info > .s-pill {
+                margin: 0 auto 20px auto !important;
+                display: flex !important;
+                width: max-content;
+            }
+            .contact-info > h2,
+            .contact-info > p.contact-description {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
