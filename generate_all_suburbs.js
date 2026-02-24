@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const infoFilePath = path.join(__dirname, 'suburbs', 'suburbs_info');
+const infoFilePath = path.join(__dirname, 'suburbs', 'suburbs_text');
 const templatePath = path.join(__dirname, 'suburb_template.html');
 const outputDir = path.join(__dirname, 'suburbs');
 
