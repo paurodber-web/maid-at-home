@@ -2054,6 +2054,69 @@
                 display: flex
             }
         }
+    
+        /* --- GLOBAL RESPONSIVE FIXES --- */
+        @media (max-width: 1100px) {
+            section,
+            .history-section,
+            .social-proof-section,
+            .principles-section,
+            .final-cta-section,
+            .t-section,
+            .how-section,
+            .guarantee-section,
+            .contact-section,
+            .faq-section {
+                padding: 60px 24px !important;
+            }
+
+            .history-grid,
+            .mirrored-grid-layout,
+            .principles-grid,
+            .proof-grid,
+            .cards-grid,
+            .contact-grid,
+            .principles-cards-grid,
+            .bento-grid,
+            .value-grid,
+            .scope-grid,
+            .pricing-grid,
+            .info-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+
+            .history-image img,
+            .service-image img,
+            .bento-card img {
+                height: auto !important;
+                max-height: 400px;
+                width: 100% !important;
+            }
+
+            .history-content h2,
+            .content-side h2,
+            .header-col-right h2,
+            .t-section-h2,
+            .cta-card h2,
+            .contact-info h2 {
+                font-size: 2.5rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .cta-card {
+                padding: 60px 24px !important;
+            }
+
+            .panel-content {
+                padding: 120px 24px 40px !important;
+            }
+
+            .panel h1 {
+                font-size: 3rem !important;
+            }
+        }
+
     </style>
 
 </head>
