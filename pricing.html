@@ -145,7 +145,7 @@
             transition-delay: 0.6s
         }
 
-        .site-header {
+                        .site-header {
             position: absolute;
             top: 40px;
             left: 40px;
@@ -153,24 +153,43 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            /* Overlay muy sutil */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 14px 32px;
             z-index: 2500;
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .site-header.is-sticky {
             position: fixed;
             top: 16px;
-            left: 40px;
-            right: 40px;
-            background: rgba(15, 23, 42, 0.9);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            left: 16px;
+            right: 16px;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .site-header.is-sticky .brand {
+            color: #0F172A;
+        }
+
+        .site-header.is-sticky .photo-nav a {
+            color: #4B5563;
+        }
+
+        .site-header.is-sticky .photo-nav a:not(.nav-cta):hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+        }
+
+        .site-header.is-sticky .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
         }
 
         .site-header.hidden {
@@ -242,7 +261,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.4) 50%, rgba(15, 23, 42, 0.85) 100%);
+            background: rgba(60, 60, 60, 0.4);
             z-index: 1;
         }
 
@@ -1651,11 +1670,279 @@
                 flex-direction: column;
             }
         }
+    \n        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 3000
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background: white;
+            transition: var(--transition)
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg)
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(2) {
+            opacity: 0
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg)
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-20px)
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .mobile-menu a {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0F172A;
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px)
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .mobile-menu a:nth-child(1) {
+            transition-delay: 0.1s
+        }
+
+        .mobile-menu a:nth-child(2) {
+            transition-delay: 0.2s
+        }
+
+        .mobile-menu a:nth-child(3) {
+            transition-delay: 0.3s
+        }
+
+        .mobile-menu a:nth-child(4) {
+            transition-delay: 0.4s
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+            transform: scale(1.1)
+        }
+
+        .mobile-menu .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 16px 48px !important;
+            border-radius: 100px !important;
+            margin-top: 10px;
+            font-size: 1.2rem
+        }
+
+        .site-header.menu-open {
+            background: white !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border: none !important;
+            box-shadow: none !important
+        }
+
+        .site-header.menu-open .brand {
+            color: #0F172A !important;
+        }
+
+        .site-header.menu-open .menu-toggle span {
+            background: #0F172A !important;
+        }
+
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 3000
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background: white;
+            transition: var(--transition)
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg)
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(2) {
+            opacity: 0
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg)
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-20px)
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+
+        .mobile-menu a {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0F172A;
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px)
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .mobile-menu a:nth-child(1) {
+            transition-delay: 0.1s
+        }
+
+        .mobile-menu a:nth-child(2) {
+            transition-delay: 0.2s
+        }
+
+        .mobile-menu a:nth-child(3) {
+            transition-delay: 0.3s
+        }
+
+        .mobile-menu a:nth-child(4) {
+            transition-delay: 0.4s
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+            transform: scale(1.1)
+        }
+
+        .mobile-menu .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 16px 48px !important;
+            border-radius: 100px !important;
+            margin-top: 10px;
+            font-size: 1.2rem
+        }
+
+        .site-header.menu-open {
+            background: white !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border: none !important;
+            box-shadow: none !important
+        }
+
+        .site-header.menu-open .brand {
+            color: #0F172A !important;
+        }
+
+        .site-header.menu-open .menu-toggle span {
+            background: #0F172A !important;
+        }
+
+        @media(max-width:1100px) {
+            .site-header {
+                position: fixed !important;
+                top: 16px !important;
+                left: 16px !important;
+                right: 16px !important;
+                height: 64px !important;
+                /* Fixed height to reserve space */
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                border-radius: 16px !important;
+                padding: 0 24px !important;
+                width: calc(100% - 32px) !important;
+                margin: 0 !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            }
+
+            .site-header.is-sticky {
+                background: white !important;
+                border: 1px solid rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+            }
+
+            .site-header.is-sticky .brand {
+                color: #0F172A !important;
+            }
+
+            .site-header.is-sticky .menu-toggle span {
+                background: #0F172A !important;
+            }
+
+            .photo-nav {
+                display: none
+            }
+
+            .menu-toggle {
+                display: flex
+            }
+        }        }
     </style>
 </head>
 
 <body>
-    <header class="site-header" id="siteHeader">
+            <header class="site-header" id="siteHeader">
         <a href="index.html" class="brand">Maid <span>At Home</span></a>
         <nav class="photo-nav">
             <a href="about.html">About Us</a>
@@ -1664,7 +1951,24 @@
             <a href="faqs.html">FAQs</a>
             <a href="booking.html" class="nav-cta">Book Now</a>
         </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="about.html" onclick="toggleMenu()">About Us</a>
+        <a href="pricing.html" onclick="toggleMenu()">Pricing</a>
+        <a href="contact.html" onclick="toggleMenu()">Contact</a>
+        <a href="faqs.html" onclick="toggleMenu()">FAQs</a>
+        <a href="booking.html" class="nav-cta" onclick="toggleMenu()">Book Now</a>
+    </div>
+
+    
+
+    
 
     <main>
         <div class="panel">
@@ -2877,30 +3181,37 @@
                     const showTolerance = 100;
                     const hideTolerance = 100;
 
-                    if (window.innerWidth <= 1100) return;
-
-                    if (currentScrollY <= 24) {
-                        siteHeader.classList.remove('is-sticky', 'hidden');
-                        accumulatedScroll = 0;
-                    } else {
-                        if ((scrollDiff > 0 && accumulatedScroll < 0) || (scrollDiff < 0 && accumulatedScroll > 0)) {
-                            accumulatedScroll = 0;
+                                        if (window.innerWidth <= 1100) {
+                        if (currentScrollY > 50) {
+                            siteHeader.classList.add('is-sticky');
+                        } else {
+                            siteHeader.classList.remove('is-sticky');
                         }
-
-                        accumulatedScroll += scrollDiff;
-
-                        if (accumulatedScroll > showTolerance) {
-                            if (!siteHeader.classList.contains('is-sticky')) {
-                                siteHeader.classList.add('is-sticky', 'hidden');
-                                siteHeader.offsetHeight;
-                            }
-                            siteHeader.classList.remove('hidden');
+                        siteHeader.classList.remove('hidden');
+                    } else {
+                        if (currentScrollY <= 24) {
+                            siteHeader.classList.remove('is-sticky', 'hidden');
                             accumulatedScroll = 0;
-                        } else if (accumulatedScroll < -hideTolerance) {
-                            if (siteHeader.classList.contains('is-sticky')) {
-                                siteHeader.classList.add('hidden');
+                        } else {
+                            if ((scrollDiff > 0 && accumulatedScroll < 0) || (scrollDiff < 0 && accumulatedScroll > 0)) {
+                                accumulatedScroll = 0;
                             }
-                            accumulatedScroll = 0;
+
+                            accumulatedScroll += scrollDiff;
+
+                            if (accumulatedScroll > showTolerance) {
+                                if (!siteHeader.classList.contains('is-sticky')) {
+                                    siteHeader.classList.add('is-sticky', 'hidden');
+                                    siteHeader.offsetHeight;
+                                }
+                                siteHeader.classList.remove('hidden');
+                                accumulatedScroll = 0;
+                            } else if (accumulatedScroll < -hideTolerance) {
+                                if (siteHeader.classList.contains('is-sticky')) {
+                                    siteHeader.classList.add('hidden');
+                                }
+                                accumulatedScroll = 0;
+                            }
                         }
                     }
 
@@ -2931,6 +3242,25 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const siteHeaderEl = document.getElementById('siteHeader');
+        
+        function toggleMenu() {
+            if (!menuToggle || !mobileMenu) return;
+
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            if (siteHeaderEl) siteHeaderEl.classList.toggle('menu-open');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMenu);
+        }
     </script>
 </body>
 
