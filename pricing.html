@@ -1671,7 +1671,7 @@
             }
         }
 
-        \n .menu-toggle {
+        .menu-toggle {
             display: none;
             flex-direction: column;
             gap: 6px;
@@ -2239,7 +2239,7 @@
             }
         }
 
-        \n @media (max-width: 1024px) {
+        @media (max-width: 1024px) {
             .panel h1 br {
                 display: none;
             }
@@ -3484,6 +3484,7 @@
                     const currentScrollY = window.scrollY;
                     const scrollDiff = lastScrollY - currentScrollY;
                     const showTolerance = 100;
+                    const hideTolerance = 100;
                     if (window.innerWidth <= 1100) {
                         if (currentScrollY > 50) {
                             siteHeader.classList.add('is-sticky');
