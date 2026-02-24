@@ -145,7 +145,7 @@
             transition-delay: 0.6s
         }
 
-                        .site-header {
+        .site-header {
             position: absolute;
             top: 40px;
             left: 40px;
@@ -1670,8 +1670,8 @@
                 flex-direction: column;
             }
         }
-    \n        
-        .menu-toggle {
+
+        \n .menu-toggle {
             display: none;
             flex-direction: column;
             gap: 6px;
@@ -1783,7 +1783,7 @@
             background: #0F172A !important;
         }
 
-        
+
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -1934,155 +1934,231 @@
                 display: none
             }
 
-            
-        @media(max-width:1024px) {
-            .footer-top {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px
-            }
-        }
 
-        @media(max-width:768px) {
-            .site-footer {
-                padding: 76px 24px 48px;
+            @media(max-width:1024px) {
+                .footer-top {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 40px
+                }
             }
 
-            .footer-top {
-                grid-template-columns: 1fr;
-                text-align: left;
-                gap: 40px
+            @media(max-width:768px) {
+                .site-footer {
+                    padding: 76px 24px 48px;
+                }
+
+                .footer-top {
+                    grid-template-columns: 1fr;
+                    text-align: left;
+                    gap: 40px
+                }
+
+                .footer-brand p,
+                .newsletter-form {
+                    margin-left: 0;
+                    margin-right: 0
+                }
+
+                .social-links,
+                .hours-list,
+                .hour-row {
+                    justify-content: flex-start;
+                    margin-left: 0;
+                    margin-right: 0
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    gap: 16px;
+                    text-align: left
+                }
             }
 
-            .footer-brand p,
-            .newsletter-form {
-                margin-left: 0;
-                margin-right: 0
+            .menu-toggle {
+                display: flex;
             }
 
-            .social-links,
-            .hours-list,
-            .hour-row {
-                justify-content: flex-start;
-                margin-left: 0;
-                margin-right: 0
+            /* --- GLOBAL RESPONSIVE FIXES --- */
+            @media (max-width: 1100px) {
+
+                section,
+                .history-section,
+                .social-proof-section,
+                .principles-section,
+                .final-cta-section,
+                .t-section,
+                .how-section,
+                .guarantee-section,
+                .contact-section,
+                .faq-section {
+                    padding: 60px 24px !important;
+                }
+
+                .history-grid,
+                .mirrored-grid-layout,
+                .principles-grid,
+                .proof-grid,
+                .cards-grid,
+                .contact-grid,
+                .principles-cards-grid,
+                .bento-grid,
+                .value-grid,
+                .scope-grid,
+                .pricing-grid,
+                .info-grid {
+                    grid-template-columns: 1fr !important;
+                    gap: 40px !important;
+                }
+
+                .history-image img,
+                .service-image img,
+                .bento-card img {
+                    height: auto !important;
+                    max-height: 400px;
+                    width: 100% !important;
+                }
+
+                .history-content h2,
+                .content-side h2,
+                .header-col-right h2,
+                .t-section-h2,
+                .cta-card h2,
+                .contact-info h2 {
+                    font-size: 2.5rem !important;
+                    line-height: 1.2 !important;
+                }
+
+                .cta-card {
+                    padding: 60px 24px !important;
+                }
+
+                .panel-content {
+                    padding: 120px 24px 40px !important;
+                }
+
+                .panel h1 {
+                    font-size: 3rem !important;
+                }
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: left
-            }
-        }
 
-        .menu-toggle { display: flex; } /* --- GLOBAL RESPONSIVE FIXES --- */
-        @media (max-width: 1100px) {
-            section,
-            .history-section,
-            .social-proof-section,
-            .principles-section,
-            .final-cta-section,
-            .t-section,
-            .how-section,
-            .guarantee-section,
-            .contact-section,
-            .faq-section {
-                padding: 60px 24px !important;
-            }
 
-            .history-grid,
-            .mirrored-grid-layout,
-            .principles-grid,
-            .proof-grid,
-            .cards-grid,
-            .contact-grid,
-            .principles-cards-grid,
-            .bento-grid,
-            .value-grid,
-            .scope-grid,
-            .pricing-grid,
-            .info-grid {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
-            }
+            /* --- GLOBAL MOBILE ALIGNMENT FIXES --- */
+            @media (max-width: 1100px) {
 
-            .history-image img,
-            .service-image img,
-            .bento-card img {
-                height: auto !important;
-                max-height: 400px;
-                width: 100% !important;
+                .history-content,
+                .content-side,
+                .header-col-right,
+                .why-header-left,
+                .t-header>div,
+                .proof-header,
+                .text-left {
+                    text-align: center !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                }
+
+                .history-content p,
+                .content-side p,
+                .header-col-right p,
+                .t-section-sub,
+                .description,
+                .why-header-right {
+                    text-align: center !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+
+                /* Fixes specifically for contact section centering */
+                .contact-info>.s-pill {
+                    margin: 0 auto 20px auto !important;
+                    display: flex !important;
+                    width: max-content;
+                }
+
+                .contact-info>h2,
+                .contact-info>p.contact-description {
+                    text-align: center !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
             }
 
-            .history-content h2,
-            .content-side h2,
-            .header-col-right h2,
-            .t-section-h2,
-            .cta-card h2,
-            .contact-info h2 {
-                font-size: 2.5rem !important;
-                line-height: 1.2 !important;
-            }
+            /* --- MOBILE PRICING SPECIFIC FIXES --- */
+            @media (max-width: 768px) {
 
-            .cta-card {
-                padding: 60px 24px !important;
-            }
+                .comparison-section,
+                .discount-showcase,
+                .scope-section,
+                .pricing-hub,
+                .final-cta-section {
+                    padding: 60px 16px !important;
+                    max-width: 100vw;
+                    overflow: hidden;
+                }
 
-            .panel-content {
-                padding: 120px 24px 40px !important;
-            }
+                .comparison-header h2 {
+                    font-size: 2.2rem !important;
+                }
 
-            .panel h1 {
-                font-size: 3rem !important;
-            }
-        }
+                .comparison-container {
+                    padding: 0 !important;
+                    margin: 0 auto;
+                    max-width: 100%;
+                }
 
-    
-        
-        /* --- GLOBAL MOBILE ALIGNMENT FIXES --- */
-        @media (max-width: 1100px) {
-            .history-content,
-            .content-side,
-            .header-col-right,
-            .why-header-left,
-            .t-header > div,
-            .proof-header,
-            .text-left {
-                text-align: center !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-            
-            .history-content p,
-            .content-side p,
-            .header-col-right p,
-            .t-section-sub,
-            .description,
-            .why-header-right {
-                text-align: center !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
+                .service-option {
+                    padding: 30px 20px !important;
+                }
 
-            /* Fixes specifically for contact section centering */
-            .contact-info > .s-pill {
-                margin: 0 auto 20px auto !important;
-                display: flex !important;
-                width: max-content;
-            }
-            .contact-info > h2,
-            .contact-info > p.contact-description {
-                text-align: center !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-        }
+                .option-calculator {
+                    padding: 24px 16px !important;
+                }
 
+                .discount-container {
+                    padding: 40px 20px !important;
+                }
+
+                .discount-content {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                    width: 100%;
+                }
+
+                .discount-grid {
+                    width: 100%;
+                    grid-template-columns: 1fr;
+                }
+
+                .slider-labels span {
+                    white-space: normal !important;
+                    text-align: center;
+                    line-height: 1.2;
+                    font-size: 0.65rem;
+                }
+
+                .calc-header {
+                    flex-direction: column;
+                    gap: 12px;
+                    text-align: center;
+                }
+
+                .type-selector-wrap {
+                    width: 100%;
+                }
+
+                .type-select {
+                    width: 100%;
+                }
+            }
     </style>
 </head>
 
 <body>
-            <header class="site-header" id="siteHeader">
+    <header class="site-header" id="siteHeader">
         <a href="index.html" class="brand">Maid <span>At Home</span></a>
         <nav class="photo-nav">
             <a href="about.html">About Us</a>
@@ -2106,9 +2182,9 @@
         <a href="booking.html" class="nav-cta" onclick="toggleMenu()">Book Now</a>
     </div>
 
-    
 
-    
+
+
 
     <main>
         <div class="panel">
@@ -3321,7 +3397,7 @@
                     const showTolerance = 100;
                     const hideTolerance = 100;
 
-                                        if (window.innerWidth <= 1100) {
+                    if (window.innerWidth <= 1100) {
                         if (currentScrollY > 50) {
                             siteHeader.classList.add('is-sticky');
                         } else {
@@ -3388,7 +3464,7 @@
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
         const siteHeaderEl = document.getElementById('siteHeader');
-        
+
         function toggleMenu() {
             if (!menuToggle || !mobileMenu) return;
 
