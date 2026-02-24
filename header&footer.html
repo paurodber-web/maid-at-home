@@ -230,9 +230,9 @@
 
         .panel {
             position: relative;
-            width: calc(100% - 32px);
+            width: 100%;
             height: calc(100vh - 32px);
-            border-radius: 32px;
+            border-radius: 0;
             overflow: hidden;
             background: #0F172A url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
             margin: 16px;
@@ -252,7 +252,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            padding: 0 80px 80px;
+            padding: 16px 96px 80px 80px;
         }
 
         .spacer {
@@ -1493,7 +1493,7 @@
         .site-footer {
             background: #020617;
             color: #94A3B8;
-            padding: 80px 48px 32px;
+            padding: 96px 64px 48px;
             font-size: 0.95rem
         }
 
@@ -1672,7 +1672,7 @@
 
         @media(max-width:768px) {
             .site-footer {
-                padding: 60px 24px 32px
+                padding: 92px 56px 64px
             }
 
             .footer-top {
