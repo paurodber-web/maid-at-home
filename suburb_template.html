@@ -1445,534 +1445,164 @@
 
     
 
-    <main>
+    
 
-        <div class="panel">
-            <div class="panel-content">
-                
 
-                <div class="body-content">
-                    <div class="text-left">
-                        <div class="reveal reveal-scale"><span class="pill-aurora">Welcome to Maid At Home</span>
-                        </div>
-                        <h1 class="reveal reveal-up delay-1">{{hero_title}}
-                        </h1>
-                        <p class="description reveal reveal-up delay-2">
-                            {{hero_desc}}
-                        </p>
+<main>
+    <div class="panel">
+        <div class="panel-content">
+            <div class="spacer"></div>
 
-                        <div class="reveal reveal-up delay-3">
-                            <div class="trust-chips">
-                                <div class="chip">
-                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    </svg>
-                                    Police Checked
-                                </div>
-                                <div class="chip">
-                                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                    </svg>
-                                    Fully Insured
-                                </div>
-                                <div class="chip">
-                                    <svg fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                    </svg>
-                                    Google Rated 5/5
-                                </div>
-                            </div>
-
-                        </div>
+            <div class="body-content">
+                <div class="text-left">
+                    <div class="reveal reveal-scale" style="display: flex; gap: 8px; color: #A5B4FC; font-size: 0.9rem; font-weight: 600; margin-bottom: 24px; letter-spacing: 0.05em; text-transform: uppercase;">
+                        <a href="index.html" style="color: #A5B4FC; text-decoration: none;">Home</a> 
+                        <span style="color: rgba(255,255,255,0.4);">/</span> 
+                        <span style="color: white;">{{suburb_name}}</span>
                     </div>
+                    <h1 class="reveal reveal-up delay-1">Premium house<br>cleaning services<br><span>in {{suburb_name}}.</span>
+                    </h1>
+                    <p class="description reveal reveal-up delay-2">
+                        Professional house cleaning services in {{suburb_name}}. We take care of
+                        the chores so you can come home to a clean, relaxing space.
+                    </p>
 
-                    <div class="chat-container reveal reveal-left delay-4">
-                        <div class="chat-header">
-                            <h2>Quick Quote</h2>
-                            <p>Tell us what you need for an instant price</p>
-                        </div>
-                        <div class="chat-feed" id="chatFeed"></div>
-                        <div class="chat-dock" id="chatDock"></div>
-                        <div class="res-box" id="resBox">
-                            <div
-                                style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.4); margin-bottom:8px;">
-                                Fixed Price</div>
-                            <div class="res-price">$<span id="pVal">0</span></div>
-                            <div style="color:rgba(255,255,255,0.6); margin-bottom:24px; font-size:1rem;" id="pDesc">
+                    <div class="reveal reveal-up delay-3">
+                        <div class="trust-chips">
+                            <div class="chip">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                Police Checked
                             </div>
-                            <a href="booking.html" class="btn-aurora"
-                                style="width:100%; justify-content:center; border:none; cursor:pointer; text-decoration:none;">Secure
-                                Booking</a>
-                            <div style="margin-top:20px; font-size:0.85rem; color:rgba(255,255,255,0.3); cursor:pointer;"
-                                onclick="bootChat()">← Start Over</div>
+                            <div class="chip">
+                                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                                Fully Insured
+                            </div>
+                            <div class="chip">
+                                <svg fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                Google Rated 5/5
+                            </div>
                         </div>
+
+                    </div>
+                </div>
+
+                <div class="chat-container reveal reveal-left delay-4">
+                    <div class="chat-header">
+                        <h2>Quick Quote</h2>
+                        <p>Tell us what you need for an instant price</p>
+                    </div>
+                    <div class="chat-feed" id="chatFeed"></div>
+                    <div class="chat-dock" id="chatDock"></div>
+                    <div class="res-box" id="resBox">
+                        <div
+                            style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.4); margin-bottom:8px;">
+                            Fixed Price</div>
+                        <div class="res-price">$<span id="pVal">0</span></div>
+                        <div style="color:rgba(255,255,255,0.6); margin-bottom:24px; font-size:1rem;" id="pDesc">
+                        </div>
+                        <a href="booking.html" class="btn-aurora"
+                            style="width:100%; justify-content:center; border:none; cursor:pointer; text-decoration:none;">Secure
+                            Booking</a>
+                        <div style="margin-top:20px; font-size:0.85rem; color:rgba(255,255,255,0.3); cursor:pointer;"
+                            onclick="bootChat()">← Start Over</div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
+    <!-- LOCAL SERVICE & CARDS -->
+    <section class="local-service-section" style="width: 100%; padding: 120px 48px; display: flex; justify-content: center; background: #ffffff;">
+        <div style="max-width: 1100px; width: 100%; text-align: center;">
+            <span style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: #4A90E2; background: #EEF2FF; padding: 6px 16px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px;">Local Service</span>
+            
+            <p style="font-size: 1.15rem; color: #94A3B8; line-height: 1.8; max-width: 600px; margin: 0 auto 60px;">
+                Our local team is dedicated to providing a reliable, thorough clean every time. Enjoy a spotless home and more free time to do what you love in {{suburb_name}}.
+            </p>
 
-
-
-        <!-- DETAILED SERVICES SECTION -->
-        <div class="services-detailed">
-            <!-- SERVICE 1: STANDARD (Photo Left) -->
-            <div class="service-row-wrapper bg-white">
-                <div class="service-row">
-                    <div class="service-image reveal reveal-left">
-                        <img src="assets/media__1771536834033.webp" alt="Standard Clean Service">
+            <div class="suburb-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: left;">
+                <!-- Card 1 -->
+                <div style="background: #FAFAFA; border: 1px solid #F1F5F9; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: #EEF2FF; color: #60A5FA; display: flex; align-items: center; justify-content: center;">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                     </div>
-                    <div class="service-text reveal reveal-up delay-1">
-                        <h2>{{service_1_title}}</h2>
-                        <p>{{service_1_desc}}</p>
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Dusting & Polishing
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Vacuuming & Mopping
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Kitchen Surfaces
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Bathroom Sanitizing
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Tidying & Organization
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Bin Disposal
-                            </div>
-                        </div>
-                        <a href="booking.html" class="service-cta-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SERVICE 2: DEEP CLEAN (Photo Right) -->
-            <div class="service-row-wrapper bg-grey">
-                <div class="service-row reverse">
-                    <div class="service-image reveal reveal-right">
-                        <img src="assets/media__1771536874203.webp" alt="Deep Clean Service">
-                    </div>
-                    <div class="service-text reveal reveal-up delay-1">
-                        <h2>{{service_2_title}}</h2>
-                        <p>{{service_2_desc}}</p>
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Inside Cabinets
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Appliance Deep Clean
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Baseboards & Vents
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Grout Scrubbing
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Door Frames & Walls
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Hidden Dust Removal
-                            </div>
-                        </div>
-                        <a href="booking.html" class="service-cta-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SERVICE 3: MOVE IN / OUT (Photo Left) -->
-            <div class="service-row-wrapper bg-white">
-                <div class="service-row">
-                    <div class="service-image reveal reveal-left">
-                        <img src="assets/media__1771537304594.webp" alt="Move In Out Clean Service">
-                    </div>
-                    <div class="service-text reveal reveal-up delay-1">
-                        <h2>{{service_3_title}}</h2>
-                        <p>{{service_3_desc}}</p>
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Oven & Rangehood
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Interior Windows
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Surface Sanitization
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Floor Treatment
-                            </div>
-                        </div>
-                        <a href="booking.html" class="service-cta-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <!-- SERVICE 4: STEAM CLEAN (Photo Right) -->
-            <div class="service-row-wrapper bg-grey">
-                <div class="service-row reverse">
-                    <div class="service-image reveal reveal-right">
-                        <img src="assets/professional_steam_clean_carpet_1771536652847.webp" alt="Steam Clean Service">
-                    </div>
-                    <div class="service-text reveal reveal-up delay-1">
-                        <h2>{{service_4_title}}</h2>
-                        <p>{{service_4_desc}}</p>
-                        <div class="service-features">
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Deep Stain Removal
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Sanitization
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Odour Neutralisation
-                            </div>
-                            <div class="feature-item">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Quick Drying Tech
-                            </div>
-                        </div>
-                        <a href="booking.html" class="service-cta-btn">Book Now</a>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-
-        <!-- HOW IT WORKS SECTION -->
-        <!-- WHY CHOOSE US SECTION -->
-
-
-
-
-        <!-- WHY CHOOSE US SECTION -->
-        <section class="why-section bg-white">
-            <div class="why-container">
-                <div class="why-header" style="text-align: center; flex-direction: column; align-items: center;">
-                    <div class="why-header-left reveal reveal-up" style="align-items: center; text-align: center;">
-                        <div class="s-pill">
-                            <div class="s-pill-dot"></div>The Difference
-                        </div>
-                        <h2>{{why_h2}}</h2>
-                    </div>
-                    <p class="why-header-right reveal reveal-up delay-1" style="text-align: center; margin-left: 0;">{{why_desc}}</p>
-                </div>
-
-                <!-- CARDS GRID -->
-                <div class="cards-grid">
-                    <div class="why-card reveal reveal-up">
-                        <div class="card-tag">🛡️ Security</div>
-                        <h3>Fully Vetted & Insured Professionals</h3>
-                        <p>{{why_card_1_desc}}</p>
-                        <div class="card-bottom">
-                            <span class="card-quote">{{why_card_1_quote}}</span>
-                            <span class="card-author">{{why_card_1_author}}</span>
-                        </div>
-                    </div>
-
-                    <div class="why-card reveal reveal-up delay-1">
-                        <div class="card-tag">✨ Quality</div>
-                        <h3>A Systematic, Thorough Clean</h3>
-                        <p>{{why_card_2_desc}}</p>
-                        <div class="card-bottom">
-                            <span class="card-quote">{{why_card_2_quote}}</span>
-                            <span class="card-author">{{why_card_2_author}}</span>
-                        </div>
-                    </div>
-
-                    <div class="why-card reveal reveal-up delay-2">
-                        <div class="card-tag">🤝 Reliability</div>
-                        <h3>We Show Up. Always.</h3>
-                        <p>{{why_card_3_desc}}</p>
-                        <div class="card-bottom">
-                            <span class="card-quote">{{why_card_3_quote}}</span>
-                            <span class="card-author">{{why_card_3_author}}</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS CAROUSEL -->
-        <section class="t-section">
-            <div class="t-container">
-                <div class="t-header reveal reveal-up">
                     <div>
-                        <div class="s-pill">
-                            <div class="s-pill-dot"></div>{{t_tag}}
-                        </div>
-                        <h2 class="t-section-h2">{{t_h2}}</h2>
-                        <p class="t-section-sub">{{t_desc}}</p>
-                    </div>
-                    <!-- Right side summary removed -->
-                </div>
-
-                <div class="t-carousel-wrapper reveal reveal-up delay-1">
-                    <div class="t-track" id="trackA">
-                        <!-- Item 1 -->
-                        <div class="t-card">
-                            <div class="t-card-top">
-                                <img class="t-card-avatar"
-                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
-                                    alt="Ana M.">
-                                <div class="t-score-stars"><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span>
-                                </div>
-                            </div>
-                            <p class="t-card-quote">{{t_card_1_quote}}</p>
-                            <div class="t-card-author"><span class="t-author-name">{{t_card_1_name}}</span><span
-                                    class="t-author-role">{{t_card_1_role}}</span></div>
-                            <span class="t-chip">{{t_card_1_chip}}</span>
-                        </div>
-                        <!-- Item 2 -->
-                        <div class="t-card">
-                            <div class="t-card-top">
-                                <img class="t-card-avatar"
-                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=80&h=80&fit=crop&crop=face"
-                                    alt="Elena V.">
-                                <div class="t-score-stars"><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span>
-                                </div>
-                            </div>
-                            <p class="t-card-quote">{{t_card_2_quote}}</p>
-                            <div class="t-card-author"><span class="t-author-name">{{t_card_2_name}}</span><span
-                                    class="t-author-role">{{t_card_2_role}}</span></div>
-                            <span class="t-chip">{{t_card_2_chip}}</span>
-                        </div>
-                        <!-- Item 3 -->
-                        <div class="t-card">
-                            <div class="t-card-top">
-                                <img class="t-card-avatar"
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
-                                    alt="Carlos R.">
-                                <div class="t-score-stars"><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span>
-                                </div>
-                            </div>
-                            <p class="t-card-quote">{{t_card_3_quote}}</p>
-                            <div class="t-card-author"><span class="t-author-name">{{t_card_3_name}}</span><span
-                                    class="t-author-role">{{t_card_3_role}}</span></div>
-                            <span class="t-chip">{{t_card_3_chip}}</span>
-                        </div>
-                        <!-- Item 4 -->
-                        <div class="t-card">
-                            <div class="t-card-top">
-                                <img class="t-card-avatar"
-                                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
-                                    alt="Laura P.">
-                                <div class="t-score-stars"><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span>
-                                </div>
-                            </div>
-                            <p class="t-card-quote">{{t_card_4_quote}}</p>
-                            <div class="t-card-author"><span class="t-author-name">{{t_card_4_name}}</span><span
-                                    class="t-author-role">{{t_card_4_role}}</span></div>
-                            <span class="t-chip">{{t_card_4_chip}}</span>
-                        </div>
-                        <!-- Item 5 -->
-                        <div class="t-card">
-                            <div class="t-card-top">
-                                <img class="t-card-avatar"
-                                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face"
-                                    alt="Marc T.">
-                                <div class="t-score-stars"><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span><span
-                                        class="t-star">★</span><span class="t-star">★</span>
-                                </div>
-                            </div>
-                            <p class="t-card-quote">{{t_card_5_quote}}</p>
-                            <div class="t-card-author"><span class="t-author-name">{{t_card_5_name}}</span><span
-                                    class="t-author-role">{{t_card_5_role}}</span></div>
-                            <span class="t-chip">{{t_card_5_chip}}</span>
-                        </div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #0F172A; margin-bottom: 12px; font-family: 'Outfit', sans-serif;">Elite local teams</h3>
+                        <p style="font-size: 1rem; color: #94A3B8; line-height: 1.6;">Hospitality-trained professionals vetted for {{suburb_name}}. We bring elite standards and local reliability to every home we touch.</p>
                     </div>
                 </div>
 
-                <div class="t-controls reveal reveal-up delay-2">
-                    <button class="t-arrow-btn" id="prevA">←</button>
-                    <div class="t-dots" id="dotsA"></div>
-                    <button class="t-arrow-btn" id="nextA">→</button>
-                </div>
-            </div>
-        </section>
-
-        </section>
-
-        <!-- WHY CHOOSE US SECTION -->
-
-
-        <!-- HOW IT WORKS SECTION -->
-        <!-- HOW IT WORKS SECTION (Variant F: Mirrored Grid) -->
-        <section class="how-section bg-white">
-            <div class="mirrored-grid-layout">
-                <!-- Steps on LEFT (Grid) -->
-                <div class="steps-grid-left">
-                    <div class="step-card-simple reveal reveal-up">
-                        <span class="step-num-corner">01</span>
-                        <h3>Select</h3>
-                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Choose the perfect
-                            service
-                            package for your home's unique needs.</p>
+                <!-- Card 2 -->
+                <div style="background: #FAFAFA; border: 1px solid #F1F5F9; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: #F1F5F9; color: #94A3B8; display: flex; align-items: center; justify-content: center;">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                     </div>
-                    <div class="step-card-simple reveal reveal-up delay-1">
-                        <span class="step-num-corner">02</span>
-                        <h3>Schedule</h3>
-                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Pick a time that works
-                            for
-                            you. We're available 7 days a week.</p>
-                    </div>
-                    <div class="step-card-simple reveal reveal-up delay-2">
-                        <span class="step-num-corner">03</span>
-                        <h3>Clean</h3>
-                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Sit back while our
-                            vetted
-                            pros transform your space.</p>
-                    </div>
-                    <div class="step-card-simple reveal reveal-up delay-3">
-                        <span class="step-num-corner">04</span>
-                        <h3>Relax</h3>
-                        <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.6;">Enjoy the peace of mind
-                            that
-                            comes with a spotless environment.</p>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #0F172A; margin-bottom: 12px; font-family: 'Outfit', sans-serif;">White glove precision</h3>
+                        <p style="font-size: 1rem; color: #94A3B8; line-height: 1.6;">We cultivate pristine environments in {{suburb_name}}, ensuring every surface is polished and meticulously staged.</p>
                     </div>
                 </div>
 
-                <!-- Header on RIGHT (Column) -->
-                <div class="header-col-right reveal reveal-left">
-                    <div class="section-header" style="margin-bottom: 20px;">
-                        <h2
-                            style="font-size: 2.8rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; color: var(--text-dark);">
-                            A system built<br><span style="color: var(--primary);">around your life.</span>
-                        </h2>
-                        <p style="font-size: 1.15rem; color: var(--text-sub); line-height: 1.6; margin-bottom: 32px;">
-                            {{how_desc}}
-                        </p>
+                <!-- Card 3 -->
+                <div style="background: #FAFAFA; border: 1px solid #F1F5F9; border-radius: 20px; padding: 40px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="width: 48px; height: 48px; border-radius: 50%; background: #FFF1F2; color: #F43F5E; display: flex; align-items: center; justify-content: center;">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: #0F172A; margin-bottom: 12px; font-family: 'Outfit', sans-serif;">Satisfaction guarantee</h3>
+                        <p style="font-size: 1rem; color: #94A3B8; line-height: 1.6;">Not 100% satisfied with your clean in {{suburb_name}}? We will return and redo it for free. That is our satisfaction promise.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- HAPPINESS GUARANTEE BANNER -->
-        <section class="guarantee-section">
-            <div class="guarantee-container reveal reveal-up">
-                <div class="guarantee-badge">✅ Risk Free</div>
-                <div class="guarantee-icon">
-                    <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                </div>
-                <div class="guarantee-content">
-                    <h2>The Happiness Guarantee</h2>
-                    <p>We're confident you'll love your clean. If you're not 100% satisfied, let us know within 24 hours
-                        and
-                        we'll come back to fix it for free.</p>
-                </div>
+    <!-- GRAY RATING SECTION -->
+    <section class="grey-rating-section" style="width: 100%; padding: 120px 48px; display: flex; justify-content: center; background: #F8FAFC;">
+        <div class="suburb-gray-grid" style="max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+            <!-- Left Side: Text and List -->
+            <div>
+                <h2 style="font-family: var(--font-main); font-size: 2.2rem; font-weight: 700; color: #0F172A; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.02em;">The best house cleaning in {{suburb_name}}</h2>
+                <p style="font-size: 1.05rem; color: #64748B; line-height: 1.6; margin-bottom: 32px;">
+                    At Maid At Home, we believe {{suburb_name}} residents deserve the absolute best. Our professional cleaning specialists go through rigorous screening and training to ensure they meet our elite housekeeping standards.
+                </p>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px;">
+                    <li style="display: flex; align-items: center; gap: 12px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+                        <div style="background: #60A5FA; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        Standard and detailed cleans
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+                        <div style="background: #60A5FA; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        Specialized deep cleaning
+                    </li>
+                    <li style="display: flex; align-items: center; gap: 12px; font-weight: 600; color: #334155; font-size: 0.95rem;">
+                        <div style="background: #60A5FA; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg></div>
+                        Move-In / move-out services
+                    </li>
+                </ul>
             </div>
-        </section>
 
-        </section>
-    </main>
+            <!-- Right Side: Rating Card -->
+            <div style="background: #ffffff; border-radius: 20px; padding: 60px 40px; text-align: center; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                <div style="font-size: 4rem; font-weight: 800; color: #60A5FA; line-height: 1; font-family: 'Outfit', sans-serif; margin-bottom: 12px; letter-spacing: -0.02em;">4.9<span style="font-size: 2.5rem; color: #94A3B8;">/5</span></div>
+                <div style="font-size: 1rem; font-weight: 600; color: #64748B; margin-bottom: 32px;">Client Satisfaction in {{suburb_name}}</div>
+                <a href="booking.html" class="nav-cta" style="display: block; width: 100%; padding: 16px; text-align: center; background: #60A5FA; color: white; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: transform 0.2s ease, background 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='#3B82F6';" onmouseout="this.style.transform='translateY(0)'; this.style.background='#60A5FA';">Book Your {{suburb_name}} Clean</a>
+            </div>
+        </div>
+    </section>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
+</main>
+\n<footer class="site-footer">
         <div class="footer-container">
             <div class="footer-top">
                 <!-- Col 1: Brand -->
@@ -1999,11 +1629,12 @@
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="faqs.html">FAQs</a></li>
-                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Book Now</a></li>
                     </ul>
                 </div>
 
@@ -2064,32 +1695,17 @@
 
             <div class="footer-bottom">
                 <span>© 2026 Maid At Home. All rights reserved.</span>
-                <span><a href="privacy-policy.html" style="color: inherit; text-decoration: none;">Privacy Policy</a> ·
-                    <a href="terms&conditions.html" style="color: inherit; text-decoration: none;">Terms of
-                        Service</a></span>
+                <span>Privacy Policy · Terms of Service</span>
             </div>
         </div>
     </footer>
 
     <!-- SCRIPTS -->
     <script>
-        const flatRateData = {
-            1: { standard: 155, deep: 215, move: 410 },
-            2: { standard: 175, deep: 245, move: 440 },
-            3: { standard: 195, deep: 275, move: 500 },
-            4: { standard: 235, deep: 315, move: 570 },
-            5: { standard: 285, deep: 375, move: 670 },
-            6: { standard: 315, deep: 415, move: 710 }
-        };
-
-        const hourlyRates = {
-            'One-off': 60,
-            'Weekly / Biweekly': 54,
-            '3 / 4 Weekly': 57
-        };
-
-        const feed = document.getElementById('chatFeed'), dock = document.getElementById('chatDock'), res = document.getElementById('resBox');
-        let beds = 1, model = '', type = '', frequency = '';
+        const rates = { 1: 120, 2: 160, 3: 200, 4: 250, 5: 310 };
+        const feed = document.getElementById('chatFeed'), dock = document.getElementById('chatDock'), res =
+            document.getElementById('resBox');
+        let beds = 1, model = '', type = '';
 
         function post(txt, type) {
             const d = document.createElement('div');
@@ -2100,10 +1716,12 @@
         }
 
         function autoScroll() {
-            setTimeout(() => { feed.scrollTop = feed.scrollHeight; }, 100);
+            setTimeout(() => {
+                feed.scrollTop = feed.scrollHeight;
+            }, 100);
         }
 
-        const w = (fn, ms = 400) => setTimeout(fn, ms);
+        function w(fn, ms = 400) { setTimeout(fn, ms); }
 
         function bootChat() {
             if (!feed || !dock || !res) return;
@@ -2111,14 +1729,13 @@
             w(() => {
                 post('Hi! How many bedrooms do you need cleaned?', 'agt');
                 w(() => {
-                    dock.innerHTML = `<div class="opt-grid" style="flex-wrap:wrap;">
-                        <button class="btn-opt" onclick="selBed(1)">1</button>
-                        <button class="btn-opt" onclick="selBed(2)">2</button>
-                        <button class="btn-opt" onclick="selBed(3)">3</button>
-                        <button class="btn-opt" onclick="selBed(4)">4</button>
-                        <button class="btn-opt" onclick="selBed(5)">5</button>
-                        <button class="btn-opt" onclick="selBed(6)">6</button>
-                    </div>`;
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="selBed(1)">1</button>
+        <button class="btn-opt" onclick="selBed(2)">2</button>
+        <button class="btn-opt" onclick="selBed(3)">3</button>
+        <button class="btn-opt" onclick="selBed(4)">4</button>
+        <button class="btn-opt" onclick="selBed(5)">5+</button>
+    </div>`;
                     autoScroll();
                 }, 300);
             });
@@ -2132,9 +1749,9 @@
                 post('Which pricing model do you prefer?', 'agt');
                 w(() => {
                     dock.innerHTML = `<div class="opt-grid">
-                        <button class="btn-opt" onclick="selModel('Flat Rate')">Flat Rate</button>
-                        <button class="btn-opt" onclick="selModel('Hourly Rate')">Hourly Rate</button>
-                    </div>`;
+        <button class="btn-opt" onclick="selModel('Flat Rate')">Flat Rate</button>
+        <button class="btn-opt" onclick="selModel('Hourly Rate')">Hourly Rate</button>
+    </div>`;
                     autoScroll();
                 }, 300);
             });
@@ -2144,102 +1761,47 @@
             model = m;
             post(m, 'usr');
             dock.innerHTML = '';
-            if (m === 'Flat Rate') {
+            w(() => {
+                post('What type of clean is it?', 'agt');
                 w(() => {
-                    post('What type of clean is it?', 'agt');
-                    w(() => {
-                        dock.innerHTML = `<div class="opt-grid">
-                            <button class="btn-opt" onclick="selType('Standard')">Standard</button>
-                            <button class="btn-opt" onclick="selType('Deep Clean')">Deep Clean</button>
-                            <button class="btn-opt" onclick="selType('Move In / Out')">Move In / Out</button>
-                        </div>`;
-                        autoScroll();
-                    }, 300);
-                });
-            } else {
-                w(() => {
-                    post('How often should we visit?', 'agt');
-                    w(() => {
-                        dock.innerHTML = `<div class="opt-grid">
-                            <button class="btn-opt" onclick="selFreqH('One-off')">One-off</button>
-                            <button class="btn-opt" onclick="selFreqH('Weekly / Biweekly')">Weekly / Biweekly</button>
-                            <button class="btn-opt" onclick="selFreqH('3 / 4 Weekly')">3 / 4 Weekly</button>
-                        </div>`;
-                        autoScroll();
-                    }, 300);
-                });
-            }
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="selType('Standard')">Standard</button>
+        <button class="btn-opt" onclick="selType('Deep Clean')">Deep Clean</button>
+        <button class="btn-opt" onclick="selType('Move In / Out')">Move In / Out</button>
+    </div>`;
+                    autoScroll();
+                }, 300);
+            });
         }
 
         function selType(t) {
             type = t;
             post(t, 'usr');
             dock.innerHTML = '';
-            if (t === 'Move In / Out') {
-                finFlat('One-off');
-            } else {
-                w(() => {
-                    post('How often should we visit?', 'agt');
-                    w(() => {
-                        dock.innerHTML = `<div class="opt-grid">
-                            <button class="btn-opt" onclick="finFlat('One-off')">One-off</button>
-                            <button class="btn-opt" onclick="finFlat('Weekly / Biweekly')">Weekly / Biweekly</button>
-                            <button class="btn-opt" onclick="finFlat('3 / 4 Weekly')">3 / 4 Weekly</button>
-                        </div>`;
-                        autoScroll();
-                    }, 300);
-                });
-            }
-        }
-
-        function selFreqH(f) {
-            frequency = f;
-            post(f, 'usr');
-            dock.innerHTML = '';
             w(() => {
-                post('How many hours of cleaning?', 'agt');
+                post('How often should we visit?', 'agt');
                 w(() => {
-                    dock.innerHTML = `<div class="opt-grid" style="flex-wrap:wrap;">
-                        <button class="btn-opt" onclick="finHour(2)">2h</button>
-                        <button class="btn-opt" onclick="finHour(3)">3h</button>
-                        <button class="btn-opt" onclick="finHour(4)">4h</button>
-                        <button class="btn-opt" onclick="finHour(5)">5h</button>
-                        <button class="btn-opt" onclick="finHour(6)">6h</button>
-                    </div>`;
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="fin('Once off', 1.1)">Once off</button>
+        <button class="btn-opt" onclick="fin('Weekly / Bi-weekly', 0.9)">Weekly / Bi-weekly</button>
+        <button class="btn-opt" onclick="fin('Monthly', 1)">Monthly</button>
+    </div>`;
                     autoScroll();
                 }, 300);
             });
         }
 
-        function finFlat(f) {
-            frequency = f;
-            post(f, 'usr');
+        function fin(freq, mult) {
+            post(freq, 'usr');
             dock.style.display = 'none';
-            const data = flatRateData[beds];
-            let p = 0;
-
-            if (type === 'Standard') { p = data.standard; }
-            else if (type === 'Deep Clean') { p = data.deep; }
-            else { p = data.move; }
-
-            if (f === 'Weekly / Biweekly') p *= 0.9;
-            if (f === '3 / 4 Weekly') p *= 0.95;
+            const base = rates[beds > 4 ? 5 : beds];
+            const hourlyMult = model === 'Hourly Rate' ? 1.2 : 1;
+            const typeMult = type === 'Deep Clean' ? 1.5 : (type === 'Move In / Out' ? 2.2 : 1);
+            const price = Math.round(base * hourlyMult * typeMult * mult);
 
             w(() => {
-                document.getElementById('pVal').innerText = p.toFixed(2);
-                document.getElementById('pDesc').innerHTML = `${beds} Bed · ${type} · ${f}`;
-                res.style.display = 'block';
-            }, 500);
-        }
-
-        function finHour(h) {
-            post(`${h} hours`, 'usr');
-            dock.style.display = 'none';
-            const rate = hourlyRates[frequency];
-            const total = rate * h;
-            w(() => {
-                document.getElementById('pVal').innerText = total.toFixed(2);
-                document.getElementById('pDesc').innerHTML = `Hourly Service · ${frequency} · ${h}h`;
+                document.getElementById('pVal').innerText = price;
+                document.getElementById('pDesc').innerText = `${model} · ${type} · ${freq}`;
                 res.style.display = 'block';
             }, 500);
         }
@@ -2261,37 +1823,33 @@
                     const showTolerance = 100;
                     const hideTolerance = 100;
 
-                                        if (window.innerWidth <= 1100) {
-                        if (currentScrollY > 50) {
-                            siteHeader.classList.add('is-sticky');
-                        } else {
-                            siteHeader.classList.remove('is-sticky');
-                        }
-                        siteHeader.classList.remove('hidden');
+                    if (window.innerWidth <= 1100) return;
+
+                    if (currentScrollY <= 24) {
+                        siteHeader.classList.remove('is-sticky', 'hidden');
+                        accumulatedScroll = 0;
                     } else {
-                        if (currentScrollY <= 24) {
-                            siteHeader.classList.remove('is-sticky', 'hidden');
+                        // Reset accumulator if direction changes
+                        if ((scrollDiff > 0 && accumulatedScroll < 0) || (scrollDiff < 0 && accumulatedScroll > 0)) {
                             accumulatedScroll = 0;
-                        } else {
-                            if ((scrollDiff > 0 && accumulatedScroll < 0) || (scrollDiff < 0 && accumulatedScroll > 0)) {
-                                accumulatedScroll = 0;
-                            }
+                        }
 
-                            accumulatedScroll += scrollDiff;
+                        accumulatedScroll += scrollDiff;
 
-                            if (accumulatedScroll > showTolerance) {
-                                if (!siteHeader.classList.contains('is-sticky')) {
-                                    siteHeader.classList.add('is-sticky', 'hidden');
-                                    siteHeader.offsetHeight;
-                                }
-                                siteHeader.classList.remove('hidden');
-                                accumulatedScroll = 0;
-                            } else if (accumulatedScroll < -hideTolerance) {
-                                if (siteHeader.classList.contains('is-sticky')) {
-                                    siteHeader.classList.add('hidden');
-                                }
-                                accumulatedScroll = 0;
+                        if (accumulatedScroll > showTolerance) {
+                            // Cumulative scroll UP meets threshold
+                            if (!siteHeader.classList.contains('is-sticky')) {
+                                siteHeader.classList.add('is-sticky', 'hidden');
+                                siteHeader.offsetHeight;
                             }
+                            siteHeader.classList.remove('hidden');
+                            accumulatedScroll = 0; // Reset after action
+                        } else if (accumulatedScroll < -hideTolerance) {
+                            // Cumulative scroll DOWN meets threshold
+                            if (siteHeader.classList.contains('is-sticky')) {
+                                siteHeader.classList.add('hidden');
+                            }
+                            accumulatedScroll = 0; // Reset after action
                         }
                     }
 
@@ -2409,3 +1967,270 @@
 </body>
 
 </html>
+</body>
+
+</html>
+\n<script>
+        const rates = { 1: 120, 2: 160, 3: 200, 4: 250, 5: 310 };
+        const feed = document.getElementById('chatFeed'), dock = document.getElementById('chatDock'), res =
+            document.getElementById('resBox');
+        let beds = 1, model = '', type = '';
+
+        function post(txt, type) {
+            const d = document.createElement('div');
+            d.className = `bub b-${type}`;
+            d.innerText = txt;
+            feed.appendChild(d);
+            autoScroll();
+        }
+
+        function autoScroll() {
+            setTimeout(() => {
+                feed.scrollTop = feed.scrollHeight;
+            }, 100);
+        }
+
+        function w(fn, ms = 400) { setTimeout(fn, ms); }
+
+        function bootChat() {
+            if (!feed || !dock || !res) return;
+            feed.innerHTML = ''; dock.innerHTML = ''; res.style.display = 'none'; dock.style.display = 'block';
+            w(() => {
+                post('Hi! How many bedrooms do you need cleaned?', 'agt');
+                w(() => {
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="selBed(1)">1</button>
+        <button class="btn-opt" onclick="selBed(2)">2</button>
+        <button class="btn-opt" onclick="selBed(3)">3</button>
+        <button class="btn-opt" onclick="selBed(4)">4</button>
+        <button class="btn-opt" onclick="selBed(5)">5+</button>
+    </div>`;
+                    autoScroll();
+                }, 300);
+            });
+        }
+
+        function selBed(n) {
+            beds = n;
+            post(`${n} Bedroom${n > 1 ? 's' : ''}`, 'usr');
+            dock.innerHTML = '';
+            w(() => {
+                post('Which pricing model do you prefer?', 'agt');
+                w(() => {
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="selModel('Flat Rate')">Flat Rate</button>
+        <button class="btn-opt" onclick="selModel('Hourly Rate')">Hourly Rate</button>
+    </div>`;
+                    autoScroll();
+                }, 300);
+            });
+        }
+
+        function selModel(m) {
+            model = m;
+            post(m, 'usr');
+            dock.innerHTML = '';
+            w(() => {
+                post('What type of clean is it?', 'agt');
+                w(() => {
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="selType('Standard')">Standard</button>
+        <button class="btn-opt" onclick="selType('Deep Clean')">Deep Clean</button>
+        <button class="btn-opt" onclick="selType('Move In / Out')">Move In / Out</button>
+    </div>`;
+                    autoScroll();
+                }, 300);
+            });
+        }
+
+        function selType(t) {
+            type = t;
+            post(t, 'usr');
+            dock.innerHTML = '';
+            w(() => {
+                post('How often should we visit?', 'agt');
+                w(() => {
+                    dock.innerHTML = `<div class="opt-grid">
+        <button class="btn-opt" onclick="fin('Once off', 1.1)">Once off</button>
+        <button class="btn-opt" onclick="fin('Weekly / Bi-weekly', 0.9)">Weekly / Bi-weekly</button>
+        <button class="btn-opt" onclick="fin('Monthly', 1)">Monthly</button>
+    </div>`;
+                    autoScroll();
+                }, 300);
+            });
+        }
+
+        function fin(freq, mult) {
+            post(freq, 'usr');
+            dock.style.display = 'none';
+            const base = rates[beds > 4 ? 5 : beds];
+            const hourlyMult = model === 'Hourly Rate' ? 1.2 : 1;
+            const typeMult = type === 'Deep Clean' ? 1.5 : (type === 'Move In / Out' ? 2.2 : 1);
+            const price = Math.round(base * hourlyMult * typeMult * mult);
+
+            w(() => {
+                document.getElementById('pVal').innerText = price;
+                document.getElementById('pDesc').innerText = `${model} · ${type} · ${freq}`;
+                res.style.display = 'block';
+            }, 500);
+        }
+
+        window.onload = bootChat;
+
+        // ── SMART STICKY HEADER ──
+        const siteHeader = document.getElementById('siteHeader');
+        let lastScrollY = window.scrollY;
+        let isTicking = false;
+
+        let accumulatedScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            if (!isTicking) {
+                window.requestAnimationFrame(() => {
+                    const currentScrollY = window.scrollY;
+                    const scrollDiff = lastScrollY - currentScrollY;
+                    const showTolerance = 100;
+                    const hideTolerance = 100;
+
+                    if (window.innerWidth <= 1100) return;
+
+                    if (currentScrollY <= 24) {
+                        siteHeader.classList.remove('is-sticky', 'hidden');
+                        accumulatedScroll = 0;
+                    } else {
+                        // Reset accumulator if direction changes
+                        if ((scrollDiff > 0 && accumulatedScroll < 0) || (scrollDiff < 0 && accumulatedScroll > 0)) {
+                            accumulatedScroll = 0;
+                        }
+
+                        accumulatedScroll += scrollDiff;
+
+                        if (accumulatedScroll > showTolerance) {
+                            // Cumulative scroll UP meets threshold
+                            if (!siteHeader.classList.contains('is-sticky')) {
+                                siteHeader.classList.add('is-sticky', 'hidden');
+                                siteHeader.offsetHeight;
+                            }
+                            siteHeader.classList.remove('hidden');
+                            accumulatedScroll = 0; // Reset after action
+                        } else if (accumulatedScroll < -hideTolerance) {
+                            // Cumulative scroll DOWN meets threshold
+                            if (siteHeader.classList.contains('is-sticky')) {
+                                siteHeader.classList.add('hidden');
+                            }
+                            accumulatedScroll = 0; // Reset after action
+                        }
+                    }
+
+                    lastScrollY = currentScrollY;
+                    isTicking = false;
+                });
+                isTicking = true;
+            }
+        }, { passive: true });
+
+
+        // Global Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once animated, no need to observe anymore
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        /* ── TESTIMONIALS LOGIC ── */
+        (function () {
+            const track = document.getElementById('trackA');
+            const dotsC = document.getElementById('dotsA');
+            const prev = document.getElementById('prevA');
+            const next = document.getElementById('nextA');
+
+            let isDesktop = window.matchMedia('(min-width: 901px)').matches;
+            let screenWidth = document.documentElement.clientWidth;
+
+            function getCardWidth() {
+                if (isDesktop) return 404;
+                return track.children[0].offsetWidth + 24;
+            }
+
+            let CARD_WIDTH = getCardWidth();
+            const total = track.children.length;
+            let cur = 0;
+
+            function buildDots() {
+                dotsC.innerHTML = '';
+                const itemsVisible = isDesktop ? 3 : 1;
+                const dotCount = Math.max(1, total - itemsVisible + 1);
+                for (let i = 0; i < dotCount; i++) {
+                    const d = document.createElement('button'); d.className = 't-dot';
+                    d.setAttribute('aria-label', `Slide ${i + 1}`); if (i === cur) d.classList.add('active');
+                    d.addEventListener('click', () => go(i));
+                    dotsC.appendChild(d);
+                }
+            }
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    isDesktop = window.matchMedia('(min-width: 901px)').matches;
+                    screenWidth = document.documentElement.clientWidth;
+                    CARD_WIDTH = getCardWidth();
+                    buildDots();
+                    go(cur);
+                }, 100);
+            }, { passive: true });
+
+            buildDots();
+
+            function go(i) {
+                const itemsVisible = isDesktop ? 3 : 1;
+                const safeMax = total - itemsVisible;
+                cur = Math.max(0, Math.min(i, safeMax));
+
+                track.style.transform = `translateX(-${cur * CARD_WIDTH}px)`;
+
+                // Update dots
+                Array.from(dotsC.children).forEach((d, idx) => {
+                    d.classList.toggle('active', idx === cur);
+                });
+
+                prev.disabled = cur === 0;
+                next.disabled = cur >= safeMax;
+            }
+
+            prev.addEventListener('click', () => go(cur - 1));
+            next.addEventListener('click', () => go(cur + 1));
+
+            // Swipe
+            let sx = 0;
+            track.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
+            track.addEventListener('touchend', e => {
+                const d = sx - e.changedTouches[0].clientX;
+                if (Math.abs(d) > 50) go(d > 0 ? cur + 1 : cur - 1);
+            });
+
+            // Init
+            go(0);
+        })();
+
+        // ── MOBILE MENU LOGIC ──
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const body = document.body;
+
+        function toggleMenu() {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            siteHeader.classList.toggle('menu-open');
+            body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+    </script>
+\n</body>\n</html>\n
