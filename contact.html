@@ -1437,111 +1437,107 @@
 
         .menu-toggle {
                 display: flex
-            } /* --- GLOBAL RESPONSIVE FIXES --- */
+            } 
+        /* --- UNIFIED MOBILE RESPONSIVE FIXES --- */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
+        }
+
         @media (max-width: 1100px) {
-            section,
-            .history-section,
-            .social-proof-section,
-            .principles-section,
-            .final-cta-section,
-            .t-section,
-            .how-section,
-            .guarantee-section,
-            .contact-section,
-            .faq-section {
-                padding: 60px 24px !important;
+            section, .history-section, .social-proof-section, .principles-section, 
+            .final-cta-section, .t-section, .how-section, .guarantee-section, 
+            .contact-section, .faq-section, .comparison-section, .pricing-hub, 
+            .discount-showcase, .scope-section, .panel {
+                padding-left: 24px !important;
+                padding-right: 24px !important;
+                max-width: 100vw;
+                box-sizing: border-box;
             }
 
-            .history-grid,
-            .mirrored-grid-layout,
-            .principles-grid,
-            .proof-grid,
-            .cards-grid,
-            .contact-grid,
-            .principles-cards-grid,
-            .bento-grid,
-            .value-grid,
-            .scope-grid,
-            .pricing-grid,
-            .info-grid {
+            .history-grid, .mirrored-grid-layout, .principles-grid, .proof-grid, 
+            .cards-grid, .contact-grid, .principles-cards-grid, .bento-grid, 
+            .value-grid, .scope-grid, .pricing-grid, .info-grid, .comparison-container,
+            .discount-content, .scope-header-hub, .extras-grid, .footer-top {
                 grid-template-columns: 1fr !important;
                 gap: 40px !important;
             }
 
-            .history-image img,
-            .service-image img,
-            .bento-card img {
+            img, .history-image img, .service-image img, .bento-card img {
+                max-width: 100% !important;
                 height: auto !important;
-                max-height: 400px;
-                width: 100% !important;
             }
 
-            .history-content h2,
-            .content-side h2,
-            .header-col-right h2,
-            .t-section-h2,
-            .cta-card h2,
-            .contact-info h2 {
-                font-size: 2.5rem !important;
-                line-height: 1.2 !important;
-            }
-
-            .cta-card {
-                padding: 60px 24px !important;
-            }
-
-            .panel-content {
-                padding: 120px 24px 40px !important;
-            }
-
-            .panel h1 {
-                font-size: 3rem !important;
-            }
-        }
-
-    
-        
-        /* --- GLOBAL MOBILE ALIGNMENT FIXES --- */
-        @media (max-width: 1100px) {
-            .history-content,
-            .content-side,
-            .header-col-right,
-            .why-header-left,
-            .t-header > div,
-            .proof-header,
-            .text-left {
-                text-align: center !important;
+            /* Container Centering */
+            .history-content, .content-side, .header-col-right, .why-header-left,
+            .t-header, .proof-header, .comparison-header, .block-header, 
+            .contact-info, .discount-main, .scope-header-left, .faq-header,
+            .panel-content, .t-header > div, .why-header {
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Badge/Pill Centering */
+            .s-pill, .section-tag, .discount-badge {
+                margin: 0 auto 20px auto !important;
+                display: inline-flex !important;
+                justify-content: center !important;
+            }
+
+            /* Paragraph Centering */
+            .history-content p, .content-side p:not(.s-pill), .header-col-right p,
+            .why-header-left p, .t-header p, .proof-header p, .comparison-header p, 
+            .block-header p, .contact-info p.contact-description, .discount-main p, .scope-header-left p, 
+            .t-section-sub, .description, .why-header-right {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                max-width: 100% !important;
+            }
+
+            /* Title Font Size Unification */
+            h1 { 
+                font-size: 3.2rem !important; 
+                line-height: 1.1 !important; 
+                text-align: center !important; 
+            }
+            h2 { 
+                font-size: 2.8rem !important; 
+                line-height: 1.2 !important; 
+                text-align: center !important; 
+            }
+
+            /* CTA Cards Overflow Protection */
+            .cta-card, .cta-box {
+                padding: 60px 24px !important;
+                border-radius: 32px !important;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+
+            /* Avoid centering actual cards data */
+            .info-card, .info-text, .task-item {
+                text-align: left !important;
+                align-items: flex-start !important;
+            }
+            .info-text h4, .info-text p {
+                text-align: left !important;
+                margin: 0 !important;
             }
             
-            .history-content p,
-            .content-side p,
-            .header-col-right p,
-            .t-section-sub,
-            .description,
-            .why-header-right {
-                text-align: center !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-
-            /* Fixes specifically for contact section centering */
-            .contact-info > .s-pill {
-                margin: 0 auto 20px auto !important;
-                display: flex !important;
-                width: max-content;
-            }
-            .contact-info > h2,
-            .contact-info > p.contact-description {
-                text-align: center !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
+            /* Calculators and Dropdowns Overflow Protection */
+            .option-calculator, .discount-card {
+                padding: 24px 20px !important;
+                box-sizing: border-box;
+                width: 100%;
             }
         }
-
-    </style>
+\n    </style>
 </head>
 
 <body>
