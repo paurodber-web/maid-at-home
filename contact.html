@@ -1395,7 +1395,47 @@
                 display: none
             }
 
-            .menu-toggle {
+            
+        @media(max-width:1024px) {
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px
+            }
+        }
+
+        @media(max-width:768px) {
+            .site-footer {
+                padding: 76px 24px 48px;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                text-align: left;
+                gap: 40px
+            }
+
+            .footer-brand p,
+            .newsletter-form {
+                margin-left: 0;
+                margin-right: 0
+            }
+
+            .social-links,
+            .hours-list,
+            .hour-row {
+                justify-content: flex-start;
+                margin-left: 0;
+                margin-right: 0
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: left
+            }
+        }
+
+        .menu-toggle {
                 display: flex
             }
         }
