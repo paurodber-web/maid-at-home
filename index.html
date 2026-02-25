@@ -198,7 +198,6 @@
         }
 
         .brand {
-            font-family: var(--font-main);
             font-weight: 800;
             font-size: 1.15rem;
             color: white;
@@ -263,7 +262,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(60, 60, 60, 0.4);
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
 
@@ -481,7 +480,6 @@
             color: white;
             padding: 13px 4px;
             border-radius: 12px;
-            font-family: var(--font-main);
             font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
@@ -586,7 +584,6 @@
         }
 
         .how-h2 {
-            font-family: var(--font-main);
             font-size: 3.5rem;
             font-weight: 700;
             color: var(--text-dark);
@@ -856,7 +853,6 @@
         }
 
         .step-num {
-            font-family: var(--font-main);
             font-size: 0.85rem;
             font-weight: 800;
             color: var(--primary);
@@ -876,7 +872,6 @@
         }
 
         .how-step h3 {
-            font-family: var(--font-main);
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-dark);
@@ -961,7 +956,6 @@
         }
 
         .service-text h2 {
-            font-family: var(--font-main);
             font-size: 2.8rem;
             font-weight: 700;
             color: var(--text-dark);
@@ -1141,7 +1135,6 @@
         }
 
         .t-section-h2 {
-            font-family: var(--font-main);
             font-size: 3.5rem;
             font-weight: 700;
             color: var(--text-dark);
@@ -1509,7 +1502,6 @@
         }
 
         .guarantee-content h2 {
-            font-family: var(--font-main);
             font-size: 2rem;
             font-weight: 700;
             color: white;
@@ -1582,7 +1574,6 @@
         }
 
         .footer-brand h3 {
-            font-family: var(--font-main);
             color: white;
             font-size: 1.5rem;
             font-weight: 800;
@@ -1722,8 +1713,14 @@
             line-height: 1.6
         }
 
-        .area-list span {
-            color: #94A3B8
+        .area-list a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .area-list a:hover {
+            color: white;
         }
 
         .footer-bottom {
@@ -2858,114 +2855,62 @@
             <div class="service-areas">
                 <h4>Service Areas</h4>
                 <div class="area-list">
-                    <span><a href="suburbs/abbotsford.html"
-                            style="color: inherit; text-decoration: none;">Abbotsford</a></span>
-                    <span><a href="suburbs/albert-park.html" style="color: inherit; text-decoration: none;">Albert
-                            Park</a></span>
-                    <span><a href="suburbs/altona.html" style="color: inherit; text-decoration: none;">Altona</a></span>
-                    <span><a href="suburbs/ascot-vale.html" style="color: inherit; text-decoration: none;">Ascot
-                            Vale</a></span>
-                    <span><a href="suburbs/balaclava.html"
-                            style="color: inherit; text-decoration: none;">Balaclava</a></span>
-                    <span><a href="suburbs/balwyn.html" style="color: inherit; text-decoration: none;">Balwyn</a></span>
-
-                    <span><a href="suburbs/box-hill.html" style="color: inherit; text-decoration: none;">Box
-                            Hill</a></span>
-                    <span><a href="suburbs/brighton.html"
-                            style="color: inherit; text-decoration: none;">Brighton</a></span>
-                    <span><a href="suburbs/brunswick.html"
-                            style="color: inherit; text-decoration: none;">Brunswick</a></span>
-                    <span><a href="suburbs/brunswick-east.html" style="color: inherit; text-decoration: none;">Brunswick
-                            East</a></span>
-                    <span><a href="suburbs/brunswick-west.html" style="color: inherit; text-decoration: none;">Brunswick
-                            West</a></span>
-                    <span><a href="suburbs/burnley.html"
-                            style="color: inherit; text-decoration: none;">Burnley</a></span>
-                    <span><a href="suburbs/camberwell.html"
-                            style="color: inherit; text-decoration: none;">Camberwell</a></span>
-                    <span><a href="suburbs/carlton.html"
-                            style="color: inherit; text-decoration: none;">Carlton</a></span>
-                    <span><a href="suburbs/carlton-north.html" style="color: inherit; text-decoration: none;">Carlton
-                            North</a></span>
-                    <span><a href="suburbs/coburg.html" style="color: inherit; text-decoration: none;">Coburg</a></span>
-                    <span><a href="suburbs/coburg-north.html" style="color: inherit; text-decoration: none;">Coburg
-                            North</a></span>
-                    <span><a href="suburbs/collingwood.html"
-                            style="color: inherit; text-decoration: none;">Collingwood</a></span>
-                    <span><a href="suburbs/docklands.html"
-                            style="color: inherit; text-decoration: none;">Docklands</a></span>
-                    <span><a href="suburbs/east-melbourne.html" style="color: inherit; text-decoration: none;">East
-                            Melbourne</a></span>
-                    <span><a href="suburbs/elwood.html" style="color: inherit; text-decoration: none;">Elwood</a></span>
-                    <span><a href="suburbs/essendon.html"
-                            style="color: inherit; text-decoration: none;">Essendon</a></span>
-                    <span><a href="suburbs/fitzroy.html"
-                            style="color: inherit; text-decoration: none;">Fitzroy</a></span>
-                    <span><a href="suburbs/fitzroy-north.html" style="color: inherit; text-decoration: none;">Fitzroy
-                            North</a></span>
-                    <span><a href="suburbs/flemington.html"
-                            style="color: inherit; text-decoration: none;">Flemington</a></span>
-                    <span><a href="suburbs/footscray.html"
-                            style="color: inherit; text-decoration: none;">Footscray</a></span>
-                    <span><a href="suburbs/hampton.html"
-                            style="color: inherit; text-decoration: none;">Hampton</a></span>
-                    <span><a href="suburbs/hawthorn.html"
-                            style="color: inherit; text-decoration: none;">Hawthorn</a></span>
-                    <span><a href="suburbs/hawthorn-east.html" style="color: inherit; text-decoration: none;">Hawthorn
-                            East</a></span>
-                    <span><a href="suburbs/keilor-east.html" style="color: inherit; text-decoration: none;">Keilor
-                            East</a></span>
-                    <span><a href="suburbs/kensington.html"
-                            style="color: inherit; text-decoration: none;">Kensington</a></span>
-                    <span><a href="suburbs/kew.html" style="color: inherit; text-decoration: none;">Kew</a></span>
-                    <span><a href="suburbs/kew-east.html" style="color: inherit; text-decoration: none;">Kew
-                            East</a></span>
-                    <span><a href="suburbs/maidstone.html"
-                            style="color: inherit; text-decoration: none;">Maidstone</a></span>
-                    <span><a href="suburbs/maribyrnong.html"
-                            style="color: inherit; text-decoration: none;">Maribyrnong</a></span>
-
-                    <span><a href="suburbs/middle-park.html" style="color: inherit; text-decoration: none;">Middle
-                            Park</a></span>
-                    <span><a href="suburbs/moonee-ponds.html" style="color: inherit; text-decoration: none;">Moonee
-                            Ponds</a></span>
-                    <span><a href="suburbs/northcote.html"
-                            style="color: inherit; text-decoration: none;">Northcote</a></span>
-                    <span><a href="suburbs/north-melbourne.html" style="color: inherit; text-decoration: none;">North
-                            Melbourne</a></span>
-                    <span><a href="suburbs/pascoe-vale.html" style="color: inherit; text-decoration: none;">Pascoe
-                            Vale</a></span>
-                    <span><a href="suburbs/pascoe-vale-south.html" style="color: inherit; text-decoration: none;">Pascoe
-                            Vale South</a></span>
-                    <span><a href="suburbs/prahran.html"
-                            style="color: inherit; text-decoration: none;">Prahran</a></span>
-                    <span><a href="suburbs/preston.html"
-                            style="color: inherit; text-decoration: none;">Preston</a></span>
-                    <span><a href="suburbs/reservoir.html"
-                            style="color: inherit; text-decoration: none;">Reservoir</a></span>
-                    <span><a href="suburbs/richmond.html"
-                            style="color: inherit; text-decoration: none;">Richmond</a></span>
-                    <span><a href="suburbs/ripponlea.html"
-                            style="color: inherit; text-decoration: none;">Ripponlea</a></span>
-                    <span><a href="suburbs/seddon.html" style="color: inherit; text-decoration: none;">Seddon</a></span>
-                    <span><a href="suburbs/south-yarra.html" style="color: inherit; text-decoration: none;">South
-                            Yarra</a></span>
-                    <span><a href="suburbs/southbank.html"
-                            style="color: inherit; text-decoration: none;">Southbank</a></span>
-                    <span><a href="suburbs/st-kilda.html" style="color: inherit; text-decoration: none;">St
-                            Kilda</a></span>
-                    <span><a href="suburbs/st-kilda-east.html" style="color: inherit; text-decoration: none;">St Kilda
-                            East</a></span>
-                    <span><a href="suburbs/sunshine.html"
-                            style="color: inherit; text-decoration: none;">Sunshine</a></span>
-                    <span><a href="suburbs/thornbury.html"
-                            style="color: inherit; text-decoration: none;">Thornbury</a></span>
-                    <span><a href="suburbs/west-melbourne.html" style="color: inherit; text-decoration: none;">West
-                            Melbourne</a></span>
-                    <span><a href="suburbs/windsor.html"
-                            style="color: inherit; text-decoration: none;">Windsor</a></span>
-                    <span><a href="suburbs/yarraville.html"
-                            style="color: inherit; text-decoration: none;">Yarraville</a></span>
+                    <a href="suburbs/abbotsford.html">Abbotsford</a>
+                    <a href="suburbs/albert-park.html">Albert Park</a>
+                    <a href="suburbs/altona.html">Altona</a>
+                    <a href="suburbs/ascot-vale.html">Ascot Vale</a>
+                    <a href="suburbs/balaclava.html">Balaclava</a>
+                    <a href="suburbs/balwyn.html">Balwyn</a>
+                    <a href="suburbs/box-hill.html">Box Hill</a>
+                    <a href="suburbs/brighton.html">Brighton</a>
+                    <a href="suburbs/brunswick.html">Brunswick</a>
+                    <a href="suburbs/brunswick-east.html">Brunswick East</a>
+                    <a href="suburbs/brunswick-west.html">Brunswick West</a>
+                    <a href="suburbs/burnley.html">Burnley</a>
+                    <a href="suburbs/camberwell.html">Camberwell</a>
+                    <a href="suburbs/carlton.html">Carlton</a>
+                    <a href="suburbs/carlton-north.html">Carlton North</a>
+                    <a href="suburbs/coburg.html">Coburg</a>
+                    <a href="suburbs/coburg-north.html">Coburg North</a>
+                    <a href="suburbs/collingwood.html">Collingwood</a>
+                    <a href="suburbs/docklands.html">Docklands</a>
+                    <a href="suburbs/east-melbourne.html">East Melbourne</a>
+                    <a href="suburbs/elwood.html">Elwood</a>
+                    <a href="suburbs/essendon.html">Essendon</a>
+                    <a href="suburbs/fitzroy.html">Fitzroy</a>
+                    <a href="suburbs/fitzroy-north.html">Fitzroy North</a>
+                    <a href="suburbs/flemington.html">Flemington</a>
+                    <a href="suburbs/footscray.html">Footscray</a>
+                    <a href="suburbs/hampton.html">Hampton</a>
+                    <a href="suburbs/hawthorn.html">Hawthorn</a>
+                    <a href="suburbs/hawthorn-east.html">Hawthorn East</a>
+                    <a href="suburbs/keilor-east.html">Keilor East</a>
+                    <a href="suburbs/kensington.html">Kensington</a>
+                    <a href="suburbs/kew.html">Kew</a>
+                    <a href="suburbs/kew-east.html">Kew East</a>
+                    <a href="suburbs/maidstone.html">Maidstone</a>
+                    <a href="suburbs/maribyrnong.html">Maribyrnong</a>
+                    <a href="suburbs/middle-park.html">Middle Park</a>
+                    <a href="suburbs/moonee-ponds.html">Moonee Ponds</a>
+                    <a href="suburbs/northcote.html">Northcote</a>
+                    <a href="suburbs/north-melbourne.html">North Melbourne</a>
+                    <a href="suburbs/pascoe-vale.html">Pascoe Vale</a>
+                    <a href="suburbs/pascoe-vale-south.html">Pascoe Vale South</a>
+                    <a href="suburbs/prahran.html">Prahran</a>
+                    <a href="suburbs/preston.html">Preston</a>
+                    <a href="suburbs/reservoir.html">Reservoir</a>
+                    <a href="suburbs/richmond.html">Richmond</a>
+                    <a href="suburbs/ripponlea.html">Ripponlea</a>
+                    <a href="suburbs/seddon.html">Seddon</a>
+                    <a href="suburbs/south-yarra.html">South Yarra</a>
+                    <a href="suburbs/southbank.html">Southbank</a>
+                    <a href="suburbs/st-kilda.html">St Kilda</a>
+                    <a href="suburbs/st-kilda-east.html">St Kilda East</a>
+                    <a href="suburbs/sunshine.html">Sunshine</a>
+                    <a href="suburbs/thornbury.html">Thornbury</a>
+                    <a href="suburbs/west-melbourne.html">West Melbourne</a>
+                    <a href="suburbs/windsor.html">Windsor</a>
+                    <a href="suburbs/yarraville.html">Yarraville</a>
                 </div>
             </div>
 
@@ -3140,7 +3085,7 @@
 
         // ── SMART STICKY HEADER ──
         const siteHeader = document.getElementById('siteHeader');
-        let lastScrollY = window.scrollY;
+        let lastScrollY = 0; // Avoid reading window.scrollY on load to prevent forced reflow
         let isTicking = false;
 
         let accumulatedScroll = 0;
@@ -3180,9 +3125,15 @@
                                 // Cumulative scroll UP meets threshold
                                 if (!siteHeader.classList.contains('is-sticky')) {
                                     siteHeader.classList.add('is-sticky', 'hidden');
-                                    siteHeader.offsetHeight;
+                                    // Use double rAF to trigger transition without forced reflow (offsetHeight)
+                                    requestAnimationFrame(() => {
+                                        requestAnimationFrame(() => {
+                                            siteHeader.classList.remove('hidden');
+                                        });
+                                    });
+                                } else {
+                                    siteHeader.classList.remove('hidden');
                                 }
-                                siteHeader.classList.remove('hidden');
                                 accumulatedScroll = 0;
                             } else if (accumulatedScroll < -hideTolerance) {
                                 // Cumulative scroll DOWN meets threshold
@@ -3225,9 +3176,13 @@
             let isDesktop = window.matchMedia('(min-width: 901px)').matches;
             let screenWidth = document.documentElement.clientWidth;
 
+            let cachedCardWidth = 0;
             function getCardWidth() {
                 if (isDesktop) return 404;
-                return track.children[0].offsetWidth + 24;
+                if (!cachedCardWidth) {
+                    cachedCardWidth = (track.children[0] ? track.children[0].offsetWidth : 0) + 24;
+                }
+                return cachedCardWidth;
             }
 
             let CARD_WIDTH = getCardWidth();
@@ -3252,6 +3207,7 @@
                 resizeTimer = setTimeout(() => {
                     isDesktop = window.matchMedia('(min-width: 901px)').matches;
                     screenWidth = document.documentElement.clientWidth;
+                    cachedCardWidth = 0; // Invalidate cache on resize
                     CARD_WIDTH = getCardWidth();
                     buildDots();
                     go(cur);
