@@ -552,6 +552,73 @@
             color: white;
         }
 
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 16px;
+            color: white;
+            font-family: inherit;
+            flex: 1;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        .newsletter-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 0 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            background: #4338CA;
+        }
+
+        .service-areas {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 60px;
+        }
+
+        .service-areas h4 {
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .area-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .area-list a {
+            color: #A1A1AA;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .area-list a:hover {
+            color: white;
+        }
+
         .bg-grey {
             background: #F8FAFC !important;
         }
@@ -982,15 +1049,79 @@
             }
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            cursor: pointer;
+            z-index: 3000;
+            transition: transform 0.3s;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2.5px;
+            background: white;
+            border-radius: 4px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .site-header.menu-open .menu-toggle span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
         @media (max-width: 1100px) {
             .site-header {
-                left: 16px;
-                right: 16px;
-                top: 16px;
+                position: fixed !important;
+                top: 16px !important;
+                left: 16px !important;
+                right: 16px !important;
+                height: 64px !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                border-radius: 16px !important;
+                padding: 0 24px !important;
+                width: calc(100% - 32px) !important;
+                margin: 0 !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                z-index: 1000;
+            }
+
+            .site-header.is-sticky {
+                background: white !important;
+                border: 1px solid rgba(0, 0, 0, 0.05) !important;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
+            }
+
+            .site-header.is-sticky .brand,
+            .site-header.menu-open .brand {
+                color: #0F172A !important;
+            }
+
+            .site-header.is-sticky .menu-toggle span,
+            .site-header.menu-open .menu-toggle span {
+                background: #0F172A !important;
             }
 
             .photo-nav {
                 display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
             }
 
             .panel {
@@ -1004,283 +1135,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-top {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        \n .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 3000
-        }
-
-        .menu-toggle span {
-            width: 30px;
-            height: 2px;
-            background: white;
-            transition: var(--transition)
-        }
-
-        .site-header.menu-open .menu-toggle span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg)
-        }
-
-        .site-header.menu-open .menu-toggle span:nth-child(2) {
-            opacity: 0
-        }
-
-        .site-header.menu-open .menu-toggle span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg)
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-20px)
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0)
-        }
-
-        .mobile-menu a {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #0F172A;
-            text-decoration: none;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px)
-        }
-
-        .mobile-menu.active a {
-            opacity: 1;
-            transform: translateY(0)
-        }
-
-        .mobile-menu a:nth-child(1) {
-            transition-delay: 0.1s
-        }
-
-        .mobile-menu a:nth-child(2) {
-            transition-delay: 0.2s
-        }
-
-        .mobile-menu a:nth-child(3) {
-            transition-delay: 0.3s
-        }
-
-        .mobile-menu a:nth-child(4) {
-            transition-delay: 0.4s
-        }
-
-        .mobile-menu a:hover {
-            color: var(--primary);
-            transform: scale(1.1)
-        }
-
-        .mobile-menu .nav-cta {
-            background: var(--primary) !important;
-            color: white !important;
-            padding: 16px 48px !important;
-            border-radius: 100px !important;
-            margin-top: 10px;
-            font-size: 1.2rem
-        }
-
-        .site-header.menu-open {
-            background: white !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border: none !important;
-            box-shadow: none !important
-        }
-
-        .site-header.menu-open .brand {
-            color: #0F172A !important;
-        }
-
-        .site-header.menu-open .menu-toggle span {
-            background: #0F172A !important;
-        }
-
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            z-index: 3000
-        }
-
-        .menu-toggle span {
-            width: 30px;
-            height: 2px;
-            background: white;
-            transition: var(--transition)
-        }
-
-        .site-header.menu-open .menu-toggle span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg)
-        }
-
-        .site-header.menu-open .menu-toggle span:nth-child(2) {
-            opacity: 0
-        }
-
-        .site-header.menu-open .menu-toggle span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg)
-        }
-
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: white;
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(-20px)
-        }
-
-        .mobile-menu.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0)
-        }
-
-        .mobile-menu a {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #0F172A;
-            text-decoration: none;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px)
-        }
-
-        .mobile-menu.active a {
-            opacity: 1;
-            transform: translateY(0)
-        }
-
-        .mobile-menu a:nth-child(1) {
-            transition-delay: 0.1s
-        }
-
-        .mobile-menu a:nth-child(2) {
-            transition-delay: 0.2s
-        }
-
-        .mobile-menu a:nth-child(3) {
-            transition-delay: 0.3s
-        }
-
-        .mobile-menu a:nth-child(4) {
-            transition-delay: 0.4s
-        }
-
-        .mobile-menu a:hover {
-            color: var(--primary);
-            transform: scale(1.1)
-        }
-
-        .mobile-menu .nav-cta {
-            background: var(--primary) !important;
-            color: white !important;
-            padding: 16px 48px !important;
-            border-radius: 100px !important;
-            margin-top: 10px;
-            font-size: 1.2rem
-        }
-
-        .site-header.menu-open {
-            background: white !important;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-            border: none !important;
-            box-shadow: none !important
-        }
-
-        .site-header.menu-open .brand {
-            color: #0F172A !important;
-        }
-
-        .site-header.menu-open .menu-toggle span {
-            background: #0F172A !important;
-        }
-
-        @media(max-width:1100px) {
-            .site-header {
-                position: fixed !important;
-                top: 16px !important;
-                left: 16px !important;
-                right: 16px !important;
-                height: 64px !important;
-                /* Fixed height to reserve space */
-                border: 1px solid rgba(255, 255, 255, 0.2) !important;
-                border-radius: 16px !important;
-                padding: 0 24px !important;
-                width: calc(100% - 32px) !important;
-                margin: 0 !important;
-                background: rgba(255, 255, 255, 0.05) !important;
-                backdrop-filter: blur(12px) !important;
-                -webkit-backdrop-filter: blur(12px) !important;
-                border: 1px solid rgba(255, 255, 255, 0.1) !important;
-                transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            }
-
-            .site-header.is-sticky {
-                background: white !important;
-                border: 1px solid rgba(0, 0, 0, 0.05) !important;
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1) !important;
-            }
-
-            .site-header.is-sticky .brand {
-                color: #0F172A !important;
-            }
-
-            .site-header.is-sticky .menu-toggle span {
-                background: #0F172A !important;
-            }
-
-            .photo-nav {
-                display: none
-            }
-
-
             @media(max-width:1024px) {
                 .footer-top {
                     grid-template-columns: 1fr 1fr;
-                    gap: 40px
+                    gap: 40px;
                 }
             }
 
@@ -1292,13 +1150,13 @@
                 .footer-top {
                     grid-template-columns: 1fr;
                     text-align: left;
-                    gap: 40px
+                    gap: 40px;
                 }
 
                 .footer-brand p,
                 .newsletter-form {
                     margin-left: 0;
-                    margin-right: 0
+                    margin-right: 0;
                 }
 
                 .social-links,
@@ -1306,7 +1164,7 @@
                 .hour-row {
                     justify-content: flex-start;
                     margin-left: 0;
-                    margin-right: 0
+                    margin-right: 0;
                 }
 
                 .footer-bottom {
@@ -1317,8 +1175,74 @@
             }
         }
 
-        .menu-toggle {
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-20px);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .mobile-menu a {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0F172A;
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mobile-menu.active a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-menu a:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .mobile-menu a:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .mobile-menu a:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .mobile-menu a:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 16px 48px !important;
+            border-radius: 100px !important;
+            margin-top: 10px;
+            font-size: 1.2rem;
         }
 
         /* --- UNIFIED MOBILE RESPONSIVE FIXES --- */
@@ -1801,12 +1725,78 @@
                 </div>
                 <div class="footer-col">
                     <h4>Business Hours</h4>
-                    <p style="color: #A1A1AA; line-height: 1.6;">Mon - Sat<br>9am - 4pm
-                    <p>
+                    <p style="color: #A1A1AA; line-height: 1.6;">Mon - Sat<br>9am - 4pm</p>
                 </div>
                 <div class="footer-col">
                     <h4>Newsletter</h4>
                     <p style="margin-bottom: 20px; line-height: 1.6; color: #A1A1AA;">Join for exclusive tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email">
+                        <button type="submit" class="newsletter-btn">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Service Areas -->
+            <div class="service-areas">
+                <h4>Service Areas</h4>
+                <div class="area-list">
+                    <a href="suburbs/abbotsford.html">Abbotsford</a>
+                    <a href="suburbs/albert-park.html">Albert Park</a>
+                    <a href="suburbs/altona.html">Altona</a>
+                    <a href="suburbs/ascot-vale.html">Ascot Vale</a>
+                    <a href="suburbs/balaclava.html">Balaclava</a>
+                    <a href="suburbs/balwyn.html">Balwyn</a>
+                    <a href="suburbs/box-hill.html">Box Hill</a>
+                    <a href="suburbs/brighton.html">Brighton</a>
+                    <a href="suburbs/brunswick.html">Brunswick</a>
+                    <a href="suburbs/brunswick-east.html">Brunswick East</a>
+                    <a href="suburbs/brunswick-west.html">Brunswick West</a>
+                    <a href="suburbs/burnley.html">Burnley</a>
+                    <a href="suburbs/camberwell.html">Camberwell</a>
+                    <a href="suburbs/carlton.html">Carlton</a>
+                    <a href="suburbs/carlton-north.html">Carlton North</a>
+                    <a href="suburbs/coburg.html">Coburg</a>
+                    <a href="suburbs/coburg-north.html">Coburg North</a>
+                    <a href="suburbs/collingwood.html">Collingwood</a>
+                    <a href="suburbs/docklands.html">Docklands</a>
+                    <a href="suburbs/east-melbourne.html">East Melbourne</a>
+                    <a href="suburbs/elwood.html">Elwood</a>
+                    <a href="suburbs/essendon.html">Essendon</a>
+                    <a href="suburbs/fitzroy.html">Fitzroy</a>
+                    <a href="suburbs/fitzroy-north.html">Fitzroy North</a>
+                    <a href="suburbs/flemington.html">Flemington</a>
+                    <a href="suburbs/footscray.html">Footscray</a>
+                    <a href="suburbs/hampton.html">Hampton</a>
+                    <a href="suburbs/hawthorn.html">Hawthorn</a>
+                    <a href="suburbs/hawthorn-east.html">Hawthorn East</a>
+                    <a href="suburbs/keilor-east.html">Keilor East</a>
+                    <a href="suburbs/kensington.html">Kensington</a>
+                    <a href="suburbs/kew.html">Kew</a>
+                    <a href="suburbs/kew-east.html">Kew East</a>
+                    <a href="suburbs/maidstone.html">Maidstone</a>
+                    <a href="suburbs/maribyrnong.html">Maribyrnong</a>
+                    <a href="suburbs/middle-park.html">Middle Park</a>
+                    <a href="suburbs/moonee-ponds.html">Moonee Ponds</a>
+                    <a href="suburbs/northcote.html">Northcote</a>
+                    <a href="suburbs/north-melbourne.html">North Melbourne</a>
+                    <a href="suburbs/pascoe-vale.html">Pascoe Vale</a>
+                    <a href="suburbs/pascoe-vale-south.html">Pascoe Vale South</a>
+                    <a href="suburbs/prahran.html">Prahran</a>
+                    <a href="suburbs/preston.html">Preston</a>
+                    <a href="suburbs/reservoir.html">Reservoir</a>
+                    <a href="suburbs/richmond.html">Richmond</a>
+                    <a href="suburbs/ripponlea.html">Ripponlea</a>
+                    <a href="suburbs/seddon.html">Seddon</a>
+                    <a href="suburbs/south-yarra.html">South Yarra</a>
+                    <a href="suburbs/southbank.html">Southbank</a>
+                    <a href="suburbs/st-kilda.html">St Kilda</a>
+                    <a href="suburbs/st-kilda-east.html">St Kilda East</a>
+                    <a href="suburbs/sunshine.html">Sunshine</a>
+                    <a href="suburbs/thornbury.html">Thornbury</a>
+                    <a href="suburbs/west-melbourne.html">West Melbourne</a>
+                    <a href="suburbs/windsor.html">Windsor</a>
+                    <a href="suburbs/yarraville.html">Yarraville</a>
                 </div>
             </div>
             <div class="footer-bottom">
