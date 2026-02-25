@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Concierge Counsel — Legal Virtuosity</title>
+    <!-- Modern Serif and Sans-Serif Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #E2B276;
+            --accent-soft: rgba(226, 178, 118, 0.1);
+            --bg: #05070A;
+            --text: #FFFFFF;
+            --text-dim: rgba(255, 255, 255, 0.6);
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            overflow: hidden;
+        }
+
+        /* --- HERO CONTAINER --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        /* Cinematic Background Video/Image Overlay */
+        .hero-video-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            opacity: 0.4;
+            transform: scale(1.05);
+            animation: kenBurns 40s linear infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1.05) translate(0, 0);
+            }
+
+            50% {
+                transform: scale(1.2) translate(-2%, -2%);
+            }
+
+            100% {
+                transform: scale(1.05) translate(0, 0);
+            }
+        }
+
+        .hero-video-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.2) contrast(1.1);
+        }
+
+        /* Overlay Gradients */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            background: radial-gradient(circle at 20% 50%, rgba(5, 7, 10, 0.8) 0%, transparent 100%),
+                linear-gradient(to right, #05070A 0%, transparent 60%);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: var(--ease);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Content */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .content {
+            max-width: 800px;
+        }
+
+        .pre-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealUp 1s var(--ease) forwards;
+        }
+
+        .line {
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .pre-title span {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            margin-bottom: 35px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: revealUp 1.2s var(--ease) forwards 0.2s;
+        }
+
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+            padding-right: 10px;
+        }
+
+        .desc {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 50px;
+            max-width: 580px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealUp 1.2s var(--ease) forwards 0.4s;
+        }
+
+        .cta-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealUp 1.2s var(--ease) forwards 0.6s;
+        }
+
+        .btn-luxe {
+            padding: 22px 48px;
+            background: var(--accent);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 2px;
+            position: relative;
+            transition: var(--ease);
+            overflow: hidden;
+        }
+
+        .btn-luxe:hover {
+            background: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-text {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--ease);
+        }
+
+        .btn-text:hover {
+            color: var(--accent);
+            gap: 18px;
+        }
+
+        .btn-text svg {
+            transition: var(--ease);
+        }
+
+        /* Animations */
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Info (Modern Asymmetry) */
+        .side-info {
+            position: absolute;
+            right: 60px;
+            bottom: 80px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            opacity: 0;
+            animation: revealUp 1.5s var(--ease) forwards 1s;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 30px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .side-info {
+                display: none;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .cta-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(to top, rgba(5, 7, 10, 0.9) 0%, rgba(5, 7, 10, 0.4) 100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Elysian <span>Barristers</span></a>
+        <div class="nav-links">
+            <a href="#">The Collective</a>
+            <a href="#">Strategic Areas</a>
+            <a href="#">Privy Consultation</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-video-bg">
+            <!-- Simulated cinematic visual: Movement of light on a luxury interior -->
+            <img src="https://images.unsplash.com/photo-1507679799987-c7377ec486b6?auto=format&fit=crop&q=80&w=1600"
+                alt="Executive Interior">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+            <div class="content">
+                <div class="pre-title">
+                    <div class="line"></div>
+                    <span>Global Strategic Protection</span>
+                </div>
+                <h1>Defining the <em>Legacy</em> of Law.</h1>
+                <p class="desc">A bespoke legal collective dedicated to the complex needs of high-net-worth individuals
+                    and global enterprises. Precision in strategy, excellence in execution.</p>
+                <div class="cta-box">
+                    <a href="#" class="btn-luxe">Inquire Privately</a>
+                    <a href="#" class="btn-text">
+                        Explore Methodology
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-info">
+            <div class="info-item">
+                <span class="info-label">Current Jurisdiction</span>
+                <span class="info-value">London / Geneva / NY</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Success Rate</span>
+                <span class="info-value">98.4% Discrete Resolution</span>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serein Home — The Soul of Pure Living</title>
+    <!-- Modern Sans and Soft Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B8A83;
+            /* Sage Green - inspired by nature and cleanliness */
+            --accent: #E8DED3;
+            /* Soft beige */
+            --bg: #FFFFFF;
+            --text-dark: #1A1C1E;
+            --text-light: #6A6F73;
+            --font-serif: 'Instrument Serif', serif;
+            --font-sans: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            overflow: hidden;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Soft Animated Gradient Backdrop */
+        .hero-backdrop {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, #F5F1ED 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, #EEF2F1 0%, transparent 50%);
+            z-index: 1;
+            animation: gradientFloat 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(2%, 2%) scale(1.1);
+            }
+        }
+
+        /* Artistic Background Image */
+        .hero-img {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35vw;
+            height: 50vh;
+            z-index: 2;
+            border-radius: 300px 300px 0 0;
+            overflow: hidden;
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: revealRight 1.8s var(--ease) forwards 0.3s;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenBurns 20s linear infinite alternate;
+        }
+
+        @keyframes kenBurns {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes revealRight {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+
+        /* Floating Element (Plant/Object) for depth */
+        .blob-decoration {
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
+            width: 300px;
+            height: 300px;
+            background: var(--accent);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            z-index: 1;
+            opacity: 0.3;
+            animation: morph 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            100% {
+                border-radius: 70% 30% 50% 50% / 30% 60% 40% 70%;
+            }
+        }
+
+        /* Content */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 1300px;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .category {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .category span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            opacity: 0;
+            transform: translateY(100%);
+            animation: slideUp 0.8s var(--ease) forwards;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 400;
+            line-height: 0.95;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: revealUp 1.2s var(--ease) forwards 0.2s;
+        }
+
+        h1 span {
+            display: block;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .desc {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 45px;
+            max-width: 480px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealUp 1.2s var(--ease) forwards 0.4s;
+        }
+
+        .cta-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: revealUp 1.2s var(--ease) forwards 0.6s;
+        }
+
+        .btn-main {
+            padding: 18px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.4s var(--ease);
+            box-shadow: 0 10px 30px rgba(91, 138, 131, 0.2);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(91, 138, 131, 0.3);
+            background: #4A716B;
+        }
+
+        .btn-ghost {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--ease);
+        }
+
+        .btn-ghost:hover {
+            gap: 15px;
+            color: var(--primary);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Nav */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .menu-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            width: 100%;
+            height: 2px;
+            background: var(--text-dark);
+            transition: var(--ease);
+        }
+
+        .menu-btn:hover span:nth-child(1) {
+            transform: translateX(5px);
+        }
+
+        .menu-btn:hover span:nth-child(2) {
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-img {
+                display: none;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#" class="logo">Serein <span>Home</span></a>
+        <div class="menu-btn">
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-backdrop"></div>
+        <div class="blob-decoration"></div>
+        <div class="hero-img">
+            <!-- Calm, clean interior image -->
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6954?auto=format&fit=crop&q=80&w=1200"
+                alt="Serene Interior">
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="category">
+                    <span>A Sanctuary of Purity</span>
+                </div>
+                <h1>Breathe in <span>Pure Grace.</span></h1>
+                <p class="desc">Bespoke home cleansing that prioritizes your well-being. We combine molecular precision
+                    with artisanal care to create a retreat within your own walls.</p>
+                <div class="cta-wrapper">
+                    <a href="#" class="btn-main">Secure Your Visit</a>
+                    <a href="#" class="btn-ghost">
+                        The Standard
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
