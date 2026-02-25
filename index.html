@@ -3180,7 +3180,9 @@
             function getCardWidth() {
                 if (isDesktop) return 404;
                 if (!cachedCardWidth) {
-                    cachedCardWidth = (track.children[0] ? track.children[0].offsetWidth : 0) + 24;
+                    // Use window.innerWidth to avoid forced reflow from offsetWidth
+                    // 48px is the sum of lateral paddings (24+24), 24px is the gap between cards
+                    cachedCardWidth = (window.innerWidth - 48) + 24;
                 }
                 return cachedCardWidth;
             }
