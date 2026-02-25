@@ -2952,7 +2952,10 @@
         }
 
         function autoScroll() {
-            setTimeout(() => { feed.scrollTop = feed.scrollHeight; }, 100);
+            // Use requestAnimationFrame to avoid layout thrashing
+            requestAnimationFrame(() => {
+                if (feed) feed.scrollTop = feed.scrollHeight;
+            });
         }
 
         const w = (fn, ms = 400) => setTimeout(fn, ms);
@@ -3174,7 +3177,6 @@
             const next = document.getElementById('nextA');
 
             let isDesktop = window.matchMedia('(min-width: 901px)').matches;
-            let screenWidth = document.documentElement.clientWidth;
 
             let cachedCardWidth = 0;
             function getCardWidth() {
@@ -3208,15 +3210,12 @@
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(() => {
                     isDesktop = window.matchMedia('(min-width: 901px)').matches;
-                    screenWidth = document.documentElement.clientWidth;
                     cachedCardWidth = 0; // Invalidate cache on resize
                     CARD_WIDTH = getCardWidth();
                     buildDots();
                     go(cur);
                 }, 100);
             }, { passive: true });
-
-            buildDots();
 
             function go(i) {
                 const itemsVisible = isDesktop ? 3 : 1;
@@ -3245,8 +3244,11 @@
                 if (Math.abs(d) > 50) go(d > 0 ? cur + 1 : cur - 1);
             });
 
-            // Init
-            go(0);
+            // Wrap in requestAnimationFrame to ensure DOM is settled before first read
+            requestAnimationFrame(() => {
+                buildDots();
+                go(0);
+            });
         })();
 
         // ── MOBILE MENU LOGIC ──
