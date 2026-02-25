@@ -73,8 +73,12 @@ function generatePages() {
             const match = section.match(tagRegex);
             if (match) {
                 let content = match[1].replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
-                // Wrap suburb name (and preceding word) in blue span within text content
-                content = content.replace(subRegex, `<span style="color: ${highlightColor};">$1</span>`);
+
+                // ONLY wrap suburb name in blue span if it's the HERO TITLE
+                if (placeholder === '{{HERO_TITLE}}') {
+                    content = content.replace(subRegex, `<span style="color: ${highlightColor};">$1</span>`);
+                }
+
                 placeholders[placeholder] = content;
                 console.log(`  - Found ${placeholder}: ${placeholders[placeholder].substring(0, 50)}...`);
             } else {
@@ -93,8 +97,7 @@ function generatePages() {
                 const tMatch = tBlock.match(tRegex);
                 if (tMatch) {
                     let quote = tMatch[1].replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
-                    // Wrap suburb name (and preceding word) in blue span within quotes
-                    quote = quote.replace(subRegex, `<span style="color: ${highlightColor};">$1</span>`);
+                    // NO highlight in testimonials per user request
 
                     // Ensure it starts and ends with quotes (either smart or standard)
                     if (!quote.startsWith('“') && !quote.startsWith('"')) quote = `"${quote}`;
@@ -104,7 +107,7 @@ function generatePages() {
                     placeholders[`{{T_CARD_${t}_NAME}}`] = tMatch[2].replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
 
                     let subVal = tMatch[3].replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim();
-                    subVal = subVal.replace(subRegex, `<span style="color: ${highlightColor};">$1</span>`);
+                    // NO highlight in testimonials per user request
                     placeholders[`{{T_CARD_${t}_SUBURB}}`] = subVal;
                 }
             }
