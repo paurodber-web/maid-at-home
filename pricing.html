@@ -1526,13 +1526,15 @@
         }
 
         .task-item.excluded {
-            color: #94A3B8;
+            color: #475569;
+            /* Slate gray: passes WCAG AA (6.7:1 contrast) */
             text-decoration: line-through;
         }
 
         .task-item.excluded svg {
-            color: #94A3B8;
-            opacity: 0.8;
+            color: #475569;
+            opacity: 0.6;
+            /* Icon can be lighter, but text must be readable */
         }
 
         .task-item.extra {
