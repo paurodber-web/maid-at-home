@@ -1189,6 +1189,52 @@
             border: none;
         }
 
+        /* Toast Notification Styles */
+        .toast-notification {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 10000;
+            transform: translateY(150%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid #E2E8F0;
+        }
+
+        .toast-notification.active {
+            transform: translateY(0);
+        }
+
+        .toast-icon {
+            width: 32px;
+            height: 32px;
+            background: #DCFCE7;
+            color: #16A34A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .toast-content h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .toast-content p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
         @media (max-width: 1100px) {
             .contact-section {
                 padding: 80px 24px;
@@ -1827,18 +1873,19 @@
                     </div>
 
                     <div class="contact-form-wrapper reveal reveal-right">
-                        <form class="premium-form">
+                        <form class="premium-form" id="contact-form" action="https://formspree.io/f/xgoldvgo"
+                            method="POST">
                             <div class="form-group">
                                 <label for="name">Full Name</label>
-                                <input type="text" id="name" placeholder="Your name..." required>
+                                <input type="text" id="name" name="name" placeholder="Your name..." required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="you@email.com" required>
+                                <input type="email" id="email" name="email" placeholder="you@email.com" required>
                             </div>
                             <div class="form-group">
                                 <label for="service">Service of interest</label>
-                                <select id="service">
+                                <select id="service" name="service">
                                     <option value="standard">Standard Clean</option>
                                     <option value="deep">Deep Clean</option>
                                     <option value="move">Move In / Out</option>
@@ -1847,20 +1894,38 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+                                <textarea id="message" name="message" rows="4"
+                                    placeholder="How can we help you?"></textarea>
                             </div>
-                            <button type="submit" class="btn-aurora">
-                                SEND MESSAGE
+                            <button type="submit" class="btn-aurora" id="submit-btn">
+                                <span id="btn-text">SEND MESSAGE</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5">
+                                    stroke-width="2.5" id="btn-icon">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </button>
                         </form>
                     </div>
+
+                    <!-- Toast Notification -->
+                    <div id="toast" class="toast-notification">
+                        <div class="toast-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <div class="toast-content">
+                            <h4>Message Sent!</h4>
+                            <p>We'll contact you shortly.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+            </div>
         </section>
+
     </main>
 
     <footer class="site-footer">
@@ -2062,6 +2127,65 @@
 
         if (menuToggle) {
             menuToggle.addEventListener('click', toggleMenu);
+        }
+
+        // Formspree Submission Logic
+        const contactForm = document.getElementById('contact-form');
+        const toast = document.getElementById('toast');
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                // Start loading state
+                submitBtn.disabled = true;
+                btnText.textContent = "SENDING...";
+                submitBtn.style.opacity = "0.7";
+                submitBtn.style.cursor = "not-allowed";
+
+                const formData = new FormData(contactForm);
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: contactForm.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Show Success Toast
+                        toast.classList.add('active');
+
+                        // Reset Form
+                        contactForm.reset();
+
+                        // Hide Toast after 5 seconds
+                        setTimeout(() => {
+                            toast.classList.remove('active');
+                        }, 5000);
+
+                        resetButton();
+                    } else {
+                        const data = await response.json();
+                        alert(data.errors ? data.errors.map(err => err.message).join(", ") : "Oops! There was a problem submitting your form");
+                        resetButton();
+                    }
+                } catch (error) {
+                    alert("Oops! Connection error. Please try again later.");
+                    resetButton();
+                }
+            });
+        }
+
+        function resetButton() {
+            submitBtn.disabled = false;
+            btnText.textContent = "SEND MESSAGE";
+            submitBtn.style.opacity = "1";
+            submitBtn.style.cursor = "pointer";
         }
     </script>
 </body>
